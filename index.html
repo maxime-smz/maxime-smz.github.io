@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Maxime Samiez — Ingénieur Bâtiment</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root[data-theme="dark"] {
+  --bg:#080c10;--bg2:#0d1117;--bg3:#131920;--card:#111820;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --text:#e8edf2;--text2:#8a9ab0;--text3:#4a5a6a;
+  --accent:#00d4ff;--accent2:#0099cc;--accent3:rgba(0,212,255,0.08);--accent4:rgba(0,212,255,0.15);
+  --green:#00e5a0;--sidebar:#0a0f14;--sidebar-border:rgba(255,255,255,0.06);
+  --tag-bg:rgba(0,212,255,0.1);--tag-color:#00d4ff;--search-bg:rgba(255,255,255,0.04);--hl:rgba(0,212,255,0.25);
+}
+:root[data-theme="light"] {
+  --bg:#f0f4f8;--bg2:#ffffff;--bg3:#e8eef4;--card:#ffffff;
+  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.12);
+  --text:#0f1923;--text2:#4a5a6a;--text3:#8a9aaa;
+  --accent:#0077aa;--accent2:#005580;--accent3:rgba(0,119,170,0.06);--accent4:rgba(0,119,170,0.12);
+  --green:#007a50;--sidebar:#e4eaf0;--sidebar-border:rgba(0,0,0,0.08);
+  --tag-bg:rgba(0,119,170,0.08);--tag-color:#0077aa;--search-bg:rgba(0,0,0,0.04);--hl:rgba(0,119,170,0.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;transition:background .3s,color .3s;}
+
+/* SIDEBAR */
+.sidebar{width:260px;min-height:100vh;background:var(--sidebar);border-right:1px solid var(--sidebar-border);display:flex;flex-direction:column;padding:2rem 1.4rem;position:fixed;top:0;left:0;bottom:0;z-index:100;transition:background .3s;}
+.sb-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);margin-bottom:.15rem;letter-spacing:-.01em;}
+.sb-role{font-size:.68rem;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.8rem;}
+.search-wrap{position:relative;margin-bottom:1.8rem;}
+.search-wrap svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:13px;height:13px;color:var(--text3);pointer-events:none;}
+#search{width:100%;background:var(--search-bg);border:1px solid var(--border);border-radius:8px;padding:.5rem .7rem .5rem 2.1rem;font-size:.8rem;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+#search::placeholder{color:var(--text3);}
+#search:focus{border-color:var(--accent);background:var(--accent3);}
+.nav-label{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.6rem;padding-left:.4rem;}
+nav ul{list-style:none;margin-bottom:1.5rem;}
+nav ul li a{display:flex;align-items:center;gap:.6rem;padding:.5rem .7rem;border-radius:8px;font-size:.83rem;font-weight:500;color:var(--text2);text-decoration:none;transition:all .15s;position:relative;}
+nav ul li a:hover,nav ul li a.active{background:var(--accent3);color:var(--accent);}
+nav ul li a.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:2px;background:var(--accent);border-radius:2px;}
+nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
+.sb-controls{margin-top:auto;display:flex;flex-direction:column;gap:.6rem;}
+.ctrl-row{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;background:var(--search-bg);border:1px solid var(--border);border-radius:8px;}
+.ctrl-label{font-size:.73rem;color:var(--text3);flex:1;}
+.tog{display:flex;background:var(--bg3);border-radius:5px;padding:2px;gap:2px;border:1px solid var(--border);}
+.tog button{border:none;background:none;cursor:pointer;padding:.22rem .45rem;border-radius:3px;font-size:.7rem;font-weight:600;color:var(--text3);transition:all .15s;}
+.tog button.on{background:var(--accent);color:var(--bg);}
+
+/* MAIN */
+.main{margin-left:260px;flex:1;padding:3rem 3.5rem;max-width:calc(100vw - 260px);}
+.section{display:none;}
+.section.active{display:block;}
+.hl{background:var(--hl);border-radius:3px;padding:0 2px;}
+
+/* SEARCH UI */
+#search-results{display:none;margin-bottom:1.5rem;}
+#search-results.visible{display:block;}
+.sr-label{font-size:.75rem;color:var(--text3);font-family:'DM Mono',monospace;margin-bottom:.7rem;}
+.sr-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem;margin-bottom:.45rem;cursor:pointer;transition:border-color .15s;}
+.sr-item:hover{border-color:var(--accent);}
+.sr-sec{font-size:.65rem;color:var(--accent);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.2rem;}
+.sr-text{font-size:.83rem;color:var(--text2);}
+.no-result{display:none;padding:3rem 0;text-align:center;color:var(--text3);font-size:.88rem;}
+.no-result.visible{display:block;}
+
+/* hero handled above */
+.hero-ey{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
+.hero-ey::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.2rem,6.5vw,5.5rem);line-height:.95;letter-spacing:-.03em;margin-bottom:1.4rem;color:var(--text);}
+.hero h1 .al{display:block;color:var(--accent);font-weight:400;font-style:italic;font-size:.72em;}
+.hero-desc{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.75;margin-bottom:2.2rem;font-weight:300;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.8rem;}
+.htag{font-family:'DM Mono',monospace;font-size:.7rem;padding:.3rem .8rem;border-radius:100px;background:var(--accent3);color:var(--accent);border:1px solid var(--accent4);letter-spacing:.04em;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:520px;}
+.stat{background:var(--card);padding:1.4rem;transition:background .2s;}
+.stat:hover{background:var(--bg3);}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--accent);line-height:1;margin-bottom:.25rem;}
+.stat-label{font-size:.72rem;color:var(--text3);line-height:1.3;}
+
+/* SECTION HEAD */
+.sec-head{margin-bottom:2.8rem;}
+.sec-kicker{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.sec-kicker::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent);}
+.sec-title{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-.02em;color:var(--text);line-height:1.1;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:2.2rem;}
+.tl-item::before{content:'';position:absolute;left:-2.4rem;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--accent4);}
+.tl-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1.7rem;transition:border-color .2s,transform .2s;}
+.tl-card:hover{border-color:var(--accent2);transform:translateX(4px);}
+.tl-meta{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem;flex-wrap:wrap;}
+.tl-date{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);background:var(--accent3);border:1px solid var(--accent4);padding:.18rem .55rem;border-radius:4px;letter-spacing:.06em;}
+.tl-org{font-size:.78rem;color:var(--text3);}
+.tl-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);margin-bottom:.35rem;}
+.tl-sub{font-size:.83rem;color:var(--text2);margin-bottom:.9rem;font-weight:300;line-height:1.5;}
+.tl-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.75rem;}
+.tag{font-size:.68rem;font-family:'DM Mono',monospace;padding:.18rem .55rem;border-radius:4px;background:var(--tag-bg);color:var(--tag-color);border:1px solid var(--accent4);}
+.tl-bullets{list-style:none;}
+.tl-bullets li{font-size:.86rem;color:var(--text2);padding:.25rem 0 .25rem 1.1rem;position:relative;line-height:1.5;}
+.tl-bullets li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700;}
+
+/* INTERESTS */
+.int-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;}
+.int-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.7rem;transition:border-color .2s;position:relative;overflow:hidden;}
+.int-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .2s;}
+.int-card:hover{border-color:var(--accent2);}
+.int-card:hover::before{opacity:1;}
+.int-icon{font-size:1.5rem;margin-bottom:.8rem;display:block;}
+.int-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);margin-bottom:.45rem;}
+.int-desc{font-size:.83rem;color:var(--text2);line-height:1.65;margin-bottom:.9rem;font-weight:300;}
+.cert-list{list-style:none;}
+.cert-item{display:flex;align-items:flex-start;gap:.65rem;padding:.55rem 0;border-top:1px solid var(--border);}
+.cert-badge{font-family:'DM Mono',monospace;font-size:.62rem;background:var(--green);color:var(--bg);padding:.12rem .45rem;border-radius:3px;font-weight:500;white-space:nowrap;margin-top:2px;}
+.cert-name{font-size:.8rem;color:var(--text2);line-height:1.4;}
+.cert-org{font-size:.7rem;color:var(--text3);margin-top:.12rem;}
+
+/* HERO BG */
+.hero{position:relative;overflow:hidden;min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:0;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.hero-content{position:relative;z-index:1;padding:3rem 0 4rem;}
+[data-theme="light"] .hero-bg-dark{display:none;}
+[data-theme="dark"] .hero-bg-light{display:none;}
+.hero-stats{display:none;}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.vis{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sb-brand">Maxime Samiez</div>
+  <div class="sb-role" id="sb-role">Ingénieur Bâtiment</div>
+
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search" placeholder="Rechercher..." autocomplete="off"/>
+  </div>
+
+  <div class="nav-label" id="nl-menu">Menu</div>
+  <nav>
+    <ul>
+      <li><a href="#" onclick="return showSec('home',this)" class="active" data-fr="Accueil" data-en="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        <span>Accueil</span></a></li>
+      <li><a href="#" onclick="return showSec('formation',this)" data-fr="Formation" data-en="Education">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <span>Formation</span></a></li>
+      <li><a href="#" onclick="return showSec('experience',this)" data-fr="Expériences" data-en="Experience">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        <span>Expériences</span></a></li>
+      <li><a href="#" onclick="return showSec('interests',this)" data-fr="Centres d'intérêts" data-en="Interests">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        <span>Centres d'intérêts</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="sb-controls">
+    <div class="ctrl-row">
+      <span class="ctrl-label" id="cl-theme">Thème</span>
+      <div class="tog">
+        <button id="btn-dark" class="on" onclick="setTheme('dark')">🌙</button>
+        <button id="btn-light" onclick="setTheme('light')">☀️</button>
+      </div>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label" id="cl-lang">Langue</span>
+      <div class="tog">
+        <button id="btn-fr" class="on" onclick="setLang('fr')">🇫🇷</button>
+        <button id="btn-en" onclick="setLang('en')">🇬🇧</button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  <div id="search-results">
+    <div class="sr-label" id="sr-label">Résultats de recherche</div>
+    <div id="sr-list"></div>
+  </div>
+  <div class="no-result" id="no-result">Aucun résultat trouvé.</div>
+
+  <!-- HOME -->
+  <section class="section active" id="sec-home">
+    <div class="hero">
+
+      <!-- LIGHT BG -->
+      <div class="hero-bg hero-bg-light">
+        <img src="images/bg-light.jpg" alt=""/>
+      </div>
+
+      <!-- DARK BG -->
+      <div class="hero-bg hero-bg-dark">
+        <img src="images/bg-dark.jpg" alt=""/>
+      </div>
+
+      <div class="hero-content">
+      <div class="hero-ey" id="ey">Open to Work · Biot (06)</div>
+      <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
+      <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, l'énergie, les matières premières, l'industrie et la technologie.</p>
+      <div class="hero-tags">
+        <span class="htag">BIM · Revit</span><span class="htag">Python</span>
+        <span class="htag">Simulation thermique</span><span class="htag">Pleiades</span>
+        <span class="htag">AutoCAD</span><span class="htag">Anglais B2</span>
+      </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMATION -->
+  <section class="section" id="sec-formation">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" id="kf">Cursus académique</div>
+      <h2 class="sec-title" id="tf">Formation</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">2022 – 2025</span><span class="tl-org">Polytech Nice Sophia · Université Côte d'Azur</span></div>
+          <div class="tl-title" id="d1t">Ingénieur Bâtiments Intelligents et Durables</div>
+          <div class="tl-sub" id="d1s">BAC+5 · Sophia-Antipolis</div>
+          <div class="tl-tags">
+            <span class="tag">Hydraulique</span><span class="tag">Thermique</span><span class="tag">Structure</span>
+            <span class="tag">Acoustique</span><span class="tag">Conditionnement d'air</span><span class="tag">Électricité</span>
+            <span class="tag">Béton armé</span><span class="tag">Mécanique</span><span class="tag">Gestion énergétique</span>
+            <span class="tag">BIM</span><span class="tag">Gestion de projet</span><span class="tag">Enjeux environnementaux</span>
+          </div>
+          <ul class="tl-bullets">
+            <li id="d1b1">Outils : Revit · AutoCAD · Robot Structural · Pleiades · Access SQL</li>
+            <li id="d1b2">Projet de fin d'études axé sur la rénovation énergétique par simulation numérique</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">Jan – Avr 2024</span><span class="tl-org">Université de Sherbrooke · Canada</span></div>
+          <div class="tl-title" id="d2t">Échange Universitaire — Génie Civil</div>
+          <div class="tl-sub" id="d2s">Semestre international · Sherbrooke, Québec</div>
+          <div class="tl-tags"><span class="tag">Systèmes hydrauliques</span><span class="tag">Matériaux du bâtiment</span><span class="tag">Estimation</span></div>
+          <ul class="tl-bullets"><li id="d2b1">Immersion dans un système universitaire nord-américain, adaptation interculturelle</li></ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">2020 – 2022</span><span class="tl-org">Polytech Nice Sophia · Université Côte d'Azur</span></div>
+          <div class="tl-title" id="d3t">Cycle Préparatoire PeiP</div>
+          <div class="tl-sub" id="d3s">Parcours des Écoles d'Ingénieurs Polytech · Sophia-Antipolis</div>
+          <div class="tl-tags"><span class="tag">Mathématiques</span><span class="tag">Physique</span><span class="tag">Sciences de l'ingénieur</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">2020</span><span class="tl-org">Lycée Jean-Moulin · Draguignan</span></div>
+          <div class="tl-title" id="d4t">Baccalauréat Scientifique</div>
+          <div class="tl-sub" id="d4s">Spécialité Mathématiques</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPÉRIENCES -->
+  <section class="section" id="sec-experience">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" id="ke">Parcours professionnel</div>
+      <h2 class="sec-title" id="te">Expériences</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">Mars – Août 2025</span><span class="tl-org">CSTB · Sophia-Antipolis</span></div>
+          <div class="tl-title" id="e1t">Stagiaire Ingénieur — Recherche</div>
+          <div class="tl-sub" id="e1s">Centre Scientifique et Technique du Bâtiment</div>
+          <div class="tl-tags"><span class="tag">Python</span><span class="tag">Simulation numérique</span><span class="tag">Rénovation énergétique</span><span class="tag">Data</span></div>
+          <ul class="tl-bullets">
+            <li id="e1b1">Étude générique de stratégies de rénovation de bâtiments par simulation numérique</li>
+            <li id="e1b2">Développement Python : manipulation et analyse de données, génération automatisée de scénarios de rénovation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">Juil – Nov 2023</span><span class="tl-org">Patie Michel · Carros</span></div>
+          <div class="tl-title" id="e2t">Stagiaire Ingénieur — Bureau d'Étude</div>
+          <div class="tl-sub" id="e2s">Tuyauterie Industrielle</div>
+          <div class="tl-tags"><span class="tag">AutoCAD</span><span class="tag">Plans d'exécution</span><span class="tag">Hydraulique</span><span class="tag">Notes de calcul</span></div>
+          <ul class="tl-bullets">
+            <li id="e2b1">Création de plans d'exécutions, assemblages et modélisation 3D d'installations industrielles</li>
+            <li id="e2b2">Rédaction de plannings, devis, fiches techniques et notes de calculs hydrauliques</li>
+            <li id="e2b3">Conception de schémas synoptiques et calculs en hydraulique</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tl-meta"><span class="tl-date">Juillet 2021</span><span class="tl-org">AXID · Biot</span></div>
+          <div class="tl-title" id="e3t">Stagiaire — Bureau d'Étude Électronique</div>
+          <div class="tl-sub" id="e3s">Découverte du métier d'ingénieur</div>
+          <ul class="tl-bullets"><li id="e3b1">Immersion dans un environnement bureau d'études en électronique industrielle</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENTRES D'INTÉRÊTS -->
+  <section class="section" id="sec-interests">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" id="ki">Développement personnel</div>
+      <h2 class="sec-title" id="ti">Centres d'intérêts</h2>
+    </div>
+    <div class="int-grid">
+      <div class="int-card reveal">
+        <span class="int-icon">📈</span>
+        <div class="int-title" id="i1t">Finance & Marchés</div>
+        <div class="int-desc" id="i1d">Intérêt marqué pour les marchés financiers, les produits dérivés et la microstructure des marchés. Suivi actif de l'actualité économique et financière mondiale.</div>
+        <ul class="cert-list">
+          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Introduction to Futures</div><div class="cert-org">CME Group Institute</div></div></li>
+          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Introduction to Options</div><div class="cert-org">CME Group Institute</div></div></li>
+        </ul>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🌍</span>
+        <div class="int-title" id="i2t">Géopolitique & Énergie</div>
+        <div class="int-desc" id="i2d">Veille permanente sur les enjeux géopolitiques liés à l'énergie, la transition énergétique mondiale, les tensions sur les ressources et leurs impacts macroéconomiques. Lecture régulière de publications spécialisées.</div>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🚀</span>
+        <div class="int-title" id="i3t">Entrepreneuriat & Business</div>
+        <div class="int-desc" id="i3d">Curiosité forte pour les modèles économiques, la création de valeur et l'esprit entrepreneurial. Intérêt pour les stratégies d'entreprise et les dynamiques d'innovation dans la construction durable.</div>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🤖</span>
+        <div class="int-title" id="i4t">Intelligence Artificielle</div>
+        <div class="int-desc" id="i4d">Formation autodidacte sur les fondamentaux de l'IA et ses applications pratiques. Convaincu que l'IA va transformer le secteur du bâtiment — simulation, conception, gestion énergétique.</div>
+        <ul class="cert-list">
+          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Claude AI 101</div><div class="cert-org">Anthropic</div></div></li>
+          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">AI Fluency</div><div class="cert-org">Anthropic</div></div></li>
+        </ul>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">📚</span>
+        <div class="int-title" id="i5t">Lecture & Prospective</div>
+        <div class="int-desc" id="i5d">Lecteur régulier sur les thèmes de prospective, géopolitique et transformation économique. Conviction que la compréhension du monde macro est un avantage compétitif dans n'importe quel métier.</div>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">⚡</span>
+        <div class="int-title" id="i6t">Transition Énergétique</div>
+        <div class="int-desc" id="i6d">Au croisement de la passion professionnelle et personnelle : le bâtiment représente 40% de la consommation énergétique en Europe. Convaincu que l'ingénierie bas-carbone est l'enjeu de la décennie.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const T={
+fr:{
+'sb-role':'Ingénieur Bâtiment','nl-menu':'Menu','cl-theme':'Thème','cl-lang':'Langue',
+'ey':'Open to Work · Biot (06)','hero-sub':'Ingénieur Bâtiments Intelligents & Durables',
+'hero-desc':'Diplômé Ingénieur de l\'Ecole Polytechnique Universitaire de l\'Université Côte d\'Azur, spécialité Bâtiments. Passionné par l\'analyse de données, l\'énergie, les matières premières, l\'industrie et la technologie.',
+'st1':'ans de formation ingénieur','st2':'stages en bureau d\'études','st3':'certifications obtenues',
+'kf':'Cursus académique','tf':'Formation','ke':'Parcours professionnel','te':'Expériences',
+'ki':'Développement personnel','ti':'Centres d\'intérêts','sr-label':'Résultats de recherche',
+'d1t':'Ingénieur Bâtiments Intelligents et Durables','d1s':'BAC+5 · Sophia-Antipolis',
+'d1b1':'Outils : Revit · AutoCAD · Robot Structural · Pleiades · Access SQL',
+'d1b2':'Projet de fin d\'études axé sur la rénovation énergétique par simulation numérique',
+'d2t':'Échange Universitaire — Génie Civil','d2s':'Semestre international · Sherbrooke, Québec',
+'d2b1':'Immersion dans un système universitaire nord-américain, adaptation interculturelle',
+'d3t':'Cycle Préparatoire PeiP','d3s':'Parcours des Écoles d\'Ingénieurs Polytech · Sophia-Antipolis',
+'d4t':'Baccalauréat Scientifique','d4s':'Spécialité Mathématiques',
+'e1t':'Stagiaire Ingénieur — Recherche','e1s':'Centre Scientifique et Technique du Bâtiment',
+'e1b1':'Étude générique de stratégies de rénovation de bâtiments par simulation numérique',
+'e1b2':'Développement Python : manipulation et analyse de données, génération automatisée de scénarios',
+'e2t':'Stagiaire Ingénieur — Bureau d\'Étude','e2s':'Tuyauterie Industrielle',
+'e2b1':'Création de plans d\'exécutions, assemblages et modélisation 3D d\'installations industrielles',
+'e2b2':'Rédaction de plannings, devis, fiches techniques et notes de calculs hydrauliques',
+'e2b3':'Conception de schémas synoptiques et calculs en hydraulique',
+'e3t':'Stagiaire — Bureau d\'Étude Électronique','e3s':'Découverte du métier d\'ingénieur',
+'e3b1':'Immersion dans un environnement bureau d\'études en électronique industrielle',
+'i1t':'Finance & Marchés','i1d':'Intérêt marqué pour les marchés financiers, les produits dérivés et la microstructure des marchés. Suivi actif de l\'actualité économique et financière mondiale.',
+'i2t':'Géopolitique & Énergie','i2d':'Veille permanente sur les enjeux géopolitiques liés à l\'énergie, la transition énergétique mondiale, les tensions sur les ressources et leurs impacts macroéconomiques.',
+'i3t':'Entrepreneuriat & Business','i3d':'Curiosité forte pour les modèles économiques, la création de valeur et l\'esprit entrepreneurial. Intérêt pour les stratégies d\'entreprise et les dynamiques d\'innovation dans la construction durable.',
+'i4t':'Intelligence Artificielle','i4d':'Formation autodidacte sur les fondamentaux de l\'IA et ses applications pratiques. Convaincu que l\'IA va transformer le secteur du bâtiment — simulation, conception, gestion énergétique.',
+'i5t':'Lecture & Prospective','i5d':'Lecteur régulier sur les thèmes de prospective, géopolitique et transformation économique. Conviction que la compréhension du monde macro est un avantage compétitif dans n\'importe quel métier.',
+'i6t':'Transition Énergétique','i6d':'Au croisement de la passion professionnelle et personnelle : le bâtiment représente 40% de la consommation énergétique en Europe. Convaincu que l\'ingénierie bas-carbone est l\'enjeu de la décennie.'
+},
+en:{
+'sb-role':'Building Engineer','nl-menu':'Menu','cl-theme':'Theme','cl-lang':'Language',
+'ey':'Open to Work · Biot (06) · France','hero-sub':'Smart & Sustainable Buildings Engineer',
+'hero-desc':'Graduate Engineer from the Polytechnic University School of Université Côte d\'Azur, specialisation Buildings. Passionate about data analysis, energy, commodities, industry and technology.',
+'st1':'years of engineering education','st2':'design office internships','st3':'certifications earned',
+'kf':'Academic curriculum','tf':'Education','ke':'Professional journey','te':'Experience',
+'ki':'Personal development','ti':'Interests','sr-label':'Search results',
+'d1t':'Smart & Sustainable Buildings Engineer','d1s':'BAC+5 · Sophia-Antipolis',
+'d1b1':'Tools: Revit · AutoCAD · Robot Structural · Pleiades · Access SQL',
+'d1b2':'Final-year project focused on energy renovation through numerical simulation',
+'d2t':'University Exchange — Civil Engineering','d2s':'International semester · Sherbrooke, Québec',
+'d2b1':'Immersion in a North American university system, intercultural adaptation',
+'d3t':'Preparatory Cycle PeiP','d3s':'Polytech Engineering Schools Pathway · Sophia-Antipolis',
+'d4t':'Scientific Baccalaureate','d4s':'Mathematics specialisation',
+'e1t':'Engineering Intern — Research','e1s':'Scientific and Technical Centre for Building (CSTB)',
+'e1b1':'Generic study of building renovation strategies through numerical simulation',
+'e1b2':'Python development: data manipulation and analysis, automated scenario generation',
+'e2t':'Engineering Intern — Design Office','e2s':'Industrial Piping',
+'e2b1':'Creation of execution plans, assemblies and 3D modelling of industrial installations',
+'e2b2':'Drafting of schedules, quotes, technical sheets and hydraulic calculation notes',
+'e2b3':'Design of synoptic diagrams and hydraulic calculations',
+'e3t':'Intern — Electronics Design Office','e3s':'Introduction to the engineering profession',
+'e3b1':'Immersion in an industrial electronics engineering office environment',
+'i1t':'Finance & Markets','i1d':'Strong interest in financial markets, derivative products and market microstructure. Active monitoring of global economic and financial news.',
+'i2t':'Geopolitics & Energy','i2d':'Continuous monitoring of geopolitical energy issues, global energy transition, resource tensions and their macroeconomic impacts.',
+'i3t':'Entrepreneurship & Business','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Interest in corporate strategy and innovation dynamics in sustainable construction.',
+'i4t':'Artificial Intelligence','i4d':'Self-taught training on AI fundamentals and practical applications. Convinced that AI will transform the building sector — simulation, design, energy management.',
+'i5t':'Reading & Prospective','i5d':'Regular reader on prospective, geopolitics and economic transformation. Understanding the macro world is a competitive advantage in any field.',
+'i6t':'Energy Transition','i6d':'At the crossroads of professional and personal passion: buildings represent 40% of energy consumption in Europe. Convinced that low-carbon engineering is the challenge of the decade.'
+}};
+
+const IDX=[
+{sec:'formation',fr:'Polytech Nice Sophia ingénieur bâtiment BIM Revit AutoCAD Pleiades hydraulique thermique structure acoustique électricité béton Python simulation',en:'Polytech Nice Sophia building engineer BIM Revit AutoCAD Pleiades hydraulics thermics structure acoustics electricity concrete Python simulation'},
+{sec:'formation',fr:'Université Sherbrooke échange Canada génie civil matériaux hydraulique estimation',en:'Sherbrooke University exchange Canada civil engineering materials hydraulics estimation'},
+{sec:'experience',fr:'CSTB stage recherche simulation numérique rénovation bâtiment Python données scénarios Sophia-Antipolis 2025',en:'CSTB internship research numerical simulation building renovation Python data scenarios 2025'},
+{sec:'experience',fr:'Patie Michel stage bureau étude tuyauterie industrielle AutoCAD plans exécution hydraulique Carros 2023',en:'Patie Michel internship design office industrial piping AutoCAD execution plans hydraulics Carros 2023'},
+{sec:'experience',fr:'AXID stage électronique bureau étude Biot 2021',en:'AXID internship electronics design office Biot 2021'},
+{sec:'interests',fr:'finance marchés futures options CME Group Institute certificat produits dérivés',en:'finance markets futures options CME Group Institute certificate derivatives'},
+{sec:'interests',fr:'intelligence artificielle IA Anthropic Claude AI Fluency certificat formation',en:'artificial intelligence AI Anthropic Claude AI Fluency certificate training'},
+{sec:'interests',fr:'géopolitique énergie transition entrepreneuriat business lecture prospective climat guerre économique',en:'geopolitics energy transition entrepreneurship business reading prospective climate economic war'},
+];
+
+let lang='fr';
+
+function showSec(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  if(el) el.classList.add('active');
+  document.getElementById('search-results').classList.remove('visible');
+  document.getElementById('no-result').classList.remove('visible');
+  document.getElementById('search').value='';
+  triggerReveal();
+  return false;
+}
+
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  document.getElementById('btn-dark').classList.toggle('on',t==='dark');
+  document.getElementById('btn-light').classList.toggle('on',t==='light');
+}
+// Init light as default
+document.getElementById('btn-dark').classList.remove('on');
+document.getElementById('btn-light').classList.add('on');
+
+function setLang(l){
+  lang=l;
+  document.getElementById('btn-fr').classList.toggle('on',l==='fr');
+  document.getElementById('btn-en').classList.toggle('on',l==='en');
+  const t=T[l];
+  Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
+  document.querySelectorAll('nav a[data-'+l+']').forEach(a=>{a.querySelector('span').textContent=a.getAttribute('data-'+l);});
+  document.getElementById('search').placeholder=l==='fr'?'Rechercher...':'Search...';
+}
+
+document.getElementById('search').addEventListener('input',function(){
+  const q=this.value.trim().toLowerCase();
+  const rEl=document.getElementById('search-results');
+  const nEl=document.getElementById('no-result');
+  if(!q){rEl.classList.remove('visible');nEl.classList.remove('visible');return;}
+  const hits=IDX.filter(i=>(lang==='en'?i.en:i.fr).toLowerCase().includes(q));
+  if(!hits.length){rEl.classList.remove('visible');nEl.classList.add('visible');return;}
+  nEl.classList.remove('visible');rEl.classList.add('visible');
+  const secNames={formation:lang==='fr'?'Formation':'Education',experience:lang==='fr'?'Expériences':'Experience',interests:lang==='fr'?"Centres d'intérêts":'Interests'};
+  const seen=new Set();
+  const uniq=hits.filter(h=>{if(seen.has(h.sec))return false;seen.add(h.sec);return true;});
+  document.getElementById('sr-list').innerHTML=uniq.map(h=>{
+    const txt=(lang==='en'?h.en:h.fr);
+    const hl=txt.replace(new RegExp('('+q+')','gi'),'<span class="hl">$1</span>');
+    return `<div class="sr-item" onclick="showSec('${h.sec}',document.querySelector('nav a[onclick*=\\'${h.sec}\\']'))"><div class="sr-sec">${secNames[h.sec]}</div><div class="sr-text">${hl.substring(0,120)}…</div></div>`;
+  }).join('');
+});
+
+function triggerReveal(){
+  setTimeout(()=>{
+    document.querySelectorAll('.reveal').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('vis'),i*70);
+    });
+  },40);
+}
+triggerReveal();
+</script>
+</body>
+</html>
