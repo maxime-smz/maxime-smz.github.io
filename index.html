@@ -66,17 +66,13 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .no-result{display:none;padding:3rem 0;text-align:center;color:var(--text3);font-size:.88rem;}
 .no-result.visible{display:block;}
 
-.hero h1{text-shadow:0 2px 16px rgba(0,0,0,0.15);}
-.hero-desc{text-shadow:0 1px 8px rgba(0,0,0,0.1);}
-[data-theme="light"] .hero h1{color:#0a1520;}
-[data-theme="light"] .hero .hero-desc{color:#1a2a3a;}
-[data-theme="light"] .hero .hero-ey{color:var(--accent);}
-[data-theme="light"] .hero .al{color:var(--accent);}
-[data-theme="dark"] .hero h1{color:#e8edf2;}
-[data-theme="dark"] .hero .hero-desc{color:rgba(232,237,242,0.85);}
-[data-theme="dark"] .hero .hero-ey{color:var(--accent);}
-[data-theme="light"] .sidebar{background:#f0f4f8;border-right:1px solid rgba(0,0,0,0.08);}
-/* hero handled above */
+.hero h1{text-shadow:0 2px 20px rgba(0,0,0,0.6),0 1px 4px rgba(0,0,0,0.8);}
+.hero-desc{text-shadow:0 1px 10px rgba(0,0,0,0.7);}
+[data-theme="light"] .hero h1{color:#ffffff;}
+[data-theme="light"] .hero .hero-desc{color:rgba(255,255,255,0.95);}
+[data-theme="light"] .hero .hero-ey{color:#ffffff;}
+[data-theme="light"] .hero .al{color:#00d4ff;}
+[data-theme="light"] .htag{background:rgba(0,0,0,0.35);color:#fff;border-color:rgba(255,255,255,0.3);}
 .hero-ey{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
 .hero-ey::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
 .hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.2rem,6.5vw,5.5rem);line-height:.95;letter-spacing:-.03em;margin-bottom:1.4rem;color:var(--text);}
@@ -134,7 +130,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .hero-bg::after{content:'';position:absolute;inset:0;}
-[data-theme="light"] .hero-bg-light::after{background:rgba(255,255,255,0.55);}
+[data-theme="light"] .hero-bg-light::after{background:rgba(255,255,255,0.2);}
 [data-theme="dark"] .hero-bg-dark::after{background:rgba(0,0,0,0.45);}
 .hero-content{position:relative;z-index:1;padding:3rem 3.5rem 4rem;}
 [data-theme="light"] .hero-bg-dark{display:none;}
