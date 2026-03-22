@@ -125,12 +125,23 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .cert-name{font-size:.8rem;color:var(--text2);line-height:1.4;}
 .cert-org{font-size:.7rem;color:var(--text3);margin-top:.12rem;}
 
-/* HERO BG */
+/* DETAIL TOGGLE */
+.detail-btn{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;padding:.3rem .8rem;border-radius:6px;border:1px solid var(--accent4);background:var(--accent3);color:var(--accent);font-size:.72rem;font-family:'DM Mono',monospace;cursor:pointer;transition:all .15s;letter-spacing:.05em;}
+.detail-btn:hover{background:var(--accent4);}
+.detail-btn svg{width:11px;height:11px;transition:transform .2s;}
+.detail-btn.open svg{transform:rotate(180deg);}
+.detail-panel{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);}
+.detail-panel.open{display:block;}
+.detail-year{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--accent);margin:1rem 0 .5rem;letter-spacing:.03em;}
+.detail-year:first-child{margin-top:0;}
+.detail-subjects{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.5rem;}
+.detail-text{font-size:.83rem;color:var(--text2);line-height:1.6;margin-bottom:.5rem;font-weight:300;}
+
 .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0;margin:-3rem -3.5rem;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .hero-bg::after{content:'';position:absolute;inset:0;}
-[data-theme="light"] .hero-bg-light::after{background:rgba(255,255,255,0.15);}
+[data-theme="light"] .hero-bg-light::after{background:rgba(255,255,255,0.2);}
 [data-theme="dark"] .hero-bg-dark::after{background:rgba(0,0,0,0.45);}
 .hero-content{position:relative;z-index:1;padding:3rem 3.5rem 4rem;}
 [data-theme="light"] .hero-bg-dark{display:none;}
@@ -209,13 +220,11 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       </div>
 
       <div class="hero-content">
-      <div class="hero-ey" id="ey">Open to Work · Biot (06)</div>
+      <div class="hero-ey" id="ey">Open to Work · Var (83) — Alpes Maritimes (06)</div>
       <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
       <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, l'énergie, les matières premières, l'industrie et la technologie.</p>
       <div class="hero-tags">
-        <span class="htag">BIM · Revit</span><span class="htag">Python</span>
-        <span class="htag">Simulation thermique</span><span class="htag">Pleiades</span>
-        <span class="htag">AutoCAD</span><span class="htag">Anglais B2</span>
+        <span class="htag">Anglais B2</span>
       </div>
       </div>
 
@@ -242,8 +251,26 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           </div>
           <ul class="tl-bullets">
             <li id="d1b1">Outils : Revit · AutoCAD · Robot Structural · Pleiades · Access SQL</li>
-            <li id="d1b2">Projet de fin d'études axé sur la rénovation énergétique par simulation numérique</li>
+            <li id="d1b2">Projet de fin d'année portant sur la construction d'un ouvrage multifonction : gymnase, logements et laboratoire</li>
           </ul>
+          <button class="detail-btn" onclick="toggleDetail('d1-detail',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            Détails année par année
+          </button>
+          <div class="detail-panel" id="d1-detail">
+            <div class="detail-year">BAC+3 — 1ère année cycle ingénieur</div>
+            <div class="detail-subjects">
+              <span class="tag">Mécanique des fluides</span><span class="tag">Thermodynamique</span><span class="tag">Résistance des matériaux</span><span class="tag">Mathématiques appliquées</span><span class="tag">Physique du bâtiment</span><span class="tag">Informatique</span><span class="tag">Anglais technique</span>
+            </div>
+            <div class="detail-text">Introduction aux fondamentaux de l'ingénierie du bâtiment. Projets de groupe sur la conception de structures simples et premières simulations thermiques.</div>
+            <div class="detail-year">BAC+4 — Échange Université de Sherbrooke (voir ci-dessous)</div>
+            <div class="detail-text">Semestre à l'Université de Sherbrooke (Québec) dans le département Génie Civil. Voir la fiche dédiée.</div>
+            <div class="detail-year">BAC+5 — Dernière année cycle ingénieur</div>
+            <div class="detail-subjects">
+              <span class="tag">Gestion de projet avancée</span><span class="tag">BIM & Maquette numérique</span><span class="tag">Simulation énergétique (Pleiades)</span><span class="tag">Conditionnement d'air</span><span class="tag">Acoustique du bâtiment</span><span class="tag">Électricité courants forts/faibles</span><span class="tag">Économie de la construction</span><span class="tag">Droit de la construction</span>
+            </div>
+            <div class="detail-text">Projet de fin d'année : conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM.</div>
+          </div>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -253,6 +280,17 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           <div class="tl-sub" id="d2s">Semestre international · Sherbrooke, Québec</div>
           <div class="tl-tags"><span class="tag">Systèmes hydrauliques</span><span class="tag">Matériaux du bâtiment</span><span class="tag">Estimation</span></div>
           <ul class="tl-bullets"><li id="d2b1">Immersion dans un système universitaire nord-américain, adaptation interculturelle</li></ul>
+          <button class="detail-btn" onclick="toggleDetail('d2-detail',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            Détails du semestre
+          </button>
+          <div class="detail-panel" id="d2-detail">
+            <div class="detail-year">BAC+4 — Semestre hiver 2024</div>
+            <div class="detail-subjects">
+              <span class="tag">Systèmes hydrauliques avancés</span><span class="tag">Matériaux de construction</span><span class="tag">Estimation & devis</span><span class="tag">Mécanique des sols</span><span class="tag">Gestion de chantier</span>
+            </div>
+            <div class="detail-text">Cursus en anglais et en français au sein du département Génie Civil et du Bâtiment. Approche pédagogique nord-américaine basée sur des projets concrets et études de cas industriels. Adaptation à un environnement académique international, renforcement de l'autonomie et de la rigueur analytique.</div>
+          </div>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -261,6 +299,22 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           <div class="tl-title" id="d3t">Cycle Préparatoire PeiP</div>
           <div class="tl-sub" id="d3s">Parcours des Écoles d'Ingénieurs Polytech · Sophia-Antipolis</div>
           <div class="tl-tags"><span class="tag">Mathématiques</span><span class="tag">Physique</span><span class="tag">Sciences de l'ingénieur</span></div>
+          <button class="detail-btn" onclick="toggleDetail('d3-detail',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            Détails PeiP1 & PeiP2
+          </button>
+          <div class="detail-panel" id="d3-detail">
+            <div class="detail-year">PeiP 1 — 2020/2021</div>
+            <div class="detail-subjects">
+              <span class="tag">Analyse & Algèbre</span><span class="tag">Mécanique classique</span><span class="tag">Électromagnétisme</span><span class="tag">Chimie générale</span><span class="tag">Informatique (Python)</span><span class="tag">Anglais</span><span class="tag">Expression écrite</span>
+            </div>
+            <div class="detail-text">Première année de classe préparatoire intégrée. Socle scientifique commun à toutes les spécialités Polytech. Méthode de travail intensive, introduction à la rigueur de l'ingénieur.</div>
+            <div class="detail-year">PeiP 2 — 2021/2022</div>
+            <div class="detail-subjects">
+              <span class="tag">Probabilités & Statistiques</span><span class="tag">Mécanique des fluides</span><span class="tag">Thermodynamique</span><span class="tag">Optique</span><span class="tag">Électronique</span><span class="tag">Algorithmique</span><span class="tag">Projet pluridisciplinaire</span>
+            </div>
+            <div class="detail-text">Approfondissement des disciplines fondamentales avec orientation progressive vers le génie civil et bâtiment. Projet de groupe interdisciplinaire en fin d'année.</div>
+          </div>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -290,6 +344,20 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
             <li id="e1b1">Étude générique de stratégies de rénovation de bâtiments par simulation numérique</li>
             <li id="e1b2">Développement Python : manipulation et analyse de données, génération automatisée de scénarios de rénovation</li>
           </ul>
+          <button class="detail-btn" onclick="toggleDetail('e1-detail',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            Détails du stage
+          </button>
+          <div class="detail-panel" id="e1-detail">
+            <div class="detail-year">Contexte & Mission</div>
+            <div class="detail-text">Stage de fin d'études de 6 mois au sein du département Enveloppe & Espaces Habitables du CSTB, leader européen de la recherche sur le bâtiment. Mission principale : développer une méthodologie générique d'étude des stratégies de rénovation énergétique à l'échelle du parc bâti.</div>
+            <div class="detail-year">Réalisations</div>
+            <div class="detail-text">Développement d'un outil Python de simulation automatisée permettant de générer et d'évaluer des centaines de scénarios de rénovation (isolation, systèmes CVC, menuiseries). Traitement et analyse de larges jeux de données issues de simulations thermiques dynamiques. Présentation des résultats à l'équipe de recherche sous forme de rapports synthétiques et visualisations.</div>
+            <div class="detail-year">Compétences développées</div>
+            <div class="detail-subjects">
+              <span class="tag">Python avancé</span><span class="tag">Pandas / NumPy</span><span class="tag">Simulation thermique</span><span class="tag">Analyse de données</span><span class="tag">Rédaction scientifique</span><span class="tag">Travail en laboratoire de recherche</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -303,6 +371,20 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
             <li id="e2b2">Rédaction de plannings, devis, fiches techniques et notes de calculs hydrauliques</li>
             <li id="e2b3">Conception de schémas synoptiques et calculs en hydraulique</li>
           </ul>
+          <button class="detail-btn" onclick="toggleDetail('e2-detail',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            Détails du stage
+          </button>
+          <div class="detail-panel" id="e2-detail">
+            <div class="detail-year">Contexte & Mission</div>
+            <div class="detail-text">Stage de 5 mois au sein d'un bureau d'études spécialisé en tuyauterie industrielle, intervenant principalement dans les secteurs pharmaceutique, chimique et agro-alimentaire. Mission polyvalente couvrant les phases d'études, de conception et de suivi de chantier.</div>
+            <div class="detail-year">Réalisations</div>
+            <div class="detail-text">Conception et dessin de plans d'exécution et isométriques sous AutoCAD pour des installations de tuyauterie industrielle complexes. Réalisation de calculs hydrauliques (pertes de charge, dimensionnement de pompes). Élaboration de devis et plannings d'intervention, rédaction de fiches techniques et notes de calculs destinées aux clients.</div>
+            <div class="detail-year">Compétences développées</div>
+            <div class="detail-subjects">
+              <span class="tag">AutoCAD 2D/3D</span><span class="tag">Calculs hydrauliques</span><span class="tag">Plans isométriques</span><span class="tag">Devis & chiffrage</span><span class="tag">Normes industrielles</span><span class="tag">Relation client</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -326,40 +408,62 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="int-card reveal">
         <span class="int-icon">📈</span>
         <div class="int-title" id="i1t">Finance & Marchés</div>
-        <div class="int-desc" id="i1d">Intérêt marqué pour les marchés financiers, les produits dérivés et la microstructure des marchés. Suivi actif de l'actualité économique et financière mondiale.</div>
+        <div class="int-desc" id="i1d">Intérêt marqué pour les marchés financiers, les instruments financiers associés et leurs sous-jacents. Suivi actif de l'actualité économique et financière mondiale.</div>
         <ul class="cert-list">
           <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Introduction to Futures</div><div class="cert-org">CME Group Institute</div></div></li>
           <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Introduction to Options</div><div class="cert-org">CME Group Institute</div></div></li>
         </ul>
+        <button class="detail-btn" onclick="toggleDetail('i1-detail',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          En savoir plus
+        </button>
+        <div class="detail-panel" id="i1-detail">
+          <div class="detail-text">Analyse des structures de marché : actions, obligations, dérivés (futures, options, swaps), matières premières. Intérêt pour la microstructure des marchés, la formation des prix et les mécanismes de couverture. Suivi régulier des publications de la Fed, BCE, rapports macroéconomiques et earnings calls. Pratique de l'analyse fondamentale : lecture de comptes de résultat, bilans, tableaux de flux, calcul de TAM/SAM/SOM, CAGR, ratios de valorisation.</div>
+        </div>
       </div>
+
       <div class="int-card reveal">
-        <span class="int-icon">🌍</span>
-        <div class="int-title" id="i2t">Géopolitique & Énergie</div>
-        <div class="int-desc" id="i2d">Veille permanente sur les enjeux géopolitiques liés à l'énergie, la transition énergétique mondiale, les tensions sur les ressources et leurs impacts macroéconomiques. Lecture régulière de publications spécialisées.</div>
+        <span class="int-icon">⚡</span>
+        <div class="int-title" id="i2t">Énergie & Ressources</div>
+        <div class="int-desc" id="i2d">Conviction que la croissance économique est de l'énergie transformée — comprendre la dynamique du secteur énergétique, c'est comprendre la géopolitique mondiale.</div>
+        <button class="detail-btn" onclick="toggleDetail('i2-detail',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          En savoir plus
+        </button>
+        <div class="detail-panel" id="i2-detail">
+          <div class="detail-text">La croissance, c'est de l'énergie transformée. Ce constat simple structure une grande partie de ma lecture du monde : souveraineté énergétique, guerre économique, géostratégie des ressources, flux de capitaux liés à l'énergie. Je suis de près l'actualité sur toutes les formes d'énergie — gaz naturel, électricité, fossiles, EnR intermittentes — dans leur dimension technique, économique et géopolitique.</div>
+          <div class="detail-text">Ce constat est identique pour les ressources en général : matières premières agricoles, métaux industriels, minerais stratégiques (terres rares, tungstène, lithium, cobalt...), flux commerciaux et chaînes d'approvisionnement. La maîtrise de ces ressources est un enjeu de puissance nationale autant qu'un moteur des marchés financiers. Je lis régulièrement les rapports de l'AIE, de l'OPEP, les publications spécialisées en commodities trading et en géopolitique de l'énergie.</div>
+        </div>
       </div>
+
       <div class="int-card reveal">
         <span class="int-icon">🚀</span>
         <div class="int-title" id="i3t">Entrepreneuriat & Business</div>
-        <div class="int-desc" id="i3d">Curiosité forte pour les modèles économiques, la création de valeur et l'esprit entrepreneurial. Intérêt pour les stratégies d'entreprise et les dynamiques d'innovation dans la construction durable.</div>
+        <div class="int-desc" id="i3d">Curiosité forte pour les modèles économiques, la création de valeur et l'esprit entrepreneurial. Passionné par l'analyse financière d'entreprise et les stratégies de croissance.</div>
+        <button class="detail-btn" onclick="toggleDetail('i3-detail',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          En savoir plus
+        </button>
+        <div class="detail-panel" id="i3-detail">
+          <div class="detail-text">Au-delà de l'esprit entrepreneurial, j'aime analyser les entreprises en profondeur : lire et décortiquer un compte de résultat, un bilan, un tableau de flux de trésorerie. Calculer et interpréter des métriques clés — TAM/SAM/SOM, CAGR, EBITDA, marges, ratios d'endettement — pour comprendre la solidité et le potentiel d'une entreprise. M'intéresse particulièrement aux business models scalables, aux dynamics de marché et aux stratégies de différenciation dans des secteurs à forte intensité technologique ou énergétique.</div>
+        </div>
       </div>
+
       <div class="int-card reveal">
-        <span class="int-icon">🤖</span>
-        <div class="int-title" id="i4t">Intelligence Artificielle</div>
-        <div class="int-desc" id="i4d">Formation autodidacte sur les fondamentaux de l'IA et ses applications pratiques. Convaincu que l'IA va transformer le secteur du bâtiment — simulation, conception, gestion énergétique.</div>
+        <span class="int-icon">🔬</span>
+        <div class="int-title" id="i4t">Progrès Technique & Innovation</div>
+        <div class="int-desc" id="i4d">Veille active sur les secteurs d'avenir : IA & agentique, biotechnologies, spatial, défense, robotique, fusion nucléaire, informatique quantique.</div>
         <ul class="cert-list">
           <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Claude AI 101</div><div class="cert-org">Anthropic</div></div></li>
           <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">AI Fluency</div><div class="cert-org">Anthropic</div></div></li>
         </ul>
-      </div>
-      <div class="int-card reveal">
-        <span class="int-icon">📚</span>
-        <div class="int-title" id="i5t">Lecture & Prospective</div>
-        <div class="int-desc" id="i5d">Lecteur régulier sur les thèmes de prospective, géopolitique et transformation économique. Conviction que la compréhension du monde macro est un avantage compétitif dans n'importe quel métier.</div>
-      </div>
-      <div class="int-card reveal">
-        <span class="int-icon">⚡</span>
-        <div class="int-title" id="i6t">Transition Énergétique</div>
-        <div class="int-desc" id="i6d">Au croisement de la passion professionnelle et personnelle : le bâtiment représente 40% de la consommation énergétique en Europe. Convaincu que l'ingénierie bas-carbone est l'enjeu de la décennie.</div>
+        <button class="detail-btn" onclick="toggleDetail('i4-detail',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          En savoir plus
+        </button>
+        <div class="detail-panel" id="i4-detail">
+          <div class="detail-text">Je suis avec intérêt l'ensemble des ruptures technologiques en cours : l'IA générative et l'automatisation agentique (LLMs, agents autonomes, RAG), les biotechnologies et l'édition génomique (CRISPR), la conquête spatiale commerciale (New Space), l'industrie de la défense tech, la robotique avancée, la fusion nucléaire (ITER, startups privées), et l'informatique quantique. Ces domaines redéfiniront la structure économique mondiale dans les prochaines décennies et représentent à la fois des opportunités d'investissement et des enjeux géopolitiques majeurs.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -369,14 +473,14 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 const T={
 fr:{
 'sb-role':'Ingénieur Bâtiment','nl-menu':'Menu','cl-theme':'Thème','cl-lang':'Langue',
-'ey':'Open to Work · Biot (06)','hero-sub':'Ingénieur Bâtiments Intelligents & Durables',
+'ey':'Open to Work · Var (83) — Alpes Maritimes (06)','hero-sub':'Ingénieur Bâtiments Intelligents & Durables',
 'hero-desc':'Diplômé Ingénieur de l\'Ecole Polytechnique Universitaire de l\'Université Côte d\'Azur, spécialité Bâtiments. Passionné par l\'analyse de données, l\'énergie, les matières premières, l\'industrie et la technologie.',
 'st1':'ans de formation ingénieur','st2':'stages en bureau d\'études','st3':'certifications obtenues',
 'kf':'Cursus académique','tf':'Formation','ke':'Parcours professionnel','te':'Expériences',
 'ki':'Développement personnel','ti':'Centres d\'intérêts','sr-label':'Résultats de recherche',
 'd1t':'Ingénieur Bâtiments Intelligents et Durables','d1s':'BAC+5 · Sophia-Antipolis',
 'd1b1':'Outils : Revit · AutoCAD · Robot Structural · Pleiades · Access SQL',
-'d1b2':'Projet de fin d\'études axé sur la rénovation énergétique par simulation numérique',
+'d1b2':'Projet de fin d\'année portant sur la construction d\'un ouvrage multifonction : gymnase, logements et laboratoire',
 'd2t':'Échange Universitaire — Génie Civil','d2s':'Semestre international · Sherbrooke, Québec',
 'd2b1':'Immersion dans un système universitaire nord-américain, adaptation interculturelle',
 'd3t':'Cycle Préparatoire PeiP','d3s':'Parcours des Écoles d\'Ingénieurs Polytech · Sophia-Antipolis',
@@ -390,23 +494,21 @@ fr:{
 'e2b3':'Conception de schémas synoptiques et calculs en hydraulique',
 'e3t':'Stagiaire — Bureau d\'Étude Électronique','e3s':'Découverte du métier d\'ingénieur',
 'e3b1':'Immersion dans un environnement bureau d\'études en électronique industrielle',
-'i1t':'Finance & Marchés','i1d':'Intérêt marqué pour les marchés financiers, les produits dérivés et la microstructure des marchés. Suivi actif de l\'actualité économique et financière mondiale.',
-'i2t':'Géopolitique & Énergie','i2d':'Veille permanente sur les enjeux géopolitiques liés à l\'énergie, la transition énergétique mondiale, les tensions sur les ressources et leurs impacts macroéconomiques.',
-'i3t':'Entrepreneuriat & Business','i3d':'Curiosité forte pour les modèles économiques, la création de valeur et l\'esprit entrepreneurial. Intérêt pour les stratégies d\'entreprise et les dynamiques d\'innovation dans la construction durable.',
-'i4t':'Intelligence Artificielle','i4d':'Formation autodidacte sur les fondamentaux de l\'IA et ses applications pratiques. Convaincu que l\'IA va transformer le secteur du bâtiment — simulation, conception, gestion énergétique.',
-'i5t':'Lecture & Prospective','i5d':'Lecteur régulier sur les thèmes de prospective, géopolitique et transformation économique. Conviction que la compréhension du monde macro est un avantage compétitif dans n\'importe quel métier.',
-'i6t':'Transition Énergétique','i6d':'Au croisement de la passion professionnelle et personnelle : le bâtiment représente 40% de la consommation énergétique en Europe. Convaincu que l\'ingénierie bas-carbone est l\'enjeu de la décennie.'
+'i1t':'Finance & Marchés','i1d':'Intérêt marqué pour les marchés financiers, les instruments financiers associés et leurs sous-jacents. Suivi actif de l\'actualité économique et financière mondiale.',
+'i2t':'Énergie & Ressources','i2d':'Conviction que la croissance économique est de l\'énergie transformée — comprendre la dynamique du secteur énergétique, c\'est comprendre la géopolitique mondiale.',
+'i3t':'Entrepreneuriat & Business','i3d':'Curiosité forte pour les modèles économiques, la création de valeur et l\'esprit entrepreneurial. Passionné par l\'analyse financière d\'entreprise et les stratégies de croissance.',
+'i4t':'Progrès Technique & Innovation','i4d':'Veille active sur les secteurs d\'avenir : IA & agentique, biotechnologies, spatial, défense, robotique, fusion nucléaire, informatique quantique.'
 },
 en:{
 'sb-role':'Building Engineer','nl-menu':'Menu','cl-theme':'Theme','cl-lang':'Language',
-'ey':'Open to Work · Biot (06) · France','hero-sub':'Smart & Sustainable Buildings Engineer',
+'ey':'Open to Work · Var (83) — Alpes Maritimes (06) · France','hero-sub':'Smart & Sustainable Buildings Engineer',
 'hero-desc':'Graduate Engineer from the Polytechnic University School of Université Côte d\'Azur, specialisation Buildings. Passionate about data analysis, energy, commodities, industry and technology.',
 'st1':'years of engineering education','st2':'design office internships','st3':'certifications earned',
 'kf':'Academic curriculum','tf':'Education','ke':'Professional journey','te':'Experience',
 'ki':'Personal development','ti':'Interests','sr-label':'Search results',
 'd1t':'Smart & Sustainable Buildings Engineer','d1s':'BAC+5 · Sophia-Antipolis',
 'd1b1':'Tools: Revit · AutoCAD · Robot Structural · Pleiades · Access SQL',
-'d1b2':'Final-year project focused on energy renovation through numerical simulation',
+'d1b2':'Final-year project on the design of a multi-function building: gymnasium, housing and laboratory',
 'd2t':'University Exchange — Civil Engineering','d2s':'International semester · Sherbrooke, Québec',
 'd2b1':'Immersion in a North American university system, intercultural adaptation',
 'd3t':'Preparatory Cycle PeiP','d3s':'Polytech Engineering Schools Pathway · Sophia-Antipolis',
@@ -420,12 +522,10 @@ en:{
 'e2b3':'Design of synoptic diagrams and hydraulic calculations',
 'e3t':'Intern — Electronics Design Office','e3s':'Introduction to the engineering profession',
 'e3b1':'Immersion in an industrial electronics engineering office environment',
-'i1t':'Finance & Markets','i1d':'Strong interest in financial markets, derivative products and market microstructure. Active monitoring of global economic and financial news.',
-'i2t':'Geopolitics & Energy','i2d':'Continuous monitoring of geopolitical energy issues, global energy transition, resource tensions and their macroeconomic impacts.',
-'i3t':'Entrepreneurship & Business','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Interest in corporate strategy and innovation dynamics in sustainable construction.',
-'i4t':'Artificial Intelligence','i4d':'Self-taught training on AI fundamentals and practical applications. Convinced that AI will transform the building sector — simulation, design, energy management.',
-'i5t':'Reading & Prospective','i5d':'Regular reader on prospective, geopolitics and economic transformation. Understanding the macro world is a competitive advantage in any field.',
-'i6t':'Energy Transition','i6d':'At the crossroads of professional and personal passion: buildings represent 40% of energy consumption in Europe. Convinced that low-carbon engineering is the challenge of the decade.'
+'i1t':'Finance & Markets','i1d':'Strong interest in financial markets, financial instruments and their underlyings. Active monitoring of global economic and financial news.',
+'i2t':'Energy & Resources','i2d':'Conviction that economic growth is transformed energy — understanding energy sector dynamics means understanding global geopolitics.',
+'i3t':'Entrepreneurship & Business','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate financial analysis and growth strategies.',
+'i4t':'Technical Progress & Innovation','i4d':'Active monitoring of future sectors: AI & agentic automation, biotech, space, defence, robotics, nuclear fusion, quantum computing.'
 }};
 
 const IDX=[
@@ -438,6 +538,12 @@ const IDX=[
 {sec:'interests',fr:'intelligence artificielle IA Anthropic Claude AI Fluency certificat formation',en:'artificial intelligence AI Anthropic Claude AI Fluency certificate training'},
 {sec:'interests',fr:'géopolitique énergie transition entrepreneuriat business lecture prospective climat guerre économique',en:'geopolitics energy transition entrepreneurship business reading prospective climate economic war'},
 ];
+
+function toggleDetail(id,btn){
+  const panel=document.getElementById(id);
+  panel.classList.toggle('open');
+  btn.classList.toggle('open');
+}
 
 let lang='fr';
 
