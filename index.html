@@ -147,7 +147,10 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 [data-theme="light"] .hero-bg-dark{display:none;}
 [data-theme="dark"] .hero-bg-light{display:none;}
 
+.org-logo{height:32px;width:auto;object-fit:contain;margin-bottom:.8rem;display:block;}
+[data-theme="light"] .org-logo{mix-blend-mode:multiply;}
 [data-theme="dark"] .org-logo{filter:invert(1) brightness(1.5);}
+[data-theme="dark"] .org-logo-noinvert{filter:none;}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.vis{opacity:1;transform:none;}
 </style>
@@ -328,7 +331,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 
       <div class="tl-item reveal">
         <div class="tl-card">
-          <img src="images/logo-cstb.png" alt="CSTB" class="org-logo" style="height:32px;width:auto;object-fit:contain;margin-bottom:.8rem;display:block;"/>
+          <img src="images/logo-cstb.png" alt="CSTB" class="org-logo"/>
           <div class="tl-meta"><span class="tl-date">Mars – Août 2025</span><span class="tl-org">Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis</span></div>
           <div class="tl-title" id="e1t">Stagiaire Ingénieur — Recherche</div>
           <div class="tl-sub" id="e1s">Centre Scientifique et Technique du Bâtiment</div>
@@ -359,6 +362,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 
       <div class="tl-item reveal">
         <div class="tl-card">
+          <img src="images/logo-patie.png" alt="Patie Michel" class="org-logo org-logo-noinvert"/>
           <div class="tl-meta"><span class="tl-date">Juil – Nov 2023</span><span class="tl-org">Patie Michel · Carros</span></div>
           <div class="tl-title" id="e2t">Stagiaire Ingénieur — Bureau d'Étude</div>
           <div class="tl-sub" id="e2s">Tuyauterie Industrielle</div>
