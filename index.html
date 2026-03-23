@@ -66,7 +66,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .no-result{display:none;padding:3rem 0;text-align:center;color:var(--text3);font-size:.88rem;}
 .no-result.visible{display:block;}
 
-/* HERO TEXT */
 .hero h1{text-shadow:0 2px 20px rgba(0,0,0,0.6),0 1px 4px rgba(0,0,0,0.8);}
 .hero-desc{text-shadow:0 1px 10px rgba(0,0,0,0.7);}
 [data-theme="light"] .hero h1{color:#ffffff;}
@@ -74,8 +73,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 [data-theme="light"] .hero .hero-ey{color:#ffffff;}
 [data-theme="light"] .hero .al{color:#00d4ff;}
 [data-theme="light"] .htag{background:rgba(0,0,0,0.35);color:#fff;border-color:rgba(255,255,255,0.3);}
-[data-theme="dark"] .hero h1{color:#e8edf2;}
-[data-theme="dark"] .hero .hero-desc{color:rgba(232,237,242,0.85);}
 .hero-ey{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
 .hero-ey::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
 .hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.2rem,6.5vw,5.5rem);line-height:.95;letter-spacing:-.03em;margin-bottom:1.4rem;color:var(--text);}
@@ -83,7 +80,11 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .hero-desc{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.75;margin-bottom:2.2rem;font-weight:300;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.8rem;}
 .htag{font-family:'DM Mono',monospace;font-size:.7rem;padding:.3rem .8rem;border-radius:100px;background:var(--accent3);color:var(--accent);border:1px solid var(--accent4);letter-spacing:.04em;}
-.hero-stats{display:none;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:520px;}
+.stat{background:var(--card);padding:1.4rem;transition:background .2s;}
+.stat:hover{background:var(--bg3);}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--accent);line-height:1;margin-bottom:.25rem;}
+.stat-label{font-size:.72rem;color:var(--text3);line-height:1.3;}
 
 /* SECTION HEAD */
 .sec-head{margin-bottom:2.8rem;}
@@ -136,7 +137,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .detail-subjects{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.5rem;}
 .detail-text{font-size:.83rem;color:var(--text2);line-height:1.6;margin-bottom:.5rem;font-weight:300;}
 
-/* HERO BG */
 .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0;margin:-3rem -3.5rem;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
@@ -146,7 +146,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .hero-content{position:relative;z-index:1;padding:3rem 3.5rem 4rem;}
 [data-theme="light"] .hero-bg-dark{display:none;}
 [data-theme="dark"] .hero-bg-light{display:none;}
-
+.hero-stats{display:none;}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.vis{opacity:1;transform:none;}
 </style>
@@ -156,10 +156,12 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 <aside class="sidebar">
   <div class="sb-brand">Maxime Samiez</div>
   <div class="sb-role" id="sb-role">Ingénieur Bâtiment</div>
+
   <div class="search-wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" id="search" placeholder="Rechercher..." autocomplete="off"/>
   </div>
+
   <div class="nav-label" id="nl-menu">Menu</div>
   <nav>
     <ul>
@@ -177,12 +179,13 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <span>Centres d'intérêts</span></a></li>
     </ul>
   </nav>
+
   <div class="sb-controls">
     <div class="ctrl-row">
       <span class="ctrl-label" id="cl-theme">Thème</span>
       <div class="tog">
-        <button id="btn-dark" onclick="setTheme('dark')">🌙</button>
-        <button id="btn-light" class="on" onclick="setTheme('light')">☀️</button>
+        <button id="btn-dark" class="on" onclick="setTheme('dark')">🌙</button>
+        <button id="btn-light" onclick="setTheme('light')">☀️</button>
       </div>
     </div>
     <div class="ctrl-row">
@@ -205,14 +208,26 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
   <!-- HOME -->
   <section class="section active" id="sec-home">
     <div class="hero">
-      <div class="hero-bg hero-bg-light"><img src="images/bg-light.jpg" alt=""/></div>
-      <div class="hero-bg hero-bg-dark"><img src="images/bg-dark.jpg" alt=""/></div>
-      <div class="hero-content">
-        <div class="hero-ey" id="ey">Open to Work · Var (83) — Alpes Maritimes (06)</div>
-        <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
-        <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, l'énergie, les matières premières, l'industrie et la technologie.</p>
-        <div class="hero-tags"><span class="htag">Anglais B2</span></div>
+
+      <!-- LIGHT BG -->
+      <div class="hero-bg hero-bg-light">
+        <img src="images/bg-light.jpg" alt=""/>
       </div>
+
+      <!-- DARK BG -->
+      <div class="hero-bg hero-bg-dark">
+        <img src="images/bg-dark.jpg" alt=""/>
+      </div>
+
+      <div class="hero-content">
+      <div class="hero-ey" id="ey">Open to Work · Var (83) — Alpes Maritimes (06)</div>
+      <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
+      <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, l'énergie, les matières premières, l'industrie et la technologie.</p>
+      <div class="hero-tags">
+        <span class="htag">Anglais B2</span>
+      </div>
+      </div>
+
     </div>
   </section>
 
@@ -223,7 +238,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <h2 class="sec-title" id="tf">Formation</h2>
     </div>
     <div class="timeline">
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">2022 – 2025</span><span class="tl-org">Polytech Nice Sophia · Université Côte d'Azur</span></div>
@@ -259,7 +273,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           </div>
         </div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">Jan – Avr 2024</span><span class="tl-org">Université de Sherbrooke · Canada</span></div>
@@ -280,7 +293,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           </div>
         </div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">2020 – 2022</span><span class="tl-org">Polytech Nice Sophia · Université Côte d'Azur</span></div>
@@ -305,7 +317,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           </div>
         </div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">2020</span><span class="tl-org">Lycée Jean-Moulin · Draguignan</span></div>
@@ -313,7 +324,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           <div class="tl-sub" id="d4s">Spécialité Mathématiques</div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -324,7 +334,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <h2 class="sec-title" id="te">Expériences</h2>
     </div>
     <div class="timeline">
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">Mars – Août 2025</span><span class="tl-org">CSTB · Sophia-Antipolis</span></div>
@@ -351,7 +360,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           </div>
         </div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">Juil – Nov 2023</span><span class="tl-org">Patie Michel · Carros</span></div>
@@ -379,7 +387,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           </div>
         </div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-card">
           <div class="tl-meta"><span class="tl-date">Juillet 2021</span><span class="tl-org">AXID · Biot</span></div>
@@ -388,7 +395,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           <ul class="tl-bullets"><li id="e3b1">Immersion dans un environnement bureau d'études en électronique industrielle</li></ul>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -399,41 +405,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <h2 class="sec-title" id="ti">Centres d'intérêts</h2>
     </div>
     <div class="int-grid">
-
-      <!-- 1. ÉNERGIE & RESSOURCES -->
-      <div class="int-card reveal">
-        <span class="int-icon">⚡</span>
-        <div class="int-title" id="i2t">Énergie & Ressources</div>
-        <div class="int-desc" id="i2d">Conviction que la croissance économique est de l'énergie transformée — comprendre la dynamique du secteur énergétique, c'est comprendre la géopolitique mondiale.</div>
-        <button class="detail-btn" onclick="toggleDetail('i2-detail',this)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          En savoir plus
-        </button>
-        <div class="detail-panel" id="i2-detail">
-          <div class="detail-text">La croissance, c'est l'énergie en action : une transformation physique de la matière dans l'espace-temps pilotée par l'intelligence humaine, où le travail et le capital ne sont que des sous-produits d'un flux thermodynamique primaire. Notre modèle économique, hérité des révolutions scientifiques et industrielles, repose sur une fiction comptable où la monnaie scripturale, créée ex nihilo par le privilège des banques commerciales, impose par l'usure une augmentation perpétuelle de la masse monétaire. Cette mécanique de la dette est un pari sur une capacité de transformation infinie qui se heurte frontalement aux limites planétaires et à l'épuisement des ressources à basse entropie. On assiste donc à une déconnexion totale entre une croissance conventionnelle dopée au crédit et la réalité physique de la dégradation de l'énergie. L'enjeu civilisationnel de ce siècle sera le choc entre cette exigence de croissance exponentielle et la finitude du monde, condamnant les puissances à une lutte géostratégique brutale pour s'approprier les derniers stocks d'énergie afin d'éviter l'effondrement d'un système qui ne sait pas ne pas croître.</div>
-          <div class="detail-text">Ce constat est identique pour les ressources en général : matières premières agricoles, métaux industriels, minerais stratégiques (terres rares, tungstène, lithium, cobalt...), flux commerciaux et chaînes d'approvisionnement. La maîtrise de ces ressources est un enjeu de puissance nationale autant qu'un moteur des marchés financiers. Je suis l'actualité via des articles, des rapports et des interviews d'analystes spécialisés en énergie, géopolitique et commodities.</div>
-        </div>
-      </div>
-
-      <!-- 2. PROGRÈS TECHNIQUE -->
-      <div class="int-card reveal">
-        <span class="int-icon">🔬</span>
-        <div class="int-title" id="i4t">Progrès Technique & Innovation</div>
-        <div class="int-desc" id="i4d">Veille active sur les secteurs d'avenir : spatial, IA & agentique, biotechnologies, défense, robotique, fusion nucléaire, informatique quantique.</div>
-        <ul class="cert-list">
-          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Claude AI 101</div><div class="cert-org">Anthropic</div></div></li>
-          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">AI Fluency</div><div class="cert-org">Anthropic</div></div></li>
-        </ul>
-        <button class="detail-btn" onclick="toggleDetail('i4-detail',this)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          En savoir plus
-        </button>
-        <div class="detail-panel" id="i4-detail">
-          <div class="detail-text">Je suis avec intérêt l'ensemble des ruptures technologiques en cours : la conquête spatiale commerciale (New Space, satellites, propulsion), l'IA générative et l'automatisation agentique (LLMs, agents autonomes, RAG), les biotechnologies et l'édition génomique (CRISPR), l'industrie de la défense tech, la robotique avancée, la fusion nucléaire (ITER, startups privées), et l'informatique quantique. Ces domaines redéfiniront la structure économique mondiale dans les prochaines décennies et représentent à la fois des opportunités d'investissement et des enjeux géopolitiques majeurs.</div>
-        </div>
-      </div>
-
-      <!-- 3. FINANCE & MARCHÉS -->
       <div class="int-card reveal">
         <span class="int-icon">📈</span>
         <div class="int-title" id="i1t">Finance & Marchés</div>
@@ -447,24 +418,53 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           En savoir plus
         </button>
         <div class="detail-panel" id="i1-detail">
-          <div class="detail-text">Analyse des structures de marché : actions, obligations, dérivés (futures, options, swaps), matières premières. Intérêt pour la microstructure des marchés, la formation des prix et les mécanismes de couverture. Suivi régulier des publications de la Fed, BCE, rapports macroéconomiques et earnings calls.</div>
+          <div class="detail-text">Analyse des structures de marché : actions, obligations, dérivés (futures, options, swaps), matières premières. Intérêt pour la microstructure des marchés, la formation des prix et les mécanismes de couverture. Suivi régulier des publications de la Fed, BCE, rapports macroéconomiques et earnings calls. Pratique de l'analyse fondamentale : lecture de comptes de résultat, bilans, tableaux de flux, calcul de TAM/SAM/SOM, CAGR, ratios de valorisation.</div>
         </div>
       </div>
 
-      <!-- 4. ENTREPRENEURIAT -->
+      <div class="int-card reveal">
+        <span class="int-icon">⚡</span>
+        <div class="int-title" id="i2t">Énergie & Ressources</div>
+        <div class="int-desc" id="i2d">Conviction que la croissance économique est de l'énergie transformée — comprendre la dynamique du secteur énergétique, c'est comprendre la géopolitique mondiale.</div>
+        <button class="detail-btn" onclick="toggleDetail('i2-detail',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          En savoir plus
+        </button>
+        <div class="detail-panel" id="i2-detail">
+          <div class="detail-text">La croissance, c'est de l'énergie transformée. Ce constat simple structure une grande partie de ma lecture du monde : souveraineté énergétique, guerre économique, géostratégie des ressources, flux de capitaux liés à l'énergie. Je suis de près l'actualité sur toutes les formes d'énergie — gaz naturel, électricité, fossiles, EnR intermittentes — dans leur dimension technique, économique et géopolitique.</div>
+          <div class="detail-text">Ce constat est identique pour les ressources en général : matières premières agricoles, métaux industriels, minerais stratégiques (terres rares, tungstène, lithium, cobalt...), flux commerciaux et chaînes d'approvisionnement. La maîtrise de ces ressources est un enjeu de puissance nationale autant qu'un moteur des marchés financiers. Je lis régulièrement les rapports de l'AIE, de l'OPEP, les publications spécialisées en commodities trading et en géopolitique de l'énergie.</div>
+        </div>
+      </div>
+
       <div class="int-card reveal">
         <span class="int-icon">🚀</span>
-        <div class="int-title" id="i3t">Entrepreneuriat</div>
+        <div class="int-title" id="i3t">Entrepreneuriat & Business</div>
         <div class="int-desc" id="i3d">Curiosité forte pour les modèles économiques, la création de valeur et l'esprit entrepreneurial. Passionné par l'analyse financière d'entreprise et les stratégies de croissance.</div>
         <button class="detail-btn" onclick="toggleDetail('i3-detail',this)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           En savoir plus
         </button>
         <div class="detail-panel" id="i3-detail">
-          <div class="detail-text">Au-delà de l'esprit entrepreneurial, j'aime analyser les entreprises en profondeur : lire et décortiquer un compte de résultat, un bilan, un tableau de flux de trésorerie. Calculer et interpréter des métriques clés — TAM/SAM/SOM, CAGR, EBITDA, marges, ratios d'endettement — pour comprendre la solidité et le potentiel d'une entreprise. M'intéresse particulièrement aux business models scalables, aux dynamiques de marché et aux stratégies de différenciation dans des secteurs à forte intensité technologique ou énergétique.</div>
+          <div class="detail-text">Au-delà de l'esprit entrepreneurial, j'aime analyser les entreprises en profondeur : lire et décortiquer un compte de résultat, un bilan, un tableau de flux de trésorerie. Calculer et interpréter des métriques clés — TAM/SAM/SOM, CAGR, EBITDA, marges, ratios d'endettement — pour comprendre la solidité et le potentiel d'une entreprise. M'intéresse particulièrement aux business models scalables, aux dynamics de marché et aux stratégies de différenciation dans des secteurs à forte intensité technologique ou énergétique.</div>
         </div>
       </div>
 
+      <div class="int-card reveal">
+        <span class="int-icon">🔬</span>
+        <div class="int-title" id="i4t">Progrès Technique & Innovation</div>
+        <div class="int-desc" id="i4d">Veille active sur les secteurs d'avenir : IA & agentique, biotechnologies, spatial, défense, robotique, fusion nucléaire, informatique quantique.</div>
+        <ul class="cert-list">
+          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">Claude AI 101</div><div class="cert-org">Anthropic</div></div></li>
+          <li class="cert-item"><span class="cert-badge">CERT</span><div><div class="cert-name">AI Fluency</div><div class="cert-org">Anthropic</div></div></li>
+        </ul>
+        <button class="detail-btn" onclick="toggleDetail('i4-detail',this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          En savoir plus
+        </button>
+        <div class="detail-panel" id="i4-detail">
+          <div class="detail-text">Je suis avec intérêt l'ensemble des ruptures technologiques en cours : l'IA générative et l'automatisation agentique (LLMs, agents autonomes, RAG), les biotechnologies et l'édition génomique (CRISPR), la conquête spatiale commerciale (New Space), l'industrie de la défense tech, la robotique avancée, la fusion nucléaire (ITER, startups privées), et l'informatique quantique. Ces domaines redéfiniront la structure économique mondiale dans les prochaines décennies et représentent à la fois des opportunités d'investissement et des enjeux géopolitiques majeurs.</div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -473,9 +473,9 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 const T={
 fr:{
 'sb-role':'Ingénieur Bâtiment','nl-menu':'Menu','cl-theme':'Thème','cl-lang':'Langue',
-'ey':'Open to Work · Var (83) — Alpes Maritimes (06)',
-'hero-sub':'Ingénieur Bâtiments Intelligents & Durables',
+'ey':'Open to Work · Var (83) — Alpes Maritimes (06)','hero-sub':'Ingénieur Bâtiments Intelligents & Durables',
 'hero-desc':'Diplômé Ingénieur de l\'Ecole Polytechnique Universitaire de l\'Université Côte d\'Azur, spécialité Bâtiments. Passionné par l\'analyse de données, l\'énergie, les matières premières, l\'industrie et la technologie.',
+'st1':'ans de formation ingénieur','st2':'stages en bureau d\'études','st3':'certifications obtenues',
 'kf':'Cursus académique','tf':'Formation','ke':'Parcours professionnel','te':'Expériences',
 'ki':'Développement personnel','ti':'Centres d\'intérêts','sr-label':'Résultats de recherche',
 'd1t':'Ingénieur Bâtiments Intelligents et Durables','d1s':'BAC+5 · Sophia-Antipolis',
@@ -494,16 +494,16 @@ fr:{
 'e2b3':'Conception de schémas synoptiques et calculs en hydraulique',
 'e3t':'Stagiaire — Bureau d\'Étude Électronique','e3s':'Découverte du métier d\'ingénieur',
 'e3b1':'Immersion dans un environnement bureau d\'études en électronique industrielle',
-'i2t':'Énergie & Ressources','i2d':'Conviction que la croissance économique est de l\'énergie transformée — comprendre la dynamique du secteur énergétique, c\'est comprendre la géopolitique mondiale.',
-'i4t':'Progrès Technique & Innovation','i4d':'Veille active sur les secteurs d\'avenir : spatial, IA & agentique, biotechnologies, défense, robotique, fusion nucléaire, informatique quantique.',
 'i1t':'Finance & Marchés','i1d':'Intérêt marqué pour les marchés financiers, les instruments financiers associés et leurs sous-jacents. Suivi actif de l\'actualité économique et financière mondiale.',
-'i3t':'Entrepreneuriat','i3d':'Curiosité forte pour les modèles économiques, la création de valeur et l\'esprit entrepreneurial. Passionné par l\'analyse financière d\'entreprise et les stratégies de croissance.'
+'i2t':'Énergie & Ressources','i2d':'Conviction que la croissance économique est de l\'énergie transformée — comprendre la dynamique du secteur énergétique, c\'est comprendre la géopolitique mondiale.',
+'i3t':'Entrepreneuriat & Business','i3d':'Curiosité forte pour les modèles économiques, la création de valeur et l\'esprit entrepreneurial. Passionné par l\'analyse financière d\'entreprise et les stratégies de croissance.',
+'i4t':'Progrès Technique & Innovation','i4d':'Veille active sur les secteurs d\'avenir : IA & agentique, biotechnologies, spatial, défense, robotique, fusion nucléaire, informatique quantique.'
 },
 en:{
 'sb-role':'Building Engineer','nl-menu':'Menu','cl-theme':'Theme','cl-lang':'Language',
-'ey':'Open to Work · Var (83) — Alpes Maritimes (06) · France',
-'hero-sub':'Smart & Sustainable Buildings Engineer',
+'ey':'Open to Work · Var (83) — Alpes Maritimes (06) · France','hero-sub':'Smart & Sustainable Buildings Engineer',
 'hero-desc':'Graduate Engineer from the Polytechnic University School of Université Côte d\'Azur, specialisation Buildings. Passionate about data analysis, energy, commodities, industry and technology.',
+'st1':'years of engineering education','st2':'design office internships','st3':'certifications earned',
 'kf':'Academic curriculum','tf':'Education','ke':'Professional journey','te':'Experience',
 'ki':'Personal development','ti':'Interests','sr-label':'Search results',
 'd1t':'Smart & Sustainable Buildings Engineer','d1s':'BAC+5 · Sophia-Antipolis',
@@ -522,22 +522,21 @@ en:{
 'e2b3':'Design of synoptic diagrams and hydraulic calculations',
 'e3t':'Intern — Electronics Design Office','e3s':'Introduction to the engineering profession',
 'e3b1':'Immersion in an industrial electronics engineering office environment',
-'i2t':'Energy & Resources','i2d':'Conviction that economic growth is transformed energy — understanding energy sector dynamics means understanding global geopolitics.',
-'i4t':'Technical Progress & Innovation','i4d':'Active monitoring of future sectors: space, AI & agentic automation, biotech, defence, robotics, nuclear fusion, quantum computing.',
 'i1t':'Finance & Markets','i1d':'Strong interest in financial markets, financial instruments and their underlyings. Active monitoring of global economic and financial news.',
-'i3t':'Entrepreneurship','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate financial analysis and growth strategies.'
+'i2t':'Energy & Resources','i2d':'Conviction that economic growth is transformed energy — understanding energy sector dynamics means understanding global geopolitics.',
+'i3t':'Entrepreneurship & Business','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate financial analysis and growth strategies.',
+'i4t':'Technical Progress & Innovation','i4d':'Active monitoring of future sectors: AI & agentic automation, biotech, space, defence, robotics, nuclear fusion, quantum computing.'
 }};
 
 const IDX=[
-{sec:'formation',fr:'Polytech Nice Sophia ingénieur bâtiment BIM Revit AutoCAD Pleiades hydraulique thermique structure acoustique électricité béton Python simulation gymnase logements laboratoire',en:'Polytech Nice Sophia building engineer BIM Revit AutoCAD Pleiades hydraulics structure acoustics electricity Python simulation gymnasium housing laboratory'},
+{sec:'formation',fr:'Polytech Nice Sophia ingénieur bâtiment BIM Revit AutoCAD Pleiades hydraulique thermique structure acoustique électricité béton Python simulation',en:'Polytech Nice Sophia building engineer BIM Revit AutoCAD Pleiades hydraulics thermics structure acoustics electricity concrete Python simulation'},
 {sec:'formation',fr:'Université Sherbrooke échange Canada génie civil matériaux hydraulique estimation',en:'Sherbrooke University exchange Canada civil engineering materials hydraulics estimation'},
 {sec:'experience',fr:'CSTB stage recherche simulation numérique rénovation bâtiment Python données scénarios Sophia-Antipolis 2025',en:'CSTB internship research numerical simulation building renovation Python data scenarios 2025'},
 {sec:'experience',fr:'Patie Michel stage bureau étude tuyauterie industrielle AutoCAD plans exécution hydraulique Carros 2023',en:'Patie Michel internship design office industrial piping AutoCAD execution plans hydraulics Carros 2023'},
 {sec:'experience',fr:'AXID stage électronique bureau étude Biot 2021',en:'AXID internship electronics design office Biot 2021'},
-{sec:'interests',fr:'finance marchés futures options CME Group Institute certificat instruments financiers sous-jacents',en:'finance markets futures options CME Group Institute certificate financial instruments underlyings'},
-{sec:'interests',fr:'progrès technique IA agentique spatial biotechnologies défense robotique fusion quantique Anthropic',en:'technical progress AI agentic space biotech defence robotics fusion quantum Anthropic'},
-{sec:'interests',fr:'énergie ressources géopolitique thermodynamique croissance dette monnaie minerais terres rares tungstène lithium cobalt',en:'energy resources geopolitics thermodynamics growth debt money minerals rare earths tungsten lithium cobalt'},
-{sec:'interests',fr:'entrepreneuriat business modèles économiques TAM SAM SOM CAGR EBITDA bilan compte résultat',en:'entrepreneurship business models TAM SAM SOM CAGR EBITDA balance sheet income statement'},
+{sec:'interests',fr:'finance marchés futures options CME Group Institute certificat produits dérivés',en:'finance markets futures options CME Group Institute certificate derivatives'},
+{sec:'interests',fr:'intelligence artificielle IA Anthropic Claude AI Fluency certificat formation',en:'artificial intelligence AI Anthropic Claude AI Fluency certificate training'},
+{sec:'interests',fr:'géopolitique énergie transition entrepreneuriat business lecture prospective climat guerre économique',en:'geopolitics energy transition entrepreneurship business reading prospective climate economic war'},
 ];
 
 function toggleDetail(id,btn){
@@ -565,6 +564,9 @@ function setTheme(t){
   document.getElementById('btn-dark').classList.toggle('on',t==='dark');
   document.getElementById('btn-light').classList.toggle('on',t==='light');
 }
+// Init light as default
+document.getElementById('btn-dark').classList.remove('on');
+document.getElementById('btn-light').classList.add('on');
 
 function setLang(l){
   lang=l;
