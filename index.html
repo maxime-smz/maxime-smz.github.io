@@ -240,10 +240,8 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       </div>
     </div>
     <div class="ctrl-row">
-      <div class="tog" style="margin:0 auto;">
-        <button id="btn-fr" class="on" onclick="setLang('fr')" style="font-size:1.1rem;padding:.3rem .55rem;">🇫🇷</button>
-        <button id="btn-en" onclick="setLang('en')" style="font-size:1.1rem;padding:.3rem .55rem;">🇬🇧</button>
-      </div>
+      <span style="font-size:1.6rem;cursor:pointer;opacity:.5;transition:opacity .2s;" id="btn-fr" onclick="setLang('fr')" title="Français">🇫🇷</span>
+      <span style="font-size:1.6rem;cursor:pointer;opacity:.5;transition:opacity .2s;" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</span>
     </div>
   </div>
 </aside>
@@ -889,8 +887,8 @@ function setTheme(t){
 
 function setLang(l){
   lang=l;
-  document.getElementById('btn-fr').classList.toggle('on',l==='fr');
-  document.getElementById('btn-en').classList.toggle('on',l==='en');
+  document.getElementById('btn-fr').style.opacity=l==='fr'?'1':'.4';
+  document.getElementById('btn-en').style.opacity=l==='en'?'1':'.4';
   const t=T[l];
   // Text-only elements via id
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el&&!el.dataset.bullet)el.textContent=t[id];});
@@ -952,6 +950,8 @@ function triggerReveal(){
   },40);
 }
 triggerReveal();
-</script>
+document.getElementById('btn-fr').style.opacity='1';
+document.getElementById('btn-en').style.opacity='.4';
+
 </body>
 </html>
