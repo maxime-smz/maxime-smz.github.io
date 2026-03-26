@@ -149,8 +149,55 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 
 .org-logo-wrap{position:absolute;top:1.5rem;right:1.7rem;background:#fff;border-radius:8px;padding:.4rem .7rem;border:1px solid rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;}
 .org-logo{height:36px;width:auto;object-fit:contain;display:block;}
+/* SUB-NAV */
+.nav-sub{list-style:none;margin:0 0 .5rem 0;padding-left:.5rem;border-left:1px solid var(--border);}
+.nav-sub li a{display:flex;align-items:center;gap:.5rem;padding:.35rem .7rem;border-radius:6px;font-size:.78rem;font-weight:400;color:var(--text3);text-decoration:none;transition:all .15s;}
+.nav-sub li a:hover,.nav-sub li a.active{background:var(--accent3);color:var(--accent);}
+.nav-sub li a.active::before{display:none;}
+.nav-sub .sub-dot{width:5px;height:5px;border-radius:50%;background:var(--text3);flex-shrink:0;transition:background .15s;}
+.nav-sub li a.active .sub-dot,.nav-sub li a:hover .sub-dot{background:var(--accent);}
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.vis{opacity:1;transform:none;}
+.exp-page-header{margin-bottom:2.5rem;}
+.exp-page-logo{margin-bottom:1rem;}
+.exp-page-logo img{height:40px;width:auto;object-fit:contain;}
+[data-theme="dark"] .exp-page-logo img.invert{filter:invert(1) brightness(2);}
+.exp-page-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--text);margin-bottom:.3rem;}
+.exp-page-sub{font-size:.85rem;color:var(--text2);margin-bottom:1rem;}
+.exp-page-meta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;}
+.exp-page-date{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--accent);background:var(--accent3);border:1px solid var(--accent4);padding:.2rem .6rem;border-radius:4px;}
+.exp-page-loc{font-size:.8rem;color:var(--text3);}
+
+/* TIMELINE INTERNE */
+.exp-timeline{position:relative;padding-left:1.5rem;margin:2rem 0;}
+.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),transparent);}
+.exp-tl-item{position:relative;margin-bottom:1.8rem;}
+.exp-tl-item::before{content:'';position:absolute;left:-1.9rem;top:6px;width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px var(--accent4);}
+.exp-tl-phase{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem;}
+.exp-tl-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.4rem;}
+.exp-tl-text{font-size:.85rem;color:var(--text2);line-height:1.65;font-weight:300;}
+
+/* PHOTO GALLERY */
+.exp-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0;}
+.exp-gallery-item{border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--card);}
+.exp-gallery-item img{width:100%;height:160px;object-fit:cover;display:block;}
+.exp-gallery-caption{padding:.6rem .8rem;font-size:.75rem;color:var(--text3);}
+
+/* SKILLS VISUAL */
+.exp-skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0;}
+.exp-skill-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;}
+.exp-skill-icon{font-size:1.3rem;margin-bottom:.5rem;display:block;}
+.exp-skill-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--text);margin-bottom:.2rem;}
+.exp-skill-desc{font-size:.75rem;color:var(--text3);line-height:1.5;}
+
+/* SECTION TITLE INSIDE EXP */
+.exp-section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;}
+.exp-section-title::before{content:'';display:inline-block;width:3px;height:1em;background:var(--accent);border-radius:2px;}
+
+/* IMAGE PLACEHOLDER (avant upload) */
+.img-placeholder{background:var(--bg3);border:1px dashed var(--border2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;height:160px;color:var(--text3);font-size:.78rem;gap:.4rem;}
+.img-placeholder svg{width:24px;height:24px;opacity:.4;}
 </style>
 </head>
 <body>
@@ -173,7 +220,13 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <span>Formation</span></a></li>
       <li><a href="#" onclick="return showSec('experience',this)" data-fr="Expériences" data-en="Experience">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-        <span>Expériences</span></a></li>
+        <span>Expériences</span></a>
+        <ul class="nav-sub">
+          <li><a href="#" onclick="return showSec('exp-cstb',this)" id="nav-cstb"><span class="sub-dot"></span>CSTB</a></li>
+          <li><a href="#" onclick="return showSec('exp-patie',this)" id="nav-patie"><span class="sub-dot"></span>Patie Michel</a></li>
+          <li><a href="#" onclick="return showSec('exp-axid',this)" id="nav-axid"><span class="sub-dot"></span>AXID</a></li>
+        </ul>
+      </li>
       <li><a href="#" onclick="return showSec('interests',this)" data-fr="Centres d'intérêts" data-en="Interests">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
         <span>Centres d'intérêts</span></a></li>
@@ -446,6 +499,233 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     </div>
   </section>
 
+  <!-- PAGE CSTB -->
+  <section class="section" id="sec-exp-cstb">
+    <div class="exp-page-header reveal">
+      <div class="exp-page-logo"><img src="images/logo-cstb.png" alt="CSTB" class="invert"/></div>
+      <h1 class="exp-page-title">Stagiaire Ingénieur — Recherche</h1>
+      <div class="exp-page-sub">Étude de stratégies de rénovation de bâtiments par simulation numérique</div>
+      <div class="exp-page-meta">
+        <span class="exp-page-date">Mars – Août 2025</span>
+        <span class="exp-page-loc">📍 Sophia-Antipolis</span>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Contexte & Enjeux</div>
+    <p class="reveal" style="font-size:.9rem;color:var(--text2);line-height:1.75;font-weight:300;max-width:720px;">
+      Le secteur du bâtiment est au cœur de la transition énergétique : il représente une part majeure des consommations d'énergie et des émissions de GES en Europe. La rénovation du parc existant constitue un levier d'action essentiel. Ce stage de 6 mois s'inscrit au sein du CSTB, leader européen de la recherche sur le bâtiment.
+    </p>
+
+    <div class="exp-section-title reveal">Timeline du stage</div>
+    <div class="exp-timeline">
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 1 — Semaines 1-4</div>
+        <div class="exp-tl-title">Collecte & traitement des données</div>
+        <div class="exp-tl-text">Extraction et traitement des données issues des capteurs du campus CSTB : températures intérieures, consommations énergétiques, données météorologiques. Nettoyage, structuration et analyse exploratoire via Python (Pandas, NumPy).</div>
+      </div>
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 2 — Semaines 5-12</div>
+        <div class="exp-tl-title">Modélisation sous Dimosim</div>
+        <div class="exp-tl-text">Construction des modèles numériques des bâtiments du site CSTB sur la plateforme Dimosim. Intégration des données réelles pour paramétrer les modèles : enveloppe, systèmes CVC, occupation, apports internes.</div>
+      </div>
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 3 — Semaines 13-18</div>
+        <div class="exp-tl-title">Calibration des modèles</div>
+        <div class="exp-tl-text">Calibration rigoureuse des modèles numériques par comparaison avec les mesures réelles du site. Ajustement itératif des paramètres pour minimiser les écarts entre simulations et données réelles.</div>
+      </div>
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 4 — Semaines 19-26</div>
+        <div class="exp-tl-title">Évaluation des scénarios de rénovation</div>
+        <div class="exp-tl-text">Simulation de multiples stratégies d'amélioration : isolation de l'enveloppe, remplacement des menuiseries, optimisation des systèmes énergétiques. Analyse comparative des performances et rédaction du rapport final.</div>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Photos & Documents</div>
+    <div class="exp-gallery reveal">
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Ajouter une photo du campus CSTB
+        </div>
+        <div class="exp-gallery-caption">Campus CSTB · Sophia-Antipolis</div>
+      </div>
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Capture Dimosim / modèle
+        </div>
+        <div class="exp-gallery-caption">Modélisation sous Dimosim</div>
+      </div>
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Graphique résultats Python
+        </div>
+        <div class="exp-gallery-caption">Analyse de données · Python</div>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Compétences acquises</div>
+    <div class="exp-skills reveal">
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">🐍</span>
+        <div class="exp-skill-name">Python & Data</div>
+        <div class="exp-skill-desc">Pandas, NumPy, traitement de séries temporelles, visualisation</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">🏗️</span>
+        <div class="exp-skill-name">Simulation thermique</div>
+        <div class="exp-skill-desc">Dimosim, modélisation dynamique, calibration de modèles</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">📊</span>
+        <div class="exp-skill-name">Méthodologie recherche</div>
+        <div class="exp-skill-desc">Protocole expérimental, rédaction scientifique, présentation</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">⚡</span>
+        <div class="exp-skill-name">Rénovation énergétique</div>
+        <div class="exp-skill-desc">Stratégies d'amélioration, enveloppe, systèmes CVC</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE PATIE MICHEL -->
+  <section class="section" id="sec-exp-patie">
+    <div class="exp-page-header reveal">
+      <div class="exp-page-logo"><img src="images/logo-patie.png" alt="Patie Michel"/></div>
+      <h1 class="exp-page-title">Stagiaire Ingénieur — Bureau d'Étude</h1>
+      <div class="exp-page-sub">CVC & Tuyauterie Industrielle · Projets pharma, chimie, agro-alimentaire</div>
+      <div class="exp-page-meta">
+        <span class="exp-page-date">Juillet – Novembre 2023</span>
+        <span class="exp-page-loc">📍 Carros</span>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Contexte & Mission</div>
+    <p class="reveal" style="font-size:.9rem;color:var(--text2);line-height:1.75;font-weight:300;max-width:720px;">
+      Stage de 5 mois au sein du bureau d'études Patie Michel, spécialisé en CVC et tuyauterie industrielle. Intervention dans des secteurs à fortes exigences techniques : pharmaceutique, chimique et agro-alimentaire. Mission polyvalente couvrant l'ensemble du cycle d'un projet, de la conception à la réalisation.
+    </p>
+
+    <div class="exp-section-title reveal">Timeline du stage</div>
+    <div class="exp-timeline">
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 1 — Juillet</div>
+        <div class="exp-tl-title">Prise en main AutoCAD & P&ID</div>
+        <div class="exp-tl-text">Apprentissage approfondi d'AutoCAD et maîtrise de la symbologie P&ID standardisée. Création d'un modèle de référence réutilisable pour tous les projets futurs — gain de temps significatif pour le bureau d'études.</div>
+      </div>
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 2 — Août/Septembre</div>
+        <div class="exp-tl-title">Dimensionnement & Notes de calcul</div>
+        <div class="exp-tl-text">Dimensionnement des tuyauteries et équipements génie climatique : analyse de CCTP, lecture de fiches techniques, calculs de débits et pertes de charge via abaques. Rédaction de notes de calcul détaillées et devis.</div>
+      </div>
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 3 — Octobre</div>
+        <div class="exp-tl-title">Revit MEP & Plans d'exécution 3D</div>
+        <div class="exp-tl-text">Réalisation de plans d'exécution 3D sous Revit MEP. Création de familles paramétriques (bouteilles de mélange, accessoires) avec paramètres dimensions, raccords, couleurs. Amélioration du rendu des plans de fabrication.</div>
+      </div>
+      <div class="exp-tl-item reveal">
+        <div class="exp-tl-phase">Phase 4 — Octobre/Novembre</div>
+        <div class="exp-tl-title">Automatisation & Formation</div>
+        <div class="exp-tl-text">Développement d'une nomenclature automatisée inter-logiciels (Excel/AutoCAD/Revit) et d'un planning VBA. Encadrement et formation d'un alternant intégrant l'équipe en fin de stage.</div>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Photos & Réalisations</div>
+    <div class="exp-gallery reveal">
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Exemple schéma P&ID
+        </div>
+        <div class="exp-gallery-caption">Schéma P&ID · AutoCAD</div>
+      </div>
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Plan d'exécution 3D Revit
+        </div>
+        <div class="exp-gallery-caption">Plan d'exécution · Revit MEP</div>
+      </div>
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Famille paramétrique Revit
+        </div>
+        <div class="exp-gallery-caption">Famille 3D paramétrique</div>
+      </div>
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Visite de chantier
+        </div>
+        <div class="exp-gallery-caption">Visite de chantier industriel</div>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Compétences acquises</div>
+    <div class="exp-skills reveal">
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">📐</span>
+        <div class="exp-skill-name">AutoCAD & P&ID</div>
+        <div class="exp-skill-desc">Schémas synoptiques, symbologie industrielle standardisée</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">🏭</span>
+        <div class="exp-skill-name">Revit MEP</div>
+        <div class="exp-skill-desc">Plans 3D, familles paramétriques, plans de fabrication</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">💧</span>
+        <div class="exp-skill-name">Hydraulique industrielle</div>
+        <div class="exp-skill-desc">Calculs de débits, pertes de charge, dimensionnement</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">📊</span>
+        <div class="exp-skill-name">Excel / VBA</div>
+        <div class="exp-skill-desc">Nomenclature automatisée, planning, interopérabilité</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">👥</span>
+        <div class="exp-skill-name">Encadrement</div>
+        <div class="exp-skill-desc">Formation d'un alternant, transmission de compétences</div>
+      </div>
+      <div class="exp-skill-card">
+        <span class="exp-skill-icon">🤝</span>
+        <div class="exp-skill-name">Relation client</div>
+        <div class="exp-skill-desc">Réunions clients, sous-traitants, visites de chantier</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE AXID -->
+  <section class="section" id="sec-exp-axid">
+    <div class="exp-page-header reveal">
+      <h1 class="exp-page-title">Stagiaire — Bureau d'Étude Électronique</h1>
+      <div class="exp-page-sub">Découverte du métier d'ingénieur · Panneaux solaires</div>
+      <div class="exp-page-meta">
+        <span class="exp-page-date">Juillet 2021</span>
+        <span class="exp-page-loc">📍 Sophia-Antipolis</span>
+      </div>
+    </div>
+
+    <div class="exp-section-title reveal">Contexte</div>
+    <p class="reveal" style="font-size:.9rem;color:var(--text2);line-height:1.75;font-weight:300;max-width:720px;">
+      Premier contact avec le monde de l'ingénierie lors d'un stage d'observation au sein d'AXID, bureau d'études spécialisé en électronique et systèmes photovoltaïques. Une immersion dans le quotidien d'un bureau d'études technique, à la fin de la classe préparatoire.
+    </p>
+
+    <div class="exp-section-title reveal">Photos</div>
+    <div class="exp-gallery reveal">
+      <div class="exp-gallery-item">
+        <div class="img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Ajouter une photo
+        </div>
+        <div class="exp-gallery-caption">AXID · Sophia-Antipolis</div>
+      </div>
+    </div>
+  </section>
+
   <!-- CENTRES D'INTÉRÊTS -->
   <section class="section" id="sec-interests">
     <div class="sec-head reveal">
@@ -609,8 +889,15 @@ let lang='fr';
 function showSec(id,el){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('sec-'+id).classList.add('active');
+  document.querySelectorAll('.nav-sub a').forEach(a=>a.classList.remove('active'));
+  const secEl = document.getElementById('sec-'+id);
+  if(secEl) secEl.classList.add('active');
   if(el) el.classList.add('active');
+  // If sub-page, also highlight parent Expériences link
+  if(id.startsWith('exp-')){
+    const parentLink = document.querySelector('nav > ul > li > a[onclick*="experience"]');
+    if(parentLink) parentLink.classList.add('active');
+  }
   document.getElementById('search-results').classList.remove('visible');
   document.getElementById('no-result').classList.remove('visible');
   document.getElementById('search').value='';
