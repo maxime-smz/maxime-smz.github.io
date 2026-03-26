@@ -471,11 +471,39 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-photos">Photos & Documents</div>
-      <div class="photo-grid">
-        <div class="photo-slot"><span>📷</span><span class="photo-slot-label">Ajouter une photo</span></div>
-        <div class="photo-slot"><span>📷</span><span class="photo-slot-label">Ajouter une photo</span></div>
-        <div class="photo-slot"><span>📄</span><span class="photo-slot-label">Schéma / capture</span></div>
+
+      <!-- Campus -->
+      <div style="margin-bottom:1.5rem;">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
+          <img src="images/cstb-campus.jpg" alt="Campus CSTB Sophia-Antipolis" style="width:100%;height:280px;object-fit:cover;display:block;"/>
+        </div>
+        <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Campus CSTB · Sophia-Antipolis</p>
       </div>
+
+      <!-- Modèles 3D -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+        <div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
+            <img src="images/cstb-modele1.jpg" alt="Modèle 3D bâtiment - vue 1" style="width:100%;height:200px;object-fit:cover;display:block;"/>
+          </div>
+          <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Modèle 3D Dimosim — zones thermiques (avant traitement)</p>
+        </div>
+        <div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
+            <img src="images/cstb-modele2.jpg" alt="Modèle 3D bâtiment - vue 2" style="width:100%;height:200px;object-fit:cover;display:block;"/>
+          </div>
+          <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Modèle 3D Dimosim — zones thermiques (après traitement IFC)</p>
+        </div>
+      </div>
+
+      <!-- Calibration -->
+      <div>
+        <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
+          <img src="images/cstb-calibration.jpg" alt="Résultats calibration" style="width:100%;object-fit:contain;display:block;background:#fff;"/>
+        </div>
+        <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Calibration — Comparaison consommation gaz mesurée (InfluxDB) vs simulation initiale vs meilleure simulation (PSO) · Erreur finale : 1% APE</p>
+      </div>
+
     </div>
 
     <div class="exp-section reveal">
@@ -598,8 +626,10 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep3-photos">Photos</div>
       <div class="photo-grid">
-        <div class="photo-slot" style="grid-column:1/-1;aspect-ratio:16/9;">
+        <div class="photo-slot" style="grid-column:1/-1;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:8px;">
           <img src="images/photo1-axid.jpg" alt="Activités AXID" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"/>
+          <!-- Cache plaque voiture bleue : ~33% à 46% en X, ~30% à 42% en Y -->
+          <div style="position:absolute;left:33%;top:30%;width:13%;height:12%;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:3px;"></div>
         </div>
       </div>
       <p style="font-size:.75rem;color:var(--text3);margin-top:.6rem;font-family:'DM Mono',monospace;">De gauche à droite : soudure · livraison panneaux solaires · électronique analogique · cartes électroniques · gestion commandes · découpage</p>
