@@ -217,7 +217,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
         <span>Expériences</span></a></li>
     </ul>
-    <ul class="nav-sub" id="nav-sub-exp">
+    <ul class="nav-sub" id="nav-sub-exp" style="margin-top:-.8rem;">
       <li><a href="#" onclick="return showSec('exp-cstb',this)" id="nav-cstb" data-fr="CSTB" data-en="CSTB">
         <span class="dot"></span><span>CSTB</span></a></li>
       <li><a href="#" onclick="return showSec('exp-patie',this)" id="nav-patie" data-fr="Patie Michel" data-en="Patie Michel">
@@ -529,12 +529,16 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-exp2">Retour aux expériences</span>
     </button>
-    <div class="exp-page-header reveal">
-      <div class="exp-page-logo exp-page-logo-noinvert"><img src="images/logo-patie.png" alt="Patie Michel"/></div>
-      <div class="exp-page-info">
-        <span class="exp-page-date">Juillet – Novembre 2023</span>
-        <div class="exp-page-title" id="ep2-title">Stagiaire Ingénieur — Bureau d'Étude</div>
-        <div class="exp-page-sub" data-fr="CVC & Tuyauterie Industrielle · Patie Michel · Carros" data-en="HVAC & Industrial Piping · Patie Michel · Carros">CVC & Tuyauterie Industrielle · Patie Michel · Carros</div>
+
+    <!-- HERO patie-fond en arrière-fond -->
+    <div class="reveal" style="position:relative;border-radius:16px;overflow:hidden;margin-bottom:2.5rem;">
+      <div style="position:absolute;inset:0;background-image:url('images/patie-fond.jpg');background-size:cover;background-position:center;filter:brightness(.35);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,12,16,.8) 0%,rgba(8,12,16,.3) 100%);"></div>
+      <div style="position:relative;z-index:1;padding:2.5rem 2rem;">
+        <div style="margin-bottom:1rem;display:inline-flex;background:#fff;border-radius:8px;padding:.4rem .8rem;"><img src="images/logo-patie.png" alt="Patie Michel" style="height:36px;width:auto;object-fit:contain;"/></div>
+        <span class="exp-page-date" style="display:block;margin-bottom:.6rem;">Juillet – Novembre 2023</span>
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;line-height:1.1;margin-bottom:.4rem;" id="ep2-title">Stagiaire Ingénieur — Bureau d'Étude</div>
+        <div style="font-size:.95rem;color:rgba(255,255,255,.7);font-weight:300;" data-fr="CVC & Tuyauterie Industrielle · Patie Michel · Carros" data-en="HVAC & Industrial Piping · Patie Michel · Carros">CVC & Tuyauterie Industrielle · Patie Michel · Carros</div>
       </div>
     </div>
 
