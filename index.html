@@ -238,10 +238,9 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       </div>
     </div>
     <div class="ctrl-row">
-      <span class="ctrl-label" id="cl-lang">Langue</span>
-      <div class="tog">
-        <button id="btn-fr" class="on" onclick="setLang('fr')" style="font-size:.95rem;padding:.28rem .5rem;">🇫🇷</button>
-        <button id="btn-en" onclick="setLang('en')" style="font-size:.95rem;padding:.28rem .5rem;">🇬🇧</button>
+      <div class="tog" style="margin:0 auto;">
+        <button id="btn-fr" class="on" onclick="setLang('fr')" style="font-size:1.1rem;padding:.3rem .55rem;">🇫🇷</button>
+        <button id="btn-en" onclick="setLang('en')" style="font-size:1.1rem;padding:.3rem .55rem;">🇬🇧</button>
       </div>
     </div>
   </div>
@@ -429,18 +428,18 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <div style="margin-bottom:1rem;display:inline-flex;background:#fff;border-radius:8px;padding:.4rem .8rem;"><img src="images/logo-cstb.png" alt="CSTB" style="height:36px;width:auto;object-fit:contain;"/></div>
         <span class="exp-page-date" style="display:block;margin-bottom:.6rem;">Mars – Août 2025</span>
         <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;line-height:1.1;margin-bottom:.4rem;" id="ep1-title">Stagiaire Ingénieur — Recherche</div>
-        <div style="font-size:.95rem;color:rgba(255,255,255,.7);font-weight:300;">Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis</div>
+        <div style="font-size:.95rem;color:rgba(255,255,255,.7);font-weight:300;" data-fr="Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis" data-en="Scientific and Technical Centre for Building · Sophia-Antipolis">Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis</div>
       </div>
     </div>
 
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-context">Contexte</div>
-      <p class="exp-text">Le secteur du bâtiment est au cœur de la transition énergétique : il représente une part majeure des consommations d'énergie et des émissions de GES en Europe. La rénovation du parc existant constitue un levier d'action essentiel pour réduire significativement cet impact. C'est dans ce contexte que s'inscrit ce stage de 6 mois au sein du CSTB, leader européen de la recherche sur le bâtiment.</p>
+      <p class="exp-text" data-fr="Le secteur du bâtiment est au cœur de la transition énergétique : il représente une part majeure des consommations d'énergie et des émissions de GES en Europe. La rénovation du parc existant constitue un levier d'action essentiel pour réduire significativement cet impact. C'est dans ce contexte que s'inscrit ce stage de 6 mois au sein du CSTB, leader européen de la recherche sur le bâtiment." data-en="The building sector is at the heart of the energy transition: it accounts for a major share of energy consumption and GHG emissions in Europe. Renovating the existing stock is a key lever to significantly reduce this impact. This is the context of this 6-month internship at CSTB, the European leader in building research.">Le secteur du bâtiment est au cœur de la transition énergétique : il représente une part majeure des consommations d'énergie et des émissions de GES en Europe. La rénovation du parc existant constitue un levier d'action essentiel pour réduire significativement cet impact. C'est dans ce contexte que s'inscrit ce stage de 6 mois au sein du CSTB, leader européen de la recherche sur le bâtiment.</p>
     </div>
 
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-mission">Mission</div>
-      <p class="exp-text">L'objectif initial était d'étudier de manière générique les stratégies de rénovation par simulation numérique. La mission s'est rapidement orientée vers une application concrète : la modélisation et l'évaluation de ces stratégies appliquées aux bâtiments du campus CSTB de Sophia-Antipolis, avec la plateforme <strong>Dimosim</strong> comme outil central.</p>
+      <p class="exp-text" data-fr="L'objectif initial était d'étudier de manière générique les stratégies de rénovation par simulation numérique. La mission s'est rapidement orientée vers une application concrète : la modélisation et l'évaluation de ces stratégies appliquées aux bâtiments du campus CSTB de Sophia-Antipolis, avec la plateforme Dimosim comme outil central." data-en="The initial objective was to generically study renovation strategies through numerical simulation. The mission quickly shifted to a concrete application: modelling and evaluating these strategies for the CSTB campus buildings in Sophia-Antipolis, using the Dimosim platform as the central tool.">L'objectif initial était d'étudier de manière générique les stratégies de rénovation par simulation numérique. La mission s'est rapidement orientée vers une application concrète : la modélisation et l'évaluation de ces stratégies appliquées aux bâtiments du campus CSTB de Sophia-Antipolis, avec la plateforme <strong>Dimosim</strong> comme outil central.</p>
     </div>
 
     <div class="exp-section reveal">
@@ -448,15 +447,15 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="exp-timeline">
         <div class="exp-tl-item">
           <div class="exp-tl-date">Mars – Avril 2025</div>
-          <div class="exp-tl-text">Prise en main de Dimosim · Collecte des données capteurs du site (météo, consommation, températures) · Analyse exploratoire des données sous Python</div>
+          <div class="exp-tl-text" data-fr="Prise en main de Dimosim · Collecte des données capteurs du site (météo, consommation, températures) · Analyse exploratoire des données sous Python" data-en="Onboarding Dimosim · Site sensor data collection (weather, consumption, temperatures) · Exploratory data analysis in Python">Prise en main de Dimosim · Collecte des données capteurs du site (météo, consommation, températures) · Analyse exploratoire des données sous Python</div>
         </div>
         <div class="exp-tl-item">
           <div class="exp-tl-date">Avril – Juin 2025</div>
-          <div class="exp-tl-text">Construction des modèles de bâtiment détaillés · Calibration des modèles numériques sur données réelles · Validation des modèles</div>
+          <div class="exp-tl-text" data-fr="Construction des modèles de bâtiment détaillés · Calibration des modèles numériques sur données réelles · Validation des modèles" data-en="Building detailed building models · Calibrating numerical models on real data · Model validation">Construction des modèles de bâtiment détaillés · Calibration des modèles numériques sur données réelles · Validation des modèles</div>
         </div>
         <div class="exp-tl-item">
           <div class="exp-tl-date">Juin – Août 2025</div>
-          <div class="exp-tl-text">Évaluation de scénarios d'amélioration (enveloppe + systèmes énergétiques) · Rédaction du rapport et présentation des résultats à l'équipe</div>
+          <div class="exp-tl-text" data-fr="Évaluation de scénarios d'amélioration (enveloppe + systèmes énergétiques) · Rédaction du rapport et présentation des résultats à l'équipe" data-en="Evaluation of improvement scenarios (envelope + energy systems) · Report writing and results presentation to the team">Évaluation de scénarios d'amélioration (enveloppe + systèmes énergétiques) · Rédaction du rapport et présentation des résultats à l'équipe</div>
         </div>
       </div>
     </div>
@@ -464,23 +463,23 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-real">Réalisations</div>
       <ul class="exp-bullets">
-        <li>Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
-        <li>
+        <li id="cstb-b1">Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
+        <li id="cstb-b2">
           Construction de modèles de bâtiment détaillés sous <strong>Dimosim</strong> — extraction et traitement des géométries IFC sous <strong>QGIS</strong>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.7rem;max-width:500px;">
-            <div><img src="images/cstb-modele1.jpg" alt="Modèle avant" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;">Zones thermiques — avant traitement IFC</p></div>
-            <div><img src="images/cstb-modele2.jpg" alt="Modèle après" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;">Zones thermiques — après traitement</p></div>
+            <div><img src="images/cstb-modele1.jpg" alt="Modèle avant" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;" data-fr="Zones thermiques — avant traitement IFC" data-en="Thermal zones — before IFC processing">Zones thermiques — avant traitement IFC</p></div>
+            <div><img src="images/cstb-modele2.jpg" alt="Modèle après" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;" data-fr="Zones thermiques — après traitement" data-en="Thermal zones — after processing">Zones thermiques — après traitement</p></div>
           </div>
         </li>
-        <li>
+        <li id="cstb-b3">
           Calibration rigoureuse des modèles sur les mesures réelles — erreur finale de <strong>1% APE</strong> sur la consommation de gaz du bâtiment A/B
           <div style="margin-top:.7rem;">
             <img src="images/cstb-calibration.jpg" alt="Calibration" style="width:100%;max-width:520px;border-radius:6px;border:1px solid var(--border);background:#fff;display:block;"/>
-            <p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;">Consommation gaz (kWh) — InfluxDB vs simulation initiale vs meilleure simulation PSO</p>
+            <p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;" data-fr="Consommation gaz (kWh) — InfluxDB vs simulation initiale vs meilleure simulation PSO" data-en="Gas consumption (kWh) — InfluxDB vs initial simulation vs best simulation PSO">Consommation gaz (kWh) — InfluxDB vs simulation initiale vs meilleure simulation PSO</p>
           </div>
         </li>
-        <li>Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations</li>
-        <li>Développement d'une méthodologie reproductible pour des cas concrets de rénovation</li>
+        <li id="cstb-b4">Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations</li>
+        <li id="cstb-b5">Développement d'une méthodologie reproductible pour des cas concrets de rénovation</li>
       </ul>
     </div>
 
@@ -503,7 +502,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <div class="skill-pill">
           <div class="skill-pill-icon">🗺️</div>
           <div class="skill-pill-name">QGIS</div>
-          <div class="skill-pill-desc">Construction de polygones bâtiments · données SIG</div>
+          <div class="skill-pill-desc" data-fr="Construction de polygones bâtiments · données SIG" data-en="Building polygon construction · GIS data">Construction de polygones bâtiments · données SIG</div>
         </div>
 
         <div class="skill-pill">
@@ -520,8 +519,8 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 
         <div class="skill-pill">
           <div class="skill-pill-icon">📝</div>
-          <div class="skill-pill-name">Rédaction</div>
-          <div class="skill-pill-desc">Rapport scientifique</div>
+          <div class="skill-pill-name" data-fr="Rédaction" data-en="Writing">Rédaction</div>
+          <div class="skill-pill-desc" data-fr="Rapport scientifique" data-en="Scientific report">Rapport scientifique</div>
         </div>
 
       </div>
@@ -539,13 +538,13 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="exp-page-info">
         <span class="exp-page-date">Juillet – Novembre 2023</span>
         <div class="exp-page-title" id="ep2-title">Stagiaire Ingénieur — Bureau d'Étude</div>
-        <div class="exp-page-sub">CVC & Tuyauterie Industrielle · Patie Michel · Carros</div>
+        <div class="exp-page-sub" data-fr="CVC & Tuyauterie Industrielle · Patie Michel · Carros" data-en="HVAC & Industrial Piping · Patie Michel · Carros">CVC & Tuyauterie Industrielle · Patie Michel · Carros</div>
       </div>
     </div>
 
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep2-context">Contexte & Mission</div>
-      <p class="exp-text">Stage de 5 mois au sein du bureau d'études de Patie Michel, spécialisé en CVC et tuyauterie industrielle, intervenant dans les secteurs pharmaceutique, chimique et agro-alimentaire. Mission polyvalente couvrant l'ensemble du cycle d'un projet : de la conception à la réalisation, en passant par le chiffrage et le suivi de chantier.</p>
+      <p class="exp-text" data-fr="Stage de 5 mois au sein du bureau d'études de Patie Michel, spécialisé en CVC et tuyauterie industrielle, intervenant dans les secteurs pharmaceutique, chimique et agro-alimentaire. Mission polyvalente couvrant l'ensemble du cycle d'un projet : de la conception à la réalisation, en passant par le chiffrage et le suivi de chantier." data-en="5-month internship at Patie Michel's design office, specialised in HVAC and industrial piping, operating in the pharmaceutical, chemical and food sectors. Versatile mission covering the full project cycle: from design to execution, including costing and site supervision.">Stage de 5 mois au sein du bureau d'études de Patie Michel, spécialisé en CVC et tuyauterie industrielle, intervenant dans les secteurs pharmaceutique, chimique et agro-alimentaire. Mission polyvalente couvrant l'ensemble du cycle d'un projet : de la conception à la réalisation, en passant par le chiffrage et le suivi de chantier.</p>
     </div>
 
     <div class="exp-section reveal">
@@ -557,15 +556,15 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         </div>
         <div class="exp-tl-item">
           <div class="exp-tl-date">Août – Septembre 2023</div>
-          <div class="exp-tl-text">Dimensionnement tuyauteries et équipements CVC · Calculs hydrauliques (pertes de charge, débits) · Notes de calcul et devis · Visites de chantier</div>
+          <div class="exp-tl-text" data-fr="Dimensionnement tuyauteries et équipements CVC · Calculs hydrauliques (pertes de charge, débits) · Notes de calcul et devis · Visites de chantier" data-en="HVAC piping and equipment sizing · Hydraulic calculations (pressure drops, flow rates) · Calculation notes and quotes · Site visits">Dimensionnement tuyauteries et équipements CVC · Calculs hydrauliques (pertes de charge, débits) · Notes de calcul et devis · Visites de chantier</div>
         </div>
         <div class="exp-tl-item">
           <div class="exp-tl-date">Septembre – Octobre 2023</div>
-          <div class="exp-tl-text">Plans d'exécution 3D et familles paramétriques sous Revit MEP · Nomenclature automatisée inter-logiciels · Planning VBA</div>
+          <div class="exp-tl-text" data-fr="Plans d'exécution 3D et familles paramétriques sous Revit MEP · Nomenclature automatisée inter-logiciels · Planning VBA" data-en="3D execution plans and parametric families in Revit MEP · Automated cross-software nomenclature · VBA scheduling">Plans d'exécution 3D et familles paramétriques sous Revit MEP · Nomenclature automatisée inter-logiciels · Planning VBA</div>
         </div>
         <div class="exp-tl-item">
           <div class="exp-tl-date">Octobre – Novembre 2023</div>
-          <div class="exp-tl-text">Encadrement et formation d'un alternant · Réunions clients et sous-traitants · Métrés sur site</div>
+          <div class="exp-tl-text" data-fr="Encadrement et formation d'un alternant · Réunions clients et sous-traitants · Métrés sur site" data-en="Mentoring and training an apprentice · Client and subcontractor meetings · On-site surveying">Encadrement et formation d'un alternant · Réunions clients et sous-traitants · Métrés sur site</div>
         </div>
       </div>
     </div>
@@ -573,23 +572,23 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep2-real">Réalisations</div>
       <ul class="exp-bullets">
-        <li>Réalisation de schémas P&ID sous AutoCAD — création d'un modèle de référence réutilisable pour tous les projets futurs</li>
-        <li>Dimensionnement des tuyauteries et équipements CVC : analyse de CCTP, calculs de débits et pertes de charge via abaques</li>
-        <li>Plans d'exécution 3D et familles paramétriques sous Revit MEP</li>
-        <li>Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif</li>
-        <li>Développement d'un planning en VBA pour la gestion des phases projet</li>
-        <li>Participation à des visites de chantier et réunions clients/sous-traitants</li>
-        <li>Encadrement et formation d'un alternant en fin de stage</li>
+        <li id="patie-b1">Réalisation de schémas P&ID sous AutoCAD — création d'un modèle de référence réutilisable pour tous les projets futurs</li>
+        <li id="patie-b2">Dimensionnement des tuyauteries et équipements CVC : analyse de CCTP, calculs de débits et pertes de charge via abaques</li>
+        <li id="patie-b3">Plans d'exécution 3D et familles paramétriques sous Revit MEP</li>
+        <li id="patie-b4">Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif</li>
+        <li id="patie-b5">Développement d'un planning en VBA pour la gestion des phases projet</li>
+        <li id="patie-b6">Participation à des visites de chantier et réunions clients/sous-traitants</li>
+        <li id="patie-b7">Encadrement et formation d'un alternant en fin de stage</li>
       </ul>
     </div>
 
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep2-photos">Photos & Schémas</div>
       <div class="photo-grid">
-        <div class="photo-slot"><span>📷</span><span class="photo-slot-label">Photo chantier</span></div>
+        <div class="photo-slot"><span>📷</span><span class="photo-slot-label" data-fr="Photo chantier" data-en="Site photo">Photo chantier</span></div>
         <div class="photo-slot"><span>📐</span><span class="photo-slot-label">Exemple P&ID</span></div>
-        <div class="photo-slot"><span>🖥️</span><span class="photo-slot-label">Plan Revit MEP</span></div>
-        <div class="photo-slot"><span>📊</span><span class="photo-slot-label">Nomenclature Excel</span></div>
+        <div class="photo-slot"><span>🖥️</span><span class="photo-slot-label" data-fr="Plan Revit MEP" data-en="Revit MEP plan">Plan Revit MEP</span></div>
+        <div class="photo-slot"><span>📊</span><span class="photo-slot-label" data-fr="Nomenclature Excel" data-en="Excel nomenclature">Nomenclature Excel</span></div>
       </div>
     </div>
 
@@ -597,10 +596,10 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="exp-section-title" id="ep2-skills">Compétences acquises</div>
       <div class="skills-visual">
         <div class="skill-pill"><div class="skill-pill-icon">📐</div><div class="skill-pill-name">AutoCAD</div><div class="skill-pill-desc">P&ID, 2D/3D</div></div>
-        <div class="skill-pill"><div class="skill-pill-icon">🏗️</div><div class="skill-pill-name">Revit MEP</div><div class="skill-pill-desc">Plans, familles</div></div>
-        <div class="skill-pill"><div class="skill-pill-icon">💧</div><div class="skill-pill-name">Hydraulique</div><div class="skill-pill-desc">Calculs, abaques</div></div>
-        <div class="skill-pill"><div class="skill-pill-icon">📊</div><div class="skill-pill-name">Excel / VBA</div><div class="skill-pill-desc">Automatisation</div></div>
-        <div class="skill-pill"><div class="skill-pill-icon">💼</div><div class="skill-pill-name">Devis</div><div class="skill-pill-desc">Chiffrage, CCTP</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">🏗️</div><div class="skill-pill-name">Revit MEP</div><div class="skill-pill-desc" data-fr="Plans, familles" data-en="Plans, families">Plans, familles</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">💧</div><div class="skill-pill-name">Hydraulique</div><div class="skill-pill-desc" data-fr="Calculs, abaques" data-en="Calculations, charts">Calculs, abaques</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">📊</div><div class="skill-pill-name">Excel / VBA</div><div class="skill-pill-desc" data-fr="Automatisation" data-en="Automation">Automatisation</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">💼</div><div class="skill-pill-name">Devis</div><div class="skill-pill-desc" data-fr="Chiffrage, CCTP" data-en="Costing, specs">Chiffrage, CCTP</div></div>
         <div class="skill-pill"><div class="skill-pill-icon">👥</div><div class="skill-pill-name">Tutorat</div><div class="skill-pill-desc">Formation alternant</div></div>
       </div>
     </div>
@@ -616,21 +615,21 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="exp-page-info">
         <span class="exp-page-date">Juillet 2021</span>
         <div class="exp-page-title" id="ep3-title">Stagiaire — Bureau d'Étude Électronique</div>
-        <div class="exp-page-sub">AXID · Sophia-Antipolis · Panneaux solaires</div>
+        <div class="exp-page-sub" data-fr="AXID · Sophia-Antipolis · Panneaux solaires" data-en="AXID · Sophia-Antipolis · Solar panels">AXID · Sophia-Antipolis · Panneaux solaires</div>
       </div>
     </div>
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep3-context">Contexte</div>
-      <p class="exp-text">Premier contact avec le monde de l'ingénierie au sein d'AXID, bureau d'études spécialisé en électronique et systèmes photovoltaïques à Sophia-Antipolis. Stage de découverte permettant d'appréhender le fonctionnement concret d'une structure technique et les réalités du métier d'ingénieur.</p>
+      <p class="exp-text" data-fr="Premier contact avec le monde de l'ingénierie au sein d'AXID, bureau d'études spécialisé en électronique et systèmes photovoltaïques à Sophia-Antipolis. Stage de découverte permettant d'appréhender le fonctionnement concret d'une structure technique et les réalités du métier d'ingénieur." data-en="First contact with the engineering world at AXID, a design office specialised in electronics and photovoltaic systems in Sophia-Antipolis. A discovery internship providing insight into the practical workings of a technical firm and the realities of the engineering profession.">Premier contact avec le monde de l'ingénierie au sein d'AXID, bureau d'études spécialisé en électronique et systèmes photovoltaïques à Sophia-Antipolis. Stage de découverte permettant d'appréhender le fonctionnement concret d'une structure technique et les réalités du métier d'ingénieur.</p>
     </div>
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep3-real">Activités réalisées</div>
       <ul class="exp-bullets">
-        <li>Électronique analogique : manipulation de cartes électroniques, oscilloscope, alimentation de laboratoire</li>
-        <li>Soudure et découpage de composants électroniques</li>
-        <li>Gestion des livraisons de panneaux solaires et suivi des commandes (AXUN)</li>
-        <li>Participation à la recherche de clients pour la structure</li>
-        <li>Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs</li>
+        <li id="axid-b1">Électronique analogique : manipulation de cartes électroniques, oscilloscope, alimentation de laboratoire</li>
+        <li id="axid-b2">Soudure et découpage de composants électroniques</li>
+        <li id="axid-b3">Gestion des livraisons de panneaux solaires et suivi des commandes (AXUN)</li>
+        <li id="axid-b4">Participation à la recherche de clients pour la structure</li>
+        <li id="axid-b5">Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs</li>
       </ul>
     </div>
     <div class="exp-section reveal">
@@ -642,7 +641,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           <div style="position:absolute;left:29%;top:35%;width:8%;height:4%;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:3px;"></div>
         </div>
       </div>
-      <p style="font-size:.75rem;color:var(--text3);margin-top:.6rem;font-family:'DM Mono',monospace;">De gauche à droite : soudure · livraison panneaux solaires · électronique analogique · cartes électroniques · gestion commandes · découpage</p>
+      <p style="font-size:.75rem;color:var(--text3);margin-top:.6rem;font-family:'DM Mono',monospace;" data-fr="De gauche à droite : soudure · livraison panneaux solaires · électronique analogique · cartes électroniques · gestion commandes · découpage" data-en="Left to right: soldering · solar panel delivery · analogue electronics · electronic boards · order management · cutting">De gauche à droite : soudure · livraison panneaux solaires · électronique analogique · cartes électroniques · gestion commandes · découpage</p>
     </div>
   </section>
 
@@ -792,6 +791,7 @@ en:{
 'ep2-title':'Engineering Intern — Design Office',
 'ep2-context':'Context & Mission','ep2-timeline':'Stage timeline',
 'ep2-real':'Achievements','ep2-photos':'Photos & Diagrams','ep2-skills':'Skills developed',
+'ep2-sub':'HVAC & Industrial Piping · Patie Michel · Carros',
 'ep3-title':'Intern — Electronics Design Office',
 'ep3-context':'Context','ep3-real':'Activities','ep3-photos':'Photos',
 'back-exp':'Back to experience','back-exp2':'Back to experience','back-exp3':'Back to experience',
@@ -799,6 +799,47 @@ en:{
 'i4t':'Technical Progress & Innovation','i4d':'Active monitoring of future sectors: space, AI & agentic automation, biotech, defence, robotics, new energy production models, quantum computing.',
 'i1t':'Finance & Markets','i1d':'Strong interest in financial markets, financial instruments and their underlyings. Active monitoring of global economic and financial news.',
 'i3t':'Entrepreneurship','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate financial analysis and growth strategies.'
+}};
+
+// Bullet point translations for exp pages (innerHTML needed due to <strong> tags)
+const BULLETS={
+fr:{
+'cstb-b1':"Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités",
+'cstb-b2':"Construction de modèles de bâtiment détaillés sous <strong>Dimosim</strong> — extraction et traitement des géométries IFC sous <strong>QGIS</strong>",
+'cstb-b3':"Calibration rigoureuse des modèles sur les mesures réelles — erreur finale de <strong>1% APE</strong> sur la consommation de gaz du bâtiment A/B",
+'cstb-b4':"Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations",
+'cstb-b5':"Développement d'une méthodologie reproductible pour des cas concrets de rénovation",
+'patie-b1':"Réalisation de schémas P&ID sous AutoCAD — création d'un modèle de référence réutilisable pour tous les projets futurs",
+'patie-b2':"Dimensionnement des tuyauteries et équipements CVC : analyse de CCTP, calculs de débits et pertes de charge via abaques",
+'patie-b3':"Plans d'exécution 3D et familles paramétriques sous Revit MEP",
+'patie-b4':"Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif",
+'patie-b5':"Développement d'un planning en VBA pour la gestion des phases projet",
+'patie-b6':"Participation à des visites de chantier et réunions clients/sous-traitants",
+'patie-b7':"Encadrement et formation d'un alternant en fin de stage",
+'axid-b1':"Électronique analogique : manipulation de cartes électroniques, oscilloscope, alimentation de laboratoire",
+'axid-b2':"Soudure et découpage de composants électroniques",
+'axid-b3':"Gestion des livraisons de panneaux solaires et suivi des commandes (AXUN)",
+'axid-b4':"Participation à la recherche de clients pour la structure",
+'axid-b5':"Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs"
+},
+en:{
+'cstb-b1':"Data collection and processing from meteorological databases and site sensors (electrical panels, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — over 300,000 data points processed",
+'cstb-b2':"Construction of detailed building models in <strong>Dimosim</strong> — IFC geometry extraction and processing in <strong>QGIS</strong>",
+'cstb-b3':"Rigorous model calibration against real measurements — final error of <strong>1% APE</strong> on gas consumption of building A/B",
+'cstb-b4':"Evaluation of improvement scenarios on building envelope and energy systems — Python script for automated simulations",
+'cstb-b5':"Development of a reproducible methodology for concrete renovation case studies",
+'patie-b1':"P&ID diagrams in AutoCAD — creation of a reusable reference template for all future projects",
+'patie-b2':"HVAC piping and equipment sizing: CCTP analysis, flow rate and pressure drop calculations using charts",
+'patie-b3':"3D execution plans and parametric families in Revit MEP",
+'patie-b4':"Creation of an automated cross-software nomenclature (Excel, AutoCAD, Revit) — significant time savings",
+'patie-b5':"Development of a VBA-based project phase scheduling tool",
+'patie-b6':"Participation in site visits and client/subcontractor meetings",
+'patie-b7':"Mentoring and training an apprentice at the end of the internship",
+'axid-b1':"Analogue electronics: handling electronic boards, oscilloscope, laboratory power supply",
+'axid-b2':"Soldering and cutting of electronic components",
+'axid-b3':"Management of solar panel deliveries and order tracking (AXUN)",
+'axid-b4':"Participation in client prospecting for the company",
+'axid-b5':"Discovery of design office environment: meetings, internal processes, supplier relations"
 }};
 
 const IDX=[
@@ -851,14 +892,28 @@ function setLang(l){
   document.getElementById('btn-fr').classList.toggle('on',l==='fr');
   document.getElementById('btn-en').classList.toggle('on',l==='en');
   const t=T[l];
+  // Text-only elements via id
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
+  // Nav labels
   document.querySelectorAll('nav a[data-'+l+'], .nav-sub a[data-'+l+']').forEach(a=>{
     const span=a.querySelector('span:last-child');
     if(span) span.textContent=a.getAttribute('data-'+l);
   });
   document.getElementById('search').placeholder=l==='fr'?'Rechercher...':'Search...';
+  // data-fr/data-en elements (textContent only, no id)
   document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
     if(!el.id) el.textContent=el.getAttribute('data-'+l);
+  });
+  // innerHTML bullets (contain <strong> tags)
+  const b=BULLETS[l];
+  Object.keys(b).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){
+      // Keep child elements (images, divs) after the text
+      const kids=[...el.children];
+      el.innerHTML=b[id];
+      kids.forEach(k=>el.appendChild(k));
+    }
   });
 }
 
