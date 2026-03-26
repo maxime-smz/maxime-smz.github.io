@@ -181,7 +181,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .skill-pill:hover{border-color:var(--accent);}
 .skill-pill-icon{font-size:1.4rem;margin-bottom:.4rem;}
 .skill-pill-name{font-size:.75rem;font-weight:600;color:var(--text);font-family:'DM Mono',monospace;}
-.skill-pill-desc{font-size:.68rem;color:var(--text3);margin-top:.2rem;}
+.skill-pill-desc{font-size:.68rem;color:var(--text2);margin-top:.2rem;}
 
 /* PHOTO GRID */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:.5rem;}
@@ -463,23 +463,23 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-real">Réalisations</div>
       <ul class="exp-bullets">
-        <li id="cstb-b1">Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
-        <li id="cstb-b2">
+        <li id="cstb-b1" data-bullet="true">Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
+        <li id="cstb-b2" data-bullet="true">
           Construction de modèles de bâtiment détaillés sous <strong>Dimosim</strong> — extraction et traitement des géométries IFC sous <strong>QGIS</strong>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.7rem;max-width:500px;">
             <div><img src="images/cstb-modele1.jpg" alt="Modèle avant" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;" data-fr="Zones thermiques — avant traitement IFC" data-en="Thermal zones — before IFC processing">Zones thermiques — avant traitement IFC</p></div>
             <div><img src="images/cstb-modele2.jpg" alt="Modèle après" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;" data-fr="Zones thermiques — après traitement" data-en="Thermal zones — after processing">Zones thermiques — après traitement</p></div>
           </div>
         </li>
-        <li id="cstb-b3">
+        <li id="cstb-b3" data-bullet="true">
           Calibration rigoureuse des modèles sur les mesures réelles — erreur finale de <strong>1% APE</strong> sur la consommation de gaz du bâtiment A/B
           <div style="margin-top:.7rem;">
             <img src="images/cstb-calibration.jpg" alt="Calibration" style="width:100%;max-width:520px;border-radius:6px;border:1px solid var(--border);background:#fff;display:block;"/>
             <p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;" data-fr="Consommation gaz (kWh) — InfluxDB vs simulation initiale vs meilleure simulation PSO" data-en="Gas consumption (kWh) — InfluxDB vs initial simulation vs best simulation PSO">Consommation gaz (kWh) — InfluxDB vs simulation initiale vs meilleure simulation PSO</p>
           </div>
         </li>
-        <li id="cstb-b4">Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations</li>
-        <li id="cstb-b5">Développement d'une méthodologie reproductible pour des cas concrets de rénovation</li>
+        <li id="cstb-b4" data-bullet="true">Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations</li>
+        <li id="cstb-b5" data-bullet="true">Développement d'une méthodologie reproductible pour des cas concrets de rénovation</li>
       </ul>
     </div>
 
@@ -515,12 +515,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           <div class="skill-pill-icon">🎯</div>
           <div class="skill-pill-name">Calibration</div>
           <div class="skill-pill-desc">Analyse de sensibilité · méthode PSO · métriques APE & GOF</div>
-        </div>
-
-        <div class="skill-pill">
-          <div class="skill-pill-icon">📝</div>
-          <div class="skill-pill-name" data-fr="Rédaction" data-en="Writing">Rédaction</div>
-          <div class="skill-pill-desc" data-fr="Rapport scientifique" data-en="Scientific report">Rapport scientifique</div>
         </div>
 
       </div>
@@ -572,13 +566,13 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep2-real">Réalisations</div>
       <ul class="exp-bullets">
-        <li id="patie-b1">Réalisation de schémas P&ID sous AutoCAD — création d'un modèle de référence réutilisable pour tous les projets futurs</li>
-        <li id="patie-b2">Dimensionnement des tuyauteries et équipements CVC : analyse de CCTP, calculs de débits et pertes de charge via abaques</li>
-        <li id="patie-b3">Plans d'exécution 3D et familles paramétriques sous Revit MEP</li>
-        <li id="patie-b4">Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif</li>
-        <li id="patie-b5">Développement d'un planning en VBA pour la gestion des phases projet</li>
-        <li id="patie-b6">Participation à des visites de chantier et réunions clients/sous-traitants</li>
-        <li id="patie-b7">Encadrement et formation d'un alternant en fin de stage</li>
+        <li id="patie-b1" data-bullet="true">Réalisation de schémas P&ID sous AutoCAD — création d'un modèle de référence réutilisable pour tous les projets futurs</li>
+        <li id="patie-b2" data-bullet="true">Dimensionnement des tuyauteries et équipements CVC : analyse de CCTP, calculs de débits et pertes de charge via abaques</li>
+        <li id="patie-b3" data-bullet="true">Plans d'exécution 3D et familles paramétriques sous Revit MEP</li>
+        <li id="patie-b4" data-bullet="true">Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif</li>
+        <li id="patie-b5" data-bullet="true">Développement d'un planning en VBA pour la gestion des phases projet</li>
+        <li id="patie-b6" data-bullet="true">Participation à des visites de chantier et réunions clients/sous-traitants</li>
+        <li id="patie-b7" data-bullet="true">Encadrement et formation d'un alternant en fin de stage</li>
       </ul>
     </div>
 
@@ -625,11 +619,11 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep3-real">Activités réalisées</div>
       <ul class="exp-bullets">
-        <li id="axid-b1">Électronique analogique : manipulation de cartes électroniques, oscilloscope, alimentation de laboratoire</li>
-        <li id="axid-b2">Soudure et découpage de composants électroniques</li>
-        <li id="axid-b3">Gestion des livraisons de panneaux solaires et suivi des commandes (AXUN)</li>
-        <li id="axid-b4">Participation à la recherche de clients pour la structure</li>
-        <li id="axid-b5">Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs</li>
+        <li id="axid-b1" data-bullet="true">Électronique analogique : manipulation de cartes électroniques, oscilloscope, alimentation de laboratoire</li>
+        <li id="axid-b2" data-bullet="true">Soudure et découpage de composants électroniques</li>
+        <li id="axid-b3" data-bullet="true">Gestion des livraisons de panneaux solaires et suivi des commandes (AXUN)</li>
+        <li id="axid-b4" data-bullet="true">Participation à la recherche de clients pour la structure</li>
+        <li id="axid-b5" data-bullet="true">Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs</li>
       </ul>
     </div>
     <div class="exp-section reveal">
@@ -893,7 +887,7 @@ function setLang(l){
   document.getElementById('btn-en').classList.toggle('on',l==='en');
   const t=T[l];
   // Text-only elements via id
-  Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
+  Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el&&!el.dataset.bullet)el.textContent=t[id];});
   // Nav labels
   document.querySelectorAll('nav a[data-'+l+'], .nav-sub a[data-'+l+']').forEach(a=>{
     const span=a.querySelector('span:last-child');
@@ -909,9 +903,11 @@ function setLang(l){
   Object.keys(b).forEach(id=>{
     const el=document.getElementById(id);
     if(el){
-      // Keep child elements (images, divs) after the text
+      // Save child elements (images, divs) that come after the text
       const kids=[...el.children];
+      // Clear and set new translated text
       el.innerHTML=b[id];
+      // Re-append saved children
       kids.forEach(k=>el.appendChild(k));
     }
   });
