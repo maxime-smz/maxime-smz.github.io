@@ -239,9 +239,9 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <button id="btn-dark" onclick="setTheme('dark')">🌙</button>
       </div>
     </div>
-    <div class="ctrl-row">
-      <span style="font-size:1.6rem;cursor:pointer;opacity:.5;transition:opacity .2s;" id="btn-fr" onclick="setLang('fr')" title="Français">🇫🇷</span>
-      <span style="font-size:1.6rem;cursor:pointer;opacity:.5;transition:opacity .2s;" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</span>
+    <div class="ctrl-row" style="justify-content:center;gap:1rem;">
+      <img src="https://flagcdn.com/w40/fr.png" width="32" style="cursor:pointer;border-radius:3px;opacity:.4;transition:opacity .2s;border:2px solid transparent;" id="btn-fr" onclick="setLang('fr')" title="Français"/>
+      <img src="https://flagcdn.com/w40/gb.png" width="32" style="cursor:pointer;border-radius:3px;opacity:1;transition:opacity .2s;border:2px solid transparent;" id="btn-en" onclick="setLang('en')" title="English"/>
     </div>
   </div>
 </aside>
@@ -888,7 +888,9 @@ function setTheme(t){
 function setLang(l){
   lang=l;
   document.getElementById('btn-fr').style.opacity=l==='fr'?'1':'.4';
+  document.getElementById('btn-fr').style.border=l==='fr'?'2px solid var(--accent)':'2px solid transparent';
   document.getElementById('btn-en').style.opacity=l==='en'?'1':'.4';
+  document.getElementById('btn-en').style.border=l==='en'?'2px solid var(--accent)':'2px solid transparent';
   const t=T[l];
   // Text-only elements via id
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el&&!el.dataset.bullet)el.textContent=t[id];});
@@ -951,7 +953,9 @@ function triggerReveal(){
 }
 triggerReveal();
 document.getElementById('btn-fr').style.opacity='1';
+document.getElementById('btn-fr').style.border='2px solid var(--accent)';
 document.getElementById('btn-en').style.opacity='.4';
+document.getElementById('btn-en').style.border='2px solid transparent';
 </script>
 </body>
 </html>
