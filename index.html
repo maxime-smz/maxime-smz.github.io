@@ -421,12 +421,15 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-exp">Retour aux expériences</span>
     </button>
-    <div class="exp-page-header reveal">
-      <div class="exp-page-logo"><img src="images/logo-cstb.png" alt="CSTB"/></div>
-      <div class="exp-page-info">
-        <span class="exp-page-date">Mars – Août 2025</span>
-        <div class="exp-page-title" id="ep1-title">Stagiaire Ingénieur — Recherche</div>
-        <div class="exp-page-sub">Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis</div>
+    <!-- HERO campus en arrière-fond -->
+    <div class="reveal" style="position:relative;border-radius:16px;overflow:hidden;margin-bottom:2.5rem;">
+      <div style="position:absolute;inset:0;background-image:url('images/cstb-campus.jpg');background-size:cover;background-position:center;filter:brightness(.4);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,12,16,.75) 0%,rgba(8,12,16,.3) 100%);"></div>
+      <div style="position:relative;z-index:1;padding:2.5rem 2rem;">
+        <div style="margin-bottom:1rem;display:inline-flex;background:#fff;border-radius:8px;padding:.4rem .8rem;"><img src="images/logo-cstb.png" alt="CSTB" style="height:36px;width:auto;object-fit:contain;"/></div>
+        <span class="exp-page-date" style="display:block;margin-bottom:.6rem;">Mars – Août 2025</span>
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;line-height:1.1;margin-bottom:.4rem;" id="ep1-title">Stagiaire Ingénieur — Recherche</div>
+        <div style="font-size:.95rem;color:rgba(255,255,255,.7);font-weight:300;">Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis</div>
       </div>
     </div>
 
@@ -461,49 +464,24 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-real">Réalisations</div>
       <ul class="exp-bullets">
-        <li>Collecte et traitement de données réelles issues des capteurs du site (météo, consommations, températures intérieures)</li>
-        <li>Construction de modèles de bâtiment détaillés sous Dimosim à partir de ces données</li>
-        <li>Calibration rigoureuse des modèles numériques sur les mesures réelles pour garantir leur fiabilité</li>
-        <li>Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques</li>
-        <li>Développement d'une méthodologie reproductible pour l'application de la simulation numérique à des cas concrets de rénovation</li>
+        <li>Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
+        <li>
+          Construction de modèles de bâtiment détaillés sous <strong>Dimosim</strong> — extraction et traitement des géométries IFC sous <strong>QGIS</strong>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.7rem;max-width:500px;">
+            <div><img src="images/cstb-modele1.jpg" alt="Modèle avant" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;">Zones thermiques — avant traitement IFC</p></div>
+            <div><img src="images/cstb-modele2.jpg" alt="Modèle après" style="width:100%;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;"/><p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;">Zones thermiques — après traitement</p></div>
+          </div>
+        </li>
+        <li>
+          Calibration rigoureuse des modèles sur les mesures réelles — erreur finale de <strong>1% APE</strong> sur la consommation de gaz du bâtiment A/B
+          <div style="margin-top:.7rem;">
+            <img src="images/cstb-calibration.jpg" alt="Calibration" style="width:100%;max-width:520px;border-radius:6px;border:1px solid var(--border);background:#fff;display:block;"/>
+            <p style="font-size:.65rem;color:var(--text3);margin-top:.3rem;font-family:'DM Mono',monospace;">Consommation gaz (kWh) — InfluxDB vs simulation initiale vs meilleure simulation PSO</p>
+          </div>
+        </li>
+        <li>Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations</li>
+        <li>Développement d'une méthodologie reproductible pour des cas concrets de rénovation</li>
       </ul>
-    </div>
-
-    <div class="exp-section reveal">
-      <div class="exp-section-title" id="ep1-photos">Photos & Documents</div>
-
-      <!-- Campus -->
-      <div style="margin-bottom:1.5rem;">
-        <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-          <img src="images/cstb-campus.jpg" alt="Campus CSTB Sophia-Antipolis" style="width:100%;height:280px;object-fit:cover;display:block;"/>
-        </div>
-        <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Campus CSTB · Sophia-Antipolis</p>
-      </div>
-
-      <!-- Modèles 3D -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
-        <div>
-          <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-            <img src="images/cstb-modele1.jpg" alt="Modèle 3D bâtiment - vue 1" style="width:100%;height:200px;object-fit:cover;display:block;"/>
-          </div>
-          <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Modèle 3D Dimosim — zones thermiques (avant traitement)</p>
-        </div>
-        <div>
-          <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-            <img src="images/cstb-modele2.jpg" alt="Modèle 3D bâtiment - vue 2" style="width:100%;height:200px;object-fit:cover;display:block;"/>
-          </div>
-          <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Modèle 3D Dimosim — zones thermiques (après traitement IFC)</p>
-        </div>
-      </div>
-
-      <!-- Calibration -->
-      <div>
-        <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-          <img src="images/cstb-calibration.jpg" alt="Résultats calibration" style="width:100%;object-fit:contain;display:block;background:#fff;"/>
-        </div>
-        <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem;font-family:'DM Mono',monospace;">Calibration — Comparaison consommation gaz mesurée (InfluxDB) vs simulation initiale vs meilleure simulation (PSO) · Erreur finale : 1% APE</p>
-      </div>
-
     </div>
 
     <div class="exp-section reveal">
@@ -511,8 +489,9 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="skills-visual">
         <div class="skill-pill"><div class="skill-pill-icon">🐍</div><div class="skill-pill-name">Python</div><div class="skill-pill-desc">Pandas, NumPy</div></div>
         <div class="skill-pill"><div class="skill-pill-icon">🏗️</div><div class="skill-pill-name">Dimosim</div><div class="skill-pill-desc">Simulation thermique</div></div>
-        <div class="skill-pill"><div class="skill-pill-icon">📊</div><div class="skill-pill-name">Data</div><div class="skill-pill-desc">Capteurs & analyse</div></div>
-        <div class="skill-pill"><div class="skill-pill-icon">🔧</div><div class="skill-pill-name">Calibration</div><div class="skill-pill-desc">Modèles numériques</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">🗺️</div><div class="skill-pill-name">QGIS</div><div class="skill-pill-desc">Géométries IFC</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">📊</div><div class="skill-pill-name">InfluxDB</div><div class="skill-pill-desc">Données capteurs</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon">🔧</div><div class="skill-pill-name">Calibration</div><div class="skill-pill-desc">PSO, modèles RC</div></div>
         <div class="skill-pill"><div class="skill-pill-icon">📝</div><div class="skill-pill-name">Rédaction</div><div class="skill-pill-desc">Rapport scientifique</div></div>
       </div>
     </div>
@@ -628,8 +607,8 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
       <div class="photo-grid">
         <div class="photo-slot" style="grid-column:1/-1;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:8px;">
           <img src="images/photo1-axid.jpg" alt="Activités AXID" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"/>
-          <!-- Cache plaque voiture bleue : ~33% à 46% en X, ~30% à 42% en Y -->
-          <div style="position:absolute;left:33%;top:30%;width:13%;height:12%;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:3px;"></div>
+          <!-- Cache plaque voiture bleue -->
+          <div style="position:absolute;left:30%;top:28%;width:18%;height:14%;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:3px;"></div>
         </div>
       </div>
       <p style="font-size:.75rem;color:var(--text3);margin-top:.6rem;font-family:'DM Mono',monospace;">De gauche à droite : soudure · livraison panneaux solaires · électronique analogique · cartes électroniques · gestion commandes · découpage</p>
