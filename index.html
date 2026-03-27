@@ -224,9 +224,6 @@ img.zoomable:hover{opacity:.85;}
       <li><a href="javascript:void(0)" onclick="showSec('home',this)" class="active" data-fr="Accueil" data-en="Home">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
         <span>Accueil</span></a></li>
-      <li><a href="javascript:void(0)" onclick="showSec('formation',this)" data-fr="Formation" data-en="Education">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        <span>Formation</span></a></li>
       <li><a href="javascript:void(0)" onclick="showSec('experience',this)" id="nav-exp" data-fr="Expériences" data-en="Experience">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
         <span>Expériences</span></a></li>
@@ -238,6 +235,19 @@ img.zoomable:hover{opacity:.85;}
         <span class="dot"></span><span>Patie Michel</span></a></li>
       <li><a href="javascript:void(0)" onclick="showSec('exp-axid',this)" id="nav-axid" data-fr="AXID" data-en="AXID">
         <span class="dot"></span><span>AXID</span></a></li>
+    </ul>
+    <ul>
+      <li><a href="javascript:void(0)" onclick="showSec('formation',this)" id="nav-form" data-fr="Formation" data-en="Education">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <span>Formation</span></a></li>
+    </ul>
+    <ul class="nav-sub" style="margin-top:-.8rem;">
+      <li><a href="javascript:void(0)" onclick="showSec('form-peip',this)" id="nav-peip" data-fr="PeiP — BAC+1 & +2" data-en="PeiP — Year 1 & 2">
+        <span class="dot"></span><span>PeiP — BAC+1 & +2</span></a></li>
+      <li><a href="javascript:void(0)" onclick="showSec('form-uds',this)" id="nav-uds" data-fr="Sherbrooke — BAC+4" data-en="Sherbrooke — Year 4">
+        <span class="dot"></span><span>Sherbrooke — BAC+4</span></a></li>
+      <li><a href="javascript:void(0)" onclick="showSec('form-bat',this)" id="nav-bat" data-fr="Polytech BAT — BAC+3/5" data-en="Polytech BAT — Year 3/5">
+        <span class="dot"></span><span>Polytech BAT — BAC+3/5</span></a></li>
     </ul>
     <ul>
       <li><a href="javascript:void(0)" onclick="showSec('interests',this)" data-fr="Centres d'intérêts" data-en="Interests">
@@ -289,79 +299,36 @@ img.zoomable:hover{opacity:.85;}
     </div>
     <div class="timeline">
       <div class="tl-item reveal">
-        <div class="tl-card">
+        <div class="tl-card" style="cursor:pointer;" onclick="return showSec('form-bat', document.getElementById('nav-bat'))">
           <div class="tl-meta"><span class="tl-date">2022 – 2025</span><span class="tl-org">Polytech Nice Sophia · Université Côte d'Azur</span></div>
           <div class="tl-title" id="d1t">Ingénieur Bâtiments Intelligents et Durables</div>
-          <div class="tl-sub" id="d1s">BAC+5 · Sophia-Antipolis</div>
-          <ul class="tl-bullets">
-            <li id="d1b1">Outils : Revit · AutoCAD · Robot Structural · Pleiades · Access SQL</li>
-            <li id="d1b2">Projet de fin d'année : conception d'un ouvrage multifonction — gymnase, logements et laboratoire</li>
-          </ul>
-          <button class="detail-btn" onclick="toggleDetail('d1-detail',this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            <span data-fr="Détails année par année" data-en="Year by year details">Détails année par année</span>
-          </button>
-          <div class="detail-panel" id="d1-detail">
-            <div class="detail-year" data-fr="BAC+3 — 1ère année cycle ingénieur" data-en="BAC+3 — 1st year engineering cycle">BAC+3 — 1ère année cycle ingénieur</div>
-            <div class="domain-label">Structure & Mécanique</div>
-            <div class="detail-subjects"><span class="tag">Mécanique des solides</span><span class="tag">Mécanique des sols</span><span class="tag">Mécanique des structures</span><span class="tag">Mécanique générale</span></div>
-            <div class="domain-label">Bâtiment & Conception</div>
-            <div class="detail-subjects"><span class="tag">Bâtiment intelligent</span><span class="tag">Maquette</span><span class="tag">SST</span></div>
-            <div class="domain-label">Outils & Méthodes</div>
-            <div class="detail-subjects"><span class="tag">Outils mathématiques</span><span class="tag">Initiation à la programmation</span><span class="tag">Initiation à la recherche</span><span class="tag">Communication</span><span class="tag">BDI</span></div>
-            <div class="detail-year" data-fr="BAC+4 — Échange Université de Sherbrooke" data-en="BAC+4 — Sherbrooke University Exchange">BAC+4 — Échange Université de Sherbrooke</div>
-            <div class="detail-text" data-fr="Semestre à l'Université de Sherbrooke (Québec). Voir la fiche dédiée ci-dessous." data-en="Semester at the University of Sherbrooke (Québec). See dedicated card below.">Semestre à l'Université de Sherbrooke (Québec). Voir la fiche dédiée ci-dessous.</div>
-            <div class="detail-year" data-fr="BAC+5 — Dernière année cycle ingénieur" data-en="BAC+5 — Final year engineering cycle">BAC+5 — Dernière année cycle ingénieur</div>
-            <div class="domain-label">Énergie & Environnement</div>
-            <div class="detail-subjects"><span class="tag">Thermique du bâtiment</span><span class="tag">Conditionnement de l'air</span><span class="tag">Gestion énergétique bâtiment</span><span class="tag">Système énergétique du bâtiment</span><span class="tag">Modèle énergétique avancée</span><span class="tag">Énergies ROB3</span><span class="tag">Bio climatique</span><span class="tag">Bâtiments durables</span><span class="tag">Enjeux environnementaux</span></div>
-            <div class="domain-label">Structure & Matériaux</div>
-            <div class="detail-subjects"><span class="tag">Béton armé</span><span class="tag">Structure métallique</span><span class="tag">Modélisation structures</span><span class="tag">Eurocodes</span><span class="tag">Construction bois</span><span class="tag">Pathologie constructions</span></div>
-            <div class="domain-label">Équipements Techniques</div>
-            <div class="detail-subjects"><span class="tag">Acoustique</span><span class="tag">Électricité du bâtiment</span><span class="tag">Éclairagisme du bâtiment</span></div>
-            <div class="domain-label">BIM & Outils Numériques</div>
-            <div class="detail-subjects"><span class="tag">BIM</span><span class="tag">AutoCAD</span><span class="tag">Revit</span><span class="tag">Robot Structural</span><span class="tag">Pleiades</span><span class="tag">DIALux evo</span><span class="tag">Autodesk Fusion 360</span><span class="tag">FormIt</span><span class="tag">Calcul scientifique TC</span></div>
-            <div class="domain-label">Gestion & Droit</div>
-            <div class="detail-subjects"><span class="tag">Gestion de projet</span><span class="tag">Management de projet</span><span class="tag">Gestion immobilière</span><span class="tag">Droit des sociétés</span><span class="tag">Droit informatique</span><span class="tag">Marché des droits publics et privés</span><span class="tag">Propriété industrielle</span><span class="tag">Connaissance de l'entreprise</span><span class="tag">Démarche qualité</span></div>
-            <div class="domain-label">Entrepreneuriat & Innovation</div>
-            <div class="detail-subjects"><span class="tag">Création startup</span><span class="tag">Stratégie d'entreprise</span><span class="tag">Négociation commerciale</span><span class="tag">Hackathon</span><span class="tag">Maîtrise de l'IA</span><span class="tag">BATIMAT</span></div>
-            <div class="detail-text" data-fr="Projet de fin d'année : conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM." data-en="Final year project: full design of a multi-function building including a gymnasium, collective housing and a laboratory. Structural, fluids, thermal studies and BIM coordination.">Projet de fin d'année : conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM.</div>
-          </div>
+          <div class="tl-sub" id="d1s">BAC+3 → BAC+5 · Sophia-Antipolis</div>
+          <span class="detail-btn" style="pointer-events:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="9 18 15 12 9 6"/></svg>
+            <span data-fr="Voir le détail" data-en="View details">Voir le détail</span>
+          </span>
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-card">
+        <div class="tl-card" style="cursor:pointer;" onclick="return showSec('form-uds', document.getElementById('nav-uds'))">
           <div class="tl-meta"><span class="tl-date">Jan – Avr 2024</span><span class="tl-org">Université de Sherbrooke · Canada</span></div>
           <div class="tl-title" id="d2t">Échange Universitaire — Génie Civil</div>
-          <div class="tl-sub" id="d2s">Semestre international · Sherbrooke, Québec</div>
-          <ul class="tl-bullets"><li id="d2b1">Immersion dans un système universitaire nord-américain, adaptation interculturelle</li></ul>
-          <button class="detail-btn" onclick="toggleDetail('d2-detail',this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            <span data-fr="Détails du semestre" data-en="Semester details">Détails du semestre</span>
-          </button>
-          <div class="detail-panel" id="d2-detail">
-            <div class="detail-year" data-fr="BAC+4 — Semestre hiver 2024" data-en="BAC+4 — Winter semester 2024">BAC+4 — Semestre hiver 2024</div>
-            <div class="detail-subjects"><span class="tag">Matériaux du bâtiment</span><span class="tag">Systèmes hydrauliques du bâtiment</span><span class="tag">Estimation</span><span class="tag">Matériaux composites PRF</span><span class="tag">Éco-matériaux</span></div>
-            <div class="detail-text" data-fr="Cursus en anglais et en français au sein du département Génie Civil et du Bâtiment. Approche pédagogique nord-américaine basée sur des projets concrets et études de cas industriels. Adaptation à un environnement académique international, renforcement de l'autonomie et de la rigueur analytique." data-en="Curriculum in English and French within the Civil Engineering and Building department. North American pedagogical approach based on concrete projects and industrial case studies. Adaptation to an international academic environment, building autonomy and analytical rigour.">Cursus en anglais et en français au sein du département Génie Civil et du Bâtiment. Approche pédagogique nord-américaine basée sur des projets concrets et études de cas industriels. Adaptation à un environnement académique international, renforcement de l'autonomie et de la rigueur analytique.</div>
-          </div>
+          <div class="tl-sub" id="d2s">BAC+4 · Sherbrooke, Québec</div>
+          <span class="detail-btn" style="pointer-events:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="9 18 15 12 9 6"/></svg>
+            <span data-fr="Voir le détail" data-en="View details">Voir le détail</span>
+          </span>
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-card">
+        <div class="tl-card" style="cursor:pointer;" onclick="return showSec('form-peip', document.getElementById('nav-peip'))">
           <div class="tl-meta"><span class="tl-date">2020 – 2022</span><span class="tl-org">Polytech Nice Sophia · Université Côte d'Azur</span></div>
           <div class="tl-title" id="d3t">Cycle Préparatoire PeiP</div>
-          <div class="tl-sub" id="d3s">Parcours des Écoles d'Ingénieurs Polytech · Sophia-Antipolis</div>
-          <button class="detail-btn" onclick="toggleDetail('d3-detail',this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            <span data-fr="Détails PeiP1 & PeiP2" data-en="PeiP1 & PeiP2 details">Détails PeiP1 & PeiP2</span>
-          </button>
-          <div class="detail-panel" id="d3-detail">
-            <div class="detail-year" data-fr="PeiP 1 — 2020/2021" data-en="PeiP 1 — 2020/2021">PeiP 1 — 2020/2021</div>
-            <div class="detail-subjects"><span class="tag">Algèbre 1 & 2</span><span class="tag">Analyse 1 & 2</span><span class="tag">Mécanique</span><span class="tag">Hydrodynamique</span><span class="tag">Optique géométrique</span><span class="tag">Construction mécanique</span><span class="tag">Électronique numérique</span><span class="tag">Électronique analogique</span><span class="tag">Programmation impérative (Python)</span><span class="tag">Environnement informatique</span><span class="tag">Jeux & Stratégies</span><span class="tag">Anglais</span><span class="tag">Expression écrite & orale</span></div>
-            <div class="detail-text" data-fr="Première année de classe préparatoire intégrée. Socle scientifique commun à toutes les spécialités Polytech." data-en="First year of integrated preparatory class. Common scientific foundation for all Polytech specialisations.">Première année de classe préparatoire intégrée. Socle scientifique commun à toutes les spécialités Polytech.</div>
-            <div class="detail-year" data-fr="PeiP 2 — 2021/2022" data-en="PeiP 2 — 2021/2022">PeiP 2 — 2021/2022</div>
-            <div class="detail-subjects"><span class="tag">Algèbre</span><span class="tag">Analyse</span><span class="tag">Électromagnétisme</span><span class="tag">Électronique</span><span class="tag">Optique ondulatoire</span><span class="tag">Thermodynamique</span><span class="tag">Probabilités & Statistiques</span><span class="tag">Signaux</span><span class="tag">POO</span><span class="tag">Oracle VM</span><span class="tag">Web</span><span class="tag">Français</span><span class="tag">Anglais</span></div>
-            <div class="detail-text" data-fr="Approfondissement des disciplines fondamentales avec orientation progressive vers le génie civil et bâtiment." data-en="Deepening of fundamental disciplines with progressive orientation towards civil and building engineering.">Approfondissement des disciplines fondamentales avec orientation progressive vers le génie civil et bâtiment.</div>
-          </div>
+          <div class="tl-sub" id="d3s">BAC+1 & BAC+2 · Sophia-Antipolis</div>
+          <span class="detail-btn" style="pointer-events:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="9 18 15 12 9 6"/></svg>
+            <span data-fr="Voir le détail" data-en="View details">Voir le détail</span>
+          </span>
         </div>
       </div>
       <div class="tl-item reveal">
@@ -371,6 +338,129 @@ img.zoomable:hover{opacity:.85;}
           <div class="tl-sub" id="d4s">Spécialité Mathématiques</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PAGE PEIP -->
+  <section class="section" id="sec-form-peip">
+    <button onclick="return showSec('formation', document.getElementById('nav-form'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
+      <span id="back-form1">Retour à la formation</span>
+    </button>
+    <div class="exp-page-header reveal">
+      <div class="exp-page-info">
+        <span class="exp-page-date">2020 – 2022</span>
+        <div class="exp-page-title" id="fp1-title">Cycle Préparatoire PeiP</div>
+        <div class="exp-page-sub" data-fr="Parcours des Écoles d'Ingénieurs Polytech · Sophia-Antipolis" data-en="Polytech Engineering Schools Pathway · Sophia-Antipolis">Parcours des Écoles d'Ingénieurs Polytech · Sophia-Antipolis</div>
+      </div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="PeiP 1 — 2020/2021" data-en="PeiP 1 — 2020/2021">PeiP 1 — 2020/2021</div>
+      <div class="domain-label">Mathématiques</div>
+      <div class="detail-subjects"><span class="tag">Algèbre 1 & 2</span><span class="tag">Analyse 1 & 2</span></div>
+      <div class="domain-label">Physique</div>
+      <div class="detail-subjects"><span class="tag">Mécanique</span><span class="tag">Hydrodynamique</span><span class="tag">Optique géométrique</span><span class="tag">Construction mécanique</span></div>
+      <div class="domain-label">Électronique</div>
+      <div class="detail-subjects"><span class="tag">Électronique numérique</span><span class="tag">Électronique analogique</span></div>
+      <div class="domain-label">Informatique</div>
+      <div class="detail-subjects"><span class="tag">Programmation impérative (Python)</span><span class="tag">Environnement informatique</span><span class="tag">Jeux & Stratégies</span></div>
+      <div class="domain-label" data-fr="Langues & Expression" data-en="Languages & Communication">Langues & Expression</div>
+      <div class="detail-subjects"><span class="tag">Anglais</span><span class="tag">Expression écrite & orale</span></div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="PeiP 2 — 2021/2022" data-en="PeiP 2 — 2021/2022">PeiP 2 — 2021/2022</div>
+      <div class="domain-label">Mathématiques</div>
+      <div class="detail-subjects"><span class="tag">Algèbre</span><span class="tag">Analyse</span><span class="tag">Probabilités & Statistiques</span><span class="tag">Signaux</span></div>
+      <div class="domain-label">Physique</div>
+      <div class="detail-subjects"><span class="tag">Électromagnétisme</span><span class="tag">Électronique</span><span class="tag">Optique ondulatoire</span><span class="tag">Thermodynamique</span></div>
+      <div class="domain-label">Informatique</div>
+      <div class="detail-subjects"><span class="tag">POO</span><span class="tag">Oracle VM</span><span class="tag">Web</span></div>
+      <div class="domain-label" data-fr="Langues & Expression" data-en="Languages & Communication">Langues & Expression</div>
+      <div class="detail-subjects"><span class="tag">Français</span><span class="tag">Anglais</span></div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="Baccalauréat" data-en="Baccalaureate">Baccalauréat</div>
+      <p class="exp-text" data-fr="Baccalauréat Scientifique spécialité Mathématiques — Lycée Jean-Moulin, Draguignan (2020)." data-en="Scientific Baccalaureate, Mathematics specialisation — Lycée Jean-Moulin, Draguignan (2020).">Baccalauréat Scientifique spécialité Mathématiques — Lycée Jean-Moulin, Draguignan (2020).</p>
+    </div>
+  </section>
+
+  <!-- PAGE UDS -->
+  <section class="section" id="sec-form-uds">
+    <button onclick="return showSec('formation', document.getElementById('nav-form'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
+      <span id="back-form2">Retour à la formation</span>
+    </button>
+    <div class="exp-page-header reveal">
+      <div class="exp-page-info">
+        <span class="exp-page-date">Jan – Avr 2024</span>
+        <div class="exp-page-title" id="fp2-title">Échange Universitaire — Génie Civil</div>
+        <div class="exp-page-sub" data-fr="Université de Sherbrooke · Québec, Canada" data-en="University of Sherbrooke · Québec, Canada">Université de Sherbrooke · Québec, Canada</div>
+      </div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="Contexte" data-en="Context">Contexte</div>
+      <p class="exp-text" data-fr="Semestre d'échange international au sein du département Génie Civil et du Bâtiment de l'Université de Sherbrooke (Québec). Cursus en anglais et en français, basé sur une approche pédagogique nord-américaine axée sur des projets concrets et des études de cas industriels." data-en="International exchange semester in the Civil Engineering and Building department at the University of Sherbrooke (Québec). Curriculum in English and French, based on a North American pedagogical approach focused on concrete projects and industrial case studies.">Semestre d'échange international au sein du département Génie Civil et du Bâtiment de l'Université de Sherbrooke (Québec). Cursus en anglais et en français, basé sur une approche pédagogique nord-américaine axée sur des projets concrets et des études de cas industriels.</p>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="Matières — Semestre hiver 2024" data-en="Courses — Winter semester 2024">Matières — Semestre hiver 2024</div>
+      <div class="detail-subjects" style="margin-top:.5rem;">
+        <span class="tag">Matériaux du bâtiment</span>
+        <span class="tag">Systèmes hydrauliques du bâtiment</span>
+        <span class="tag">Estimation</span>
+        <span class="tag">Matériaux composites PRF</span>
+        <span class="tag">Éco-matériaux</span>
+      </div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="Apports personnels" data-en="Personal takeaways">Apports personnels</div>
+      <ul class="exp-bullets">
+        <li data-fr="Immersion dans un système universitaire nord-américain — approche par projets, autonomie, rigueur analytique" data-en="Immersion in a North American university system — project-based approach, autonomy, analytical rigour">Immersion dans un système universitaire nord-américain — approche par projets, autonomie, rigueur analytique</li>
+        <li data-fr="Adaptation interculturelle et renforcement de l'anglais en contexte académique et quotidien" data-en="Intercultural adaptation and strengthening of English in academic and everyday contexts">Adaptation interculturelle et renforcement de l'anglais en contexte académique et quotidien</li>
+        <li data-fr="Découverte de méthodes de construction et matériaux propres au marché nord-américain" data-en="Discovery of construction methods and materials specific to the North American market">Découverte de méthodes de construction et matériaux propres au marché nord-américain</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAGE BAT -->
+  <section class="section" id="sec-form-bat">
+    <button onclick="return showSec('formation', document.getElementById('nav-form'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
+      <span id="back-form3">Retour à la formation</span>
+    </button>
+    <div class="exp-page-header reveal">
+      <div class="exp-page-info">
+        <span class="exp-page-date">2022 – 2025</span>
+        <div class="exp-page-title" id="fp3-title">Ingénieur Bâtiments Intelligents et Durables</div>
+        <div class="exp-page-sub" data-fr="Polytech Nice Sophia · Université Côte d'Azur · Sophia-Antipolis" data-en="Polytech Nice Sophia · Université Côte d'Azur · Sophia-Antipolis">Polytech Nice Sophia · Université Côte d'Azur · Sophia-Antipolis</div>
+      </div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="BAC+3 — 1ère année cycle ingénieur" data-en="Year 3 — 1st engineering year">BAC+3 — 1ère année cycle ingénieur</div>
+      <div class="domain-label">Structure & Mécanique</div>
+      <div class="detail-subjects"><span class="tag">Mécanique des solides</span><span class="tag">Mécanique des sols</span><span class="tag">Mécanique des structures</span><span class="tag">Mécanique générale</span></div>
+      <div class="domain-label">Bâtiment & Conception</div>
+      <div class="detail-subjects"><span class="tag">Bâtiment intelligent</span><span class="tag">Maquette</span><span class="tag">SST</span></div>
+      <div class="domain-label">Outils & Méthodes</div>
+      <div class="detail-subjects"><span class="tag">Outils mathématiques</span><span class="tag">Initiation à la programmation</span><span class="tag">Initiation à la recherche</span><span class="tag">Communication</span><span class="tag">BDI</span></div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="BAC+5 — Dernière année cycle ingénieur" data-en="Year 5 — Final engineering year">BAC+5 — Dernière année cycle ingénieur</div>
+      <div class="domain-label">Énergie & Environnement</div>
+      <div class="detail-subjects"><span class="tag">Thermique du bâtiment</span><span class="tag">Conditionnement de l'air</span><span class="tag">Gestion énergétique bâtiment</span><span class="tag">Système énergétique du bâtiment</span><span class="tag">Modèle énergétique avancée</span><span class="tag">Énergies ROB3</span><span class="tag">Bio climatique</span><span class="tag">Bâtiments durables</span><span class="tag">Enjeux environnementaux</span></div>
+      <div class="domain-label">Structure & Matériaux</div>
+      <div class="detail-subjects"><span class="tag">Béton armé</span><span class="tag">Structure métallique</span><span class="tag">Modélisation structures</span><span class="tag">Eurocodes</span><span class="tag">Construction bois</span><span class="tag">Pathologie constructions</span></div>
+      <div class="domain-label">Équipements Techniques</div>
+      <div class="detail-subjects"><span class="tag">Acoustique</span><span class="tag">Électricité du bâtiment</span><span class="tag">Éclairagisme du bâtiment</span></div>
+      <div class="domain-label">BIM & Outils Numériques</div>
+      <div class="detail-subjects"><span class="tag">BIM</span><span class="tag">AutoCAD</span><span class="tag">Revit</span><span class="tag">Robot Structural</span><span class="tag">Pleiades</span><span class="tag">DIALux evo</span><span class="tag">Autodesk Fusion 360</span><span class="tag">FormIt</span><span class="tag">Calcul scientifique TC</span></div>
+      <div class="domain-label">Gestion & Droit</div>
+      <div class="detail-subjects"><span class="tag">Gestion de projet</span><span class="tag">Management de projet</span><span class="tag">Gestion immobilière</span><span class="tag">Droit des sociétés</span><span class="tag">Droit informatique</span><span class="tag">Marché des droits publics et privés</span><span class="tag">Propriété industrielle</span><span class="tag">Connaissance de l'entreprise</span><span class="tag">Démarche qualité</span></div>
+      <div class="domain-label">Entrepreneuriat & Innovation</div>
+      <div class="detail-subjects"><span class="tag">Création startup</span><span class="tag">Stratégie d'entreprise</span><span class="tag">Négociation commerciale</span><span class="tag">Hackathon</span><span class="tag">Maîtrise de l'IA</span><span class="tag">BATIMAT</span></div>
+    </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="Projet de fin d'études" data-en="Final year project">Projet de fin d'études</div>
+      <p class="exp-text" data-fr="Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM." data-en="Full design of a multi-function building including a gymnasium, collective housing and a laboratory. Structural, fluids, thermal studies and BIM coordination.">Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM.</p>
     </div>
   </section>
 
@@ -631,6 +721,16 @@ img.zoomable:hover{opacity:.85;}
     </div>
 
     <div class="exp-section reveal">
+      <div class="exp-section-title" id="ep2-clients">Clients</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+        <span class="tag">Virbac</span>
+        <span class="tag">Arkopharma</span>
+        <span class="tag">Robertet</span>
+        <span class="tag">Elaiapharm</span>
+      </div>
+    </div>
+
+    <div class="exp-section reveal">
       <div class="exp-section-title" id="ep2-skills">Compétences acquises</div>
       <div class="skills-visual">
         <div class="skill-pill"><div class="skill-pill-icon"><img src="images/logo-autocad.png" style="width:28px;height:28px;object-fit:contain;"/></div><div class="skill-pill-name">AutoCAD</div><div class="skill-pill-desc">P&ID, 2D/3D</div></div>
@@ -788,7 +888,7 @@ fr:{
 'ep1-real':'Réalisations','ep1-photos':'Photos & Documents','ep1-skills':'Compétences acquises',
 'ep2-title':'Stagiaire Ingénieur — Bureau d\'Étude',
 'ep2-context':'Contexte & Mission','ep2-timeline':'Déroulement du stage',
-'ep2-real':'Réalisations','ep2-photos':'Photos & Schémas','ep2-skills':'Compétences acquises',
+'ep2-real':'Réalisations','ep2-photos':'Photos & Schémas','ep2-skills':'Compétences acquises','ep2-clients':'Clients',
 'ep3-title':'Stagiaire — Bureau d\'Étude Électronique',
 'ep3-context':'Contexte','ep3-real':'Activités réalisées','ep3-photos':'Photos',
 'back-exp':'Retour aux expériences','back-exp2':'Retour aux expériences','back-exp3':'Retour aux expériences',
@@ -828,7 +928,7 @@ en:{
 'ep1-real':'Achievements','ep1-photos':'Photos & Documents','ep1-skills':'Skills developed',
 'ep2-title':'Engineering Intern — Design Office',
 'ep2-context':'Context & Mission','ep2-timeline':'Stage timeline',
-'ep2-real':'Achievements','ep2-photos':'Photos & Diagrams','ep2-skills':'Skills developed',
+'ep2-real':'Achievements','ep2-photos':'Photos & Diagrams','ep2-skills':'Skills developed','ep2-clients':'Clients',
 'ep2-sub':'HVAC & Industrial Piping · Patie Michel · Carros',
 'ep3-title':'Intern — Electronics Design Office',
 'ep3-context':'Context','ep3-real':'Activities','ep3-photos':'Photos',
@@ -910,6 +1010,9 @@ function showSec(id,el){
   // Si c'est une sous-page expérience, on active aussi le parent
   if(['exp-cstb','exp-patie','exp-axid'].includes(id)){
     document.getElementById('nav-exp').classList.add('active');
+  }
+  if(['form-peip','form-uds','form-bat'].includes(id)){
+    document.getElementById('nav-form').classList.add('active');
   }
   document.getElementById('search-results').classList.remove('visible');
   document.getElementById('no-result').classList.remove('visible');
