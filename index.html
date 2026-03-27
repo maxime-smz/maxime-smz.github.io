@@ -402,21 +402,18 @@ img.zoomable:hover{opacity:.85;}
     </div>
     <div class="exp-section reveal">
       <div class="exp-section-title" data-fr="Matières — Semestre hiver 2024" data-en="Courses — Winter semester 2024">Matières — Semestre hiver 2024</div>
-      <div class="detail-subjects" style="margin-top:.5rem;">
-        <span class="tag">Matériaux du bâtiment</span>
-        <span class="tag">Systèmes hydrauliques du bâtiment</span>
-        <span class="tag">Estimation</span>
-        <span class="tag">Matériaux composites PRF</span>
-        <span class="tag">Éco-matériaux</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem;margin-top:.5rem;">
+        <div><div class="domain-label" data-fr="Matériaux" data-en="Materials">Matériaux</div><p class="exp-text" style="font-size:.82rem;" data-fr="Matériaux du bâtiment · Éco-matériaux" data-en="Building materials · Eco-materials">Matériaux du bâtiment · Éco-matériaux</p></div>
+        <div><div class="domain-label" data-fr="Polymères & Composites" data-en="Polymers & Composites">Polymères & Composites</div><p class="exp-text" style="font-size:.82rem;" data-fr="Matériaux composites PRF — visite de l'usine Pultrall Inc. à Thetford Mines" data-en="PRF composite materials — visit to Pultrall Inc. plant in Thetford Mines">Matériaux composites PRF — visite de l'usine Pultrall Inc. à Thetford Mines</p></div>
+        <div><div class="domain-label" data-fr="Techniques" data-en="Techniques">Techniques</div><p class="exp-text" style="font-size:.82rem;" data-fr="Systèmes hydrauliques du bâtiment · Estimation" data-en="Building hydraulic systems · Estimation">Systèmes hydrauliques du bâtiment · Estimation</p></div>
       </div>
     </div>
     <div class="exp-section reveal">
       <div class="exp-section-title" data-fr="Apports personnels" data-en="Personal takeaways">Apports personnels</div>
-      <ul class="exp-bullets">
-        <li data-fr="Immersion dans un système universitaire nord-américain — approche par projets, autonomie, rigueur analytique" data-en="Immersion in a North American university system — project-based approach, autonomy, analytical rigour">Immersion dans un système universitaire nord-américain — approche par projets, autonomie, rigueur analytique</li>
-        <li data-fr="Adaptation interculturelle et renforcement de l'anglais en contexte académique et quotidien" data-en="Intercultural adaptation and strengthening of English in academic and everyday contexts">Adaptation interculturelle et renforcement de l'anglais en contexte académique et quotidien</li>
-        <li data-fr="Découverte de méthodes de construction et matériaux propres au marché nord-américain" data-en="Discovery of construction methods and materials specific to the North American market">Découverte de méthodes de construction et matériaux propres au marché nord-américain</li>
-      </ul>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem;margin-top:.5rem;">
+        <div><div class="domain-label" data-fr="Académique" data-en="Academic">Académique</div><p class="exp-text" style="font-size:.82rem;" data-fr="Approche par projets concrets · Autonomie · Rigueur analytique" data-en="Project-based approach · Autonomy · Analytical rigour">Approche par projets concrets · Autonomie · Rigueur analytique</p></div>
+        <div><div class="domain-label" data-fr="Découverte" data-en="Discovery">Découverte</div><p class="exp-text" style="font-size:.82rem;" data-fr="Méthodes de construction et matériaux propres au marché nord-américain" data-en="Construction methods and materials specific to the North American market">Méthodes de construction et matériaux propres au marché nord-américain</p></div>
+      </div>
     </div>
   </section>
 
@@ -456,7 +453,33 @@ img.zoomable:hover{opacity:.85;}
     </div>
     <div class="exp-section reveal">
       <div class="exp-section-title" data-fr="Projet de fin d'études" data-en="Final year project">Projet de fin d'études</div>
-      <p class="exp-text" data-fr="Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM." data-en="Full design of a multi-function building including a gymnasium, collective housing and a laboratory. Structural, fluids, thermal studies and BIM coordination.">Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. Études structure, fluides, thermique et coordination BIM.</p>
+      <p class="exp-text" data-fr="Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. J'ai été chargé de la conception du bâtiment, son implantation sur le site et le cheminement des réseaux hydrauliques." data-en="Full design of a multi-function building including a gymnasium, collective housing and a laboratory. I was responsible for the building design, its site layout and the hydraulic network routing.">Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. J'ai été chargé de la conception du bâtiment, son implantation sur le site et le cheminement des réseaux hydrauliques.</p>
+
+      <!-- Vue 3D gymnase pleine largeur -->
+      <div style="margin-top:1rem;">
+        <img src="images/bat-gymnase.png" alt="Vue 3D gymnase" class="zoomable" onclick="openLightbox('images/bat-gymnase.png','Vue 3D du projet')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
+        <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Vue 3D du projet — gymnase" data-en="3D view — gymnasium">Vue 3D du projet — gymnase</p>
+      </div>
+
+      <!-- 4 vues gradins en grille -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem;">
+        <div>
+          <img src="images/bat-gradin1.png" alt="Gradins vue 3D" class="zoomable" onclick="openLightbox('images/bat-gradin1.png','Gradins - vue 3D')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
+          <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Gradins — vue 3D" data-en="Stands — 3D view">Gradins — vue 3D</p>
+        </div>
+        <div>
+          <img src="images/bat-gradin2.png" alt="Gradins vue du dessus" class="zoomable" onclick="openLightbox('images/bat-gradin2.png','Gradins - vue du dessus')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
+          <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Gradins — vue du dessus" data-en="Stands — top view">Gradins — vue du dessus</p>
+        </div>
+        <div>
+          <img src="images/bat-gradin3.png" alt="Gradins vue de devant" class="zoomable" onclick="openLightbox('images/bat-gradin3.png','Gradins - vue de devant')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
+          <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Gradins — vue de devant" data-en="Stands — front view">Gradins — vue de devant</p>
+        </div>
+        <div>
+          <img src="images/bat-gradin4.png" alt="Gradins vue en coupe" class="zoomable" onclick="openLightbox('images/bat-gradin4.png','Gradins - coupe')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
+          <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Gradins — vue en coupe" data-en="Stands — cross-section">Gradins — vue en coupe</p>
+        </div>
+      </div>
     </div>
   </section>
 
