@@ -193,9 +193,23 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.vis{opacity:1;transform:none;}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;cursor:zoom-out;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.8);}
+.lb-close{position:absolute;top:1.5rem;right:1.5rem;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.7;transition:opacity .15s;}
+.lb-close:hover{opacity:1;}
+img.zoomable{cursor:zoom-in;transition:opacity .15s;}
+img.zoomable:hover{opacity:.85;}
 </style>
 </head>
 <body>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close">✕</span>
+  <img id="lb-img" src="" alt=""/>
+</div>
 
 <aside class="sidebar">
   <div class="sb-brand">Maxime Samiez</div>
@@ -566,7 +580,7 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
         <li id="patie-b1" data-bullet="true">
           Réalisation de schémas P&ID sous AutoCAD — apprentissage approfondi du logiciel puis création d'un modèle de référence réutilisable pour tous les projets futurs, avec maîtrise de la symbologie normalisée
           <div style="margin-top:.8rem;">
-            <img src="images/patie-pid.png" alt="Exemple P&ID" style="width:100%;max-width:600px;border-radius:8px;border:1px solid var(--border);display:block;"/>
+            <img src="images/patie-pid.png" class="zoomable" onclick="openLightbox('images/patie-pid.png','Schéma P&ID')" alt="Exemple P&ID" style="width:100%;max-width:600px;border-radius:8px;border:1px solid var(--border);display:block;"/>
             <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Exemple de schéma P&ID réalisé sous AutoCAD" data-en="P&ID diagram example made in AutoCAD">Exemple de schéma P&ID réalisé sous AutoCAD</p>
           </div>
         </li>
@@ -579,11 +593,11 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           Plans d'implantation des réseaux et équipements — réalisation de plans de préconception pour définir les cheminements potentiels après visites de site
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.8rem;max-width:700px;">
             <div>
-              <img src="images/patie-imp1.png" alt="Plan implantation 1" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
+              <img src="images/patie-imp1.png" class="zoomable" onclick="openLightbox('images/patie-imp1.png','Plan d'implantation 1')" alt="Plan implantation 1" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
               <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Plan d'implantation — projet 1" data-en="Layout plan — project 1">Plan d'implantation — projet 1</p>
             </div>
             <div>
-              <img src="images/patie-imp2.png" alt="Plan implantation 2" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
+              <img src="images/patie-imp2.png" class="zoomable" onclick="openLightbox('images/patie-imp2.png','Plan d'implantation 2')" alt="Plan implantation 2" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
               <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Plan d'implantation — projet 2" data-en="Layout plan — project 2">Plan d'implantation — projet 2</p>
             </div>
           </div>
@@ -593,15 +607,15 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
           Plans d'exécution 3D et familles paramétriques sous Revit MEP — création de plans détaillés servant de référence pour la construction, avec développement de familles d'objets paramétrables (dimensions, raccords, informations techniques)
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin-top:.8rem;">
             <div>
-              <img src="images/patie-exe1.png" alt="Plan exécution 1" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
+              <img src="images/patie-exe1.png" class="zoomable" onclick="openLightbox('images/patie-exe1.png','Plan d'exécution 3D — vue 1')" alt="Plan exécution 1" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
               <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Plan d'exécution 3D — vue 1" data-en="3D execution plan — view 1">Plan d'exécution 3D — vue 1</p>
             </div>
             <div>
-              <img src="images/patie-exe2.png" alt="Plan exécution 2" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
+              <img src="images/patie-exe2.png" class="zoomable" onclick="openLightbox('images/patie-exe2.png','Plan d'exécution 3D — vue 2')" alt="Plan exécution 2" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
               <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Plan d'exécution 3D — vue 2" data-en="3D execution plan — view 2">Plan d'exécution 3D — vue 2</p>
             </div>
             <div>
-              <img src="images/patie-exe3.png" alt="Plan exécution 3" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
+              <img src="images/patie-exe3.png" class="zoomable" onclick="openLightbox('images/patie-exe3.png','Plan d'exécution 3D — vue 3')" alt="Plan exécution 3" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"/>
               <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Plan d'exécution 3D — vue 3" data-en="3D execution plan — view 3">Plan d'exécution 3D — vue 3</p>
             </div>
           </div>
@@ -969,6 +983,18 @@ document.getElementById('search').addEventListener('input',function(){
     return `<div class="sr-item" onclick="showSec('${h.sec}',document.getElementById('${navId}'))"><div class="sr-sec">${secNames[h.sec]||h.sec}</div><div class="sr-text">${hl.substring(0,120)}…</div></div>`;
   }).join('');
 });
+
+function openLightbox(src,alt){
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-img').alt=alt||'';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 
 function triggerReveal(){
   setTimeout(()=>{
