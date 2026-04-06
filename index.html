@@ -43,7 +43,6 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 .tog{display:flex;background:var(--bg3);border-radius:20px;padding:2px;border:1px solid var(--border);}
 .tog button{border:none;background:none;cursor:pointer;padding:.28rem .6rem;border-radius:18px;font-size:.75rem;font-weight:600;color:var(--text3);transition:all .2s;}
 .tog button.on{background:var(--accent);color:var(--bg);}
-/* Lang toggle special - keep emoji visible */
 #btn-fr.on, #btn-en.on{background:var(--accent3);color:inherit;border:1.5px solid var(--accent);}
 
 /* MAIN */
@@ -250,7 +249,10 @@ img.zoomable:hover{opacity:.85;}
         <span class="dot"></span><span>Polytech BAT — BAC+3/5</span></a></li>
     </ul>
     <ul>
-      <li><a href="javascript:void(0)" onclick="showSec('interests',this)" data-fr="Centres d'intérêts" data-en="Interests">
+      <li><a href="javascript:void(0)" onclick="showSec('veille',this)" id="nav-veille" data-fr="Veille pro" data-en="Pro Watch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Veille pro</span></a></li>
+      <li><a href="javascript:void(0)" onclick="showSec('interests',this)" id="nav-interests" data-fr="Centres d'intérêts" data-en="Interests">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
         <span>Centres d'intérêts</span></a></li>
     </ul>
@@ -285,7 +287,7 @@ img.zoomable:hover{opacity:.85;}
       <div class="hero-content">
         <div class="hero-ey" id="ey">Open to Work · Var (83) — Alpes Maritimes (06)</div>
         <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
-        <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, l'énergie, les matières premières, l'industrie et la technologie.</p>
+        <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, la construction, la gestion de projet, l'énergie, les matières premières, l'industrie et la technologie.</p>
         <div class="hero-tags"><span class="htag">Anglais B2</span></div>
       </div>
     </div>
@@ -455,13 +457,11 @@ img.zoomable:hover{opacity:.85;}
       <div class="exp-section-title" data-fr="Projet de fin d'études" data-en="Final year project">Projet de fin d'études</div>
       <p class="exp-text" data-fr="Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. J'ai été chargé de la conception du bâtiment, son implantation sur le site et le cheminement des réseaux hydrauliques." data-en="Full design of a multi-function building including a gymnasium, collective housing and a laboratory. I was responsible for the building design, its site layout and the hydraulic network routing.">Conception complète d'un ouvrage multifonction comprenant un gymnase, des logements collectifs et un laboratoire. J'ai été chargé de la conception du bâtiment, son implantation sur le site et le cheminement des réseaux hydrauliques.</p>
 
-      <!-- Vue 3D gymnase pleine largeur -->
       <div style="margin-top:1rem;">
         <img src="images/bat-gymnase.png" alt="Vue 3D gymnase" class="zoomable" onclick="openLightbox('images/bat-gymnase.png','Vue 3D du projet')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
         <p style="font-size:.68rem;color:var(--text3);margin-top:.4rem;font-family:'DM Mono',monospace;" data-fr="Vue 3D du projet — gymnase" data-en="3D view — gymnasium">Vue 3D du projet — gymnase</p>
       </div>
 
-      <!-- 4 vues gradins en grille -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem;">
         <div>
           <img src="images/bat-gradin1.png" alt="Gradins vue 3D" class="zoomable" onclick="openLightbox('images/bat-gradin1.png','Gradins - vue 3D')" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;cursor:zoom-in;"/>
@@ -543,7 +543,6 @@ img.zoomable:hover{opacity:.85;}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-exp">Retour aux expériences</span>
     </button>
-    <!-- HERO campus en arrière-fond -->
     <div class="reveal" style="position:relative;border-radius:16px;overflow:hidden;margin-bottom:2.5rem;">
       <div style="position:absolute;inset:0;background-image:url('images/cstb-campus.jpg');background-size:cover;background-position:center;filter:brightness(.4);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,12,16,.75) 0%,rgba(8,12,16,.3) 100%);"></div>
@@ -586,7 +585,7 @@ img.zoomable:hover{opacity:.85;}
     <div class="exp-section reveal">
       <div class="exp-section-title" id="ep1-real">Réalisations</div>
       <ul class="exp-bullets">
-        <li id="cstb-b1 data-bullet="true"">Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
+        <li id="cstb-b1" data-bullet="true">Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <strong>InfluxDB</strong> — plus de 300 000 points de données traités</li>
         <li id="cstb-b2" data-bullet="true">
           Construction de modèles de bâtiment détaillés sous Dimosim — extraction et traitement des géométries IFC sous QGIS
         </li>
@@ -643,7 +642,6 @@ img.zoomable:hover{opacity:.85;}
       <span id="back-exp2">Retour aux expériences</span>
     </button>
 
-    <!-- HERO patie-fond en arrière-fond -->
     <div class="reveal" style="position:relative;border-radius:16px;overflow:hidden;margin-bottom:2.5rem;">
       <div style="position:absolute;inset:0;background-image:url('images/patie-fond.jpg');background-size:cover;background-position:center;filter:brightness(.35);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,12,16,.8) 0%,rgba(8,12,16,.3) 100%);"></div>
@@ -794,7 +792,6 @@ img.zoomable:hover{opacity:.85;}
       <div class="photo-grid">
         <div class="photo-slot" style="grid-column:1/-1;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:8px;">
           <img src="images/photo1-axid.jpg" alt="Activités AXID" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"/>
-          <!-- Cache plaque voiture bleue -->
           <div style="position:absolute;left:29%;top:35%;width:8%;height:4%;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:3px;"></div>
         </div>
       </div>
@@ -802,11 +799,11 @@ img.zoomable:hover{opacity:.85;}
     </div>
   </section>
 
-  <!-- CENTRES D'INTÉRÊTS -->
-  <section class="section" id="sec-interests">
+  <!-- VEILLE PRO -->
+  <section class="section" id="sec-veille">
     <div class="sec-head reveal">
-      <div class="sec-kicker" id="ki">Développement personnel</div>
-      <h2 class="sec-title" id="ti">Centres d'intérêts</h2>
+      <div class="sec-kicker" id="kv">Thématiques suivies</div>
+      <h2 class="sec-title" id="tv">Veille pro</h2>
     </div>
     <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;font-size:.78rem;color:var(--text3);">
       <span style="font-family:'DM Mono',monospace;font-size:.62rem;background:var(--green);color:var(--bg);padding:.12rem .45rem;border-radius:3px;font-weight:500;">CERT</span>
@@ -870,6 +867,36 @@ img.zoomable:hover{opacity:.85;}
       </div>
     </div>
   </section>
+
+  <!-- CENTRES D'INTÉRÊTS -->
+  <section class="section" id="sec-interests">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" id="ki">Loisirs & Passions</div>
+      <h2 class="sec-title" id="ti">Centres d'intérêts</h2>
+    </div>
+    <div class="int-grid">
+      <div class="int-card reveal">
+        <span class="int-icon">⚽</span>
+        <div class="int-title" id="sport-title">Sport</div>
+        <div class="int-desc" id="sport-desc">Pratique régulière du sport au quotidien — entretien physique, dépassement de soi et esprit d'équipe.</div>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🌿</span>
+        <div class="int-title" id="nature-title">Nature</div>
+        <div class="int-desc" id="nature-desc">Attirance forte pour les grands espaces, la randonnée et l'environnement naturel — ressourcement et sens de l'observation.</div>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🎲</span>
+        <div class="int-title" id="jeux-title">Jeux de société</div>
+        <div class="int-desc" id="jeux-desc">Amateur de jeux de société — stratégie, réflexion, convivialité et créativité autour d'une table.</div>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🐉</span>
+        <div class="int-title" id="fantaisie-title">Fantaisie</div>
+        <div class="int-desc" id="fantaisie-desc">Passionné par l'univers de la fantasy et de la science-fiction — construction de mondes, récits épiques et imaginaire débridé.</div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script>
@@ -878,85 +905,95 @@ fr:{
 'sb-role':'Ingénieur Bâtiment','nl-menu':'Menu','cl-theme':'Thème','cl-lang':'Langue',
 'ey':'Open to Work · Var (83) — Alpes Maritimes (06)',
 'hero-sub':'Ingénieur Bâtiments Intelligents & Durables',
-'hero-desc':'Diplômé Ingénieur de l\'Ecole Polytechnique Universitaire de l\'Université Côte d\'Azur, spécialité Bâtiments. Passionné par l\'analyse de données, l\'énergie, les matières premières, l\'industrie et la technologie.',
+'hero-desc':"Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, la construction, la gestion de projet, l'énergie, les matières premières, l'industrie et la technologie.",
 'kf':'Cursus académique','tf':'Formation','ke':'Parcours professionnel','te':'Expériences',
-'ki':'Développement personnel','ti':'Centres d\'intérêts','sr-label':'Résultats de recherche',
+'kv':'Thématiques suivies','tv':'Veille pro',
+'ki':'Loisirs & Passions','ti':"Centres d'intérêts",'sr-label':'Résultats de recherche',
 'cert-legend':'Certification obtenue en ligne',
 'd1t':'Ingénieur Bâtiments Intelligents et Durables','d1s':'BAC+5 · Sophia-Antipolis',
 'd1b1':'Outils : Revit · AutoCAD · Robot Structural · Pleiades · Access SQL',
-'d1b2':'Projet de fin d\'année : conception d\'un ouvrage multifonction — gymnase, logements et laboratoire',
+"d1b2":"Projet de fin d'année : conception d'un ouvrage multifonction — gymnase, logements et laboratoire",
 'd2t':'Échange Universitaire — Génie Civil','d2s':'Semestre international · Sherbrooke, Québec',
-'d2b1':'Immersion dans un système universitaire nord-américain, adaptation interculturelle',
-'d3t':'Cycle Préparatoire PeiP','d3s':'Parcours des Écoles d\'Ingénieurs Polytech · Sophia-Antipolis',
+"d2b1":'Immersion dans un système universitaire nord-américain, adaptation interculturelle',
+'d3t':'Cycle Préparatoire PeiP',"d3s":"Parcours des Écoles d'Ingénieurs Polytech · Sophia-Antipolis",
 'd4t':'Baccalauréat Scientifique','d4s':'Spécialité Mathématiques',
 'e1t':'Stagiaire Ingénieur — Recherche','e1s':'Simulation énergétique · Rénovation · Python',
 'e1b1':'Modélisation et évaluation de stratégies de rénovation énergétique par simulation numérique sur les bâtiments du site CSTB',
-'e1b2':'Collecte, traitement et analyse de données réelles (météo, consommation, température) — modèles détaillés sous Dimosim',
+"e1b2":'Collecte, traitement et analyse de données réelles (météo, consommation, température) — modèles détaillés sous Dimosim',
 'e1-more':'Voir la page complète',
-'e2t':'Stagiaire Ingénieur — Bureau d\'Étude','e2s':'CVC & Tuyauterie Industrielle',
-'e2b1':'Réalisation de schémas P&ID, plans d\'exécution 3D et familles paramétriques sous AutoCAD et Revit MEP',
-'e2b2':'Dimensionnement tuyauteries CVC, notes de calcul, devis — création d\'outils automatisés (nomenclature, planning VBA)',
+"e2t":"Stagiaire Ingénieur — Bureau d'Étude",'e2s':'CVC & Tuyauterie Industrielle',
+"e2b1":"Réalisation de schémas P&ID, plans d'exécution 3D et familles paramétriques sous AutoCAD et Revit MEP",
+"e2b2":'Dimensionnement tuyauteries CVC, notes de calcul, devis — création d\'outils automatisés (nomenclature, planning VBA)',
 'e2-more':'Voir la page complète',
 'e3t':'Stagiaire — Bureau d\'Étude Électronique','e3s':'Panneaux solaires',
-'e3b1':'Immersion dans un environnement bureau d\'études en électronique — découverte du métier d\'ingénieur',
+"e3b1":"Immersion dans un environnement bureau d'études en électronique — découverte du métier d'ingénieur",
 'e3-more':'Voir la page complète',
 'ep1-title':'Stagiaire Ingénieur — Recherche',
 'ep1-context':'Contexte','ep1-mission':'Mission','ep1-timeline':'Déroulement du stage',
-'ep1-real':'Réalisations','ep1-photos':'Photos & Documents','ep1-skills':'Compétences acquises',
-'ep2-title':'Stagiaire Ingénieur — Bureau d\'Étude',
-'ep2-context':'Contexte & Mission','ep2-timeline':'Déroulement du stage',
+"ep1-real":'Réalisations',"ep1-photos":'Photos & Documents','ep1-skills':'Compétences acquises',
+"ep2-title":"Stagiaire Ingénieur — Bureau d'Étude",
+"ep2-context":'Contexte & Mission','ep2-timeline':'Déroulement du stage',
 'ep2-real':'Réalisations','ep2-photos':'Photos & Schémas','ep2-skills':'Compétences acquises','ep2-clients':'Clients',
-'ep3-title':'Stagiaire — Bureau d\'Étude Électronique',
+"ep3-title":"Stagiaire — Bureau d'Étude Électronique",
 'ep3-context':'Contexte','ep3-real':'Activités réalisées','ep3-photos':'Photos',
 'back-exp':'Retour aux expériences','back-exp2':'Retour aux expériences','back-exp3':'Retour aux expériences',
-'i2t':'Énergie & Ressources','i2d':'Conviction que la croissance économique est de l\'énergie transformée — comprendre la dynamique du secteur énergétique, c\'est comprendre la géopolitique mondiale.',
-'i4t':'Progrès Technique & Innovation','i4d':'Veille active sur les secteurs d\'avenir : spatial, IA & agentique, biotechnologies, défense, robotique ainsi que les nouveaux modèles de production énergétique.',
-'i1t':'Finance & Marchés','i1d':'Intérêt marqué pour les marchés financiers, les instruments financiers associés et leurs sous-jacents. Suivi actif de l\'actualité économique et financière mondiale.',
-'i3t':'Entrepreneuriat','i3d':'Curiosité forte pour les modèles économiques, la création de valeur et l\'esprit entrepreneurial. Passionné par l\'analyse financière d\'entreprise et les stratégies de croissance.'
+'back-form1':'Retour à la formation','back-form2':'Retour à la formation','back-form3':'Retour à la formation',
+'i2t':'Énergie & Ressources',"i2d":"Conviction que la croissance économique est de l'énergie transformée — comprendre la dynamique du secteur énergétique, c'est comprendre la géopolitique mondiale.",
+'i4t':'Progrès Technique & Innovation',"i4d":"Veille active sur les secteurs d'avenir : spatial, IA & agentique, biotechnologies, défense, robotique ainsi que les nouveaux modèles de production énergétique.",
+'i1t':'Finance & Marchés',"i1d":"Intérêt marqué pour les marchés financiers, les instruments financiers associés et leurs sous-jacents. Suivi actif de l'actualité économique et financière mondiale.",
+'i3t':'Entrepreneuriat',"i3d":"Curiosité forte pour les modèles économiques, la création de valeur et l'esprit entrepreneurial. Passionné par l'analyse financière d'entreprise et les stratégies de croissance.",
+'sport-title':'Sport','sport-desc':'Pratique régulière du sport au quotidien — entretien physique, dépassement de soi et esprit d\'équipe.',
+'nature-title':'Nature','nature-desc':'Attirance forte pour les grands espaces, la randonnée et l\'environnement naturel — ressourcement et sens de l\'observation.',
+'jeux-title':'Jeux de société','jeux-desc':'Amateur de jeux de société — stratégie, réflexion, convivialité et créativité autour d\'une table.',
+'fantaisie-title':'Fantaisie','fantaisie-desc':'Passionné par l\'univers de la fantasy et de la science-fiction — construction de mondes, récits épiques et imaginaire débridé.'
 },
 en:{
 'sb-role':'Building Engineer','nl-menu':'Menu','cl-theme':'Theme','cl-lang':'Language',
 'ey':'Open to Work · Var (83) — Alpes Maritimes (06) · France',
 'hero-sub':'Smart & Sustainable Buildings Engineer',
-'hero-desc':'Graduate Engineer from the Polytechnic University School of Université Côte d\'Azur, specialisation Buildings. Passionate about data analysis, energy, commodities, industry and technology.',
+'hero-desc':"Graduate Engineer from the Polytechnic University School of Université Côte d'Azur, specialisation Buildings. Passionate about data analysis, construction, project management, energy, commodities, industry and technology.",
 'kf':'Academic curriculum','tf':'Education','ke':'Professional journey','te':'Experience',
-'ki':'Personal development','ti':'Interests','sr-label':'Search results',
+'kv':'Topics followed','tv':'Pro Watch',
+'ki':'Hobbies & Passions','ti':'Interests','sr-label':'Search results',
 'cert-legend':'Online certification',
 'd1t':'Smart & Sustainable Buildings Engineer','d1s':'BAC+5 · Sophia-Antipolis',
 'd1b1':'Tools: Revit · AutoCAD · Robot Structural · Pleiades · Access SQL',
-'d1b2':'Final-year project: design of a multi-function building — gymnasium, housing and laboratory',
+"d1b2":"Final-year project: design of a multi-function building — gymnasium, housing and laboratory",
 'd2t':'University Exchange — Civil Engineering','d2s':'International semester · Sherbrooke, Québec',
-'d2b1':'Immersion in a North American university system, intercultural adaptation',
-'d3t':'Preparatory Cycle PeiP','d3s':'Polytech Engineering Schools Pathway · Sophia-Antipolis',
+"d2b1":'Immersion in a North American university system, intercultural adaptation',
+'d3t':'Preparatory Cycle PeiP',"d3s":"Polytech Engineering Schools Pathway · Sophia-Antipolis",
 'd4t':'Scientific Baccalaureate','d4s':'Mathematics specialisation',
 'e1t':'Engineering Intern — Research','e1s':'Energy simulation · Renovation · Python',
 'e1b1':'Modelling and evaluation of building renovation strategies through numerical simulation on CSTB campus buildings',
-'e1b2':'Collection, processing and analysis of real sensor data (weather, consumption, temperature) — detailed models in Dimosim',
+"e1b2":'Collection, processing and analysis of real sensor data (weather, consumption, temperature) — detailed models in Dimosim',
 'e1-more':'View full page',
-'e2t':'Engineering Intern — Design Office','e2s':'HVAC & Industrial Piping',
-'e2b1':'P&ID diagrams, 3D execution plans and parametric families using AutoCAD and Revit MEP',
-'e2b2':'HVAC piping sizing, calculation notes, quotes — automated tools (nomenclature, VBA scheduling)',
+"e2t":"Engineering Intern — Design Office",'e2s':'HVAC & Industrial Piping',
+"e2b1":"P&ID diagrams, 3D execution plans and parametric families using AutoCAD and Revit MEP",
+"e2b2":'HVAC piping sizing, calculation notes, quotes — automated tools (nomenclature, VBA scheduling)',
 'e2-more':'View full page',
 'e3t':'Intern — Electronics Design Office','e3s':'Solar panels',
-'e3b1':'Immersion in an electronics engineering office — introduction to the engineering profession',
+"e3b1":"Immersion in an electronics engineering office — introduction to the engineering profession",
 'e3-more':'View full page',
 'ep1-title':'Engineering Intern — Research',
 'ep1-context':'Context','ep1-mission':'Mission','ep1-timeline':'Stage timeline',
-'ep1-real':'Achievements','ep1-photos':'Photos & Documents','ep1-skills':'Skills developed',
-'ep2-title':'Engineering Intern — Design Office',
-'ep2-context':'Context & Mission','ep2-timeline':'Stage timeline',
+"ep1-real":'Achievements',"ep1-photos":'Photos & Documents','ep1-skills':'Skills developed',
+"ep2-title":"Engineering Intern — Design Office",
+"ep2-context":'Context & Mission','ep2-timeline':'Stage timeline',
 'ep2-real':'Achievements','ep2-photos':'Photos & Diagrams','ep2-skills':'Skills developed','ep2-clients':'Clients',
-'ep2-sub':'HVAC & Industrial Piping · Patie Michel · Carros',
-'ep3-title':'Intern — Electronics Design Office',
+"ep3-title":"Intern — Electronics Design Office",
 'ep3-context':'Context','ep3-real':'Activities','ep3-photos':'Photos',
 'back-exp':'Back to experience','back-exp2':'Back to experience','back-exp3':'Back to experience',
-'i2t':'Energy & Resources','i2d':'Conviction that economic growth is transformed energy — understanding energy sector dynamics means understanding global geopolitics.',
-'i4t':'Technical Progress & Innovation','i4d':'Active monitoring of future sectors: space, AI & agentic automation, biotech, defence, robotics, new energy production models, quantum computing.',
-'i1t':'Finance & Markets','i1d':'Strong interest in financial markets, financial instruments and their underlyings. Active monitoring of global economic and financial news.',
-'i3t':'Entrepreneurship','i3d':'Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate financial analysis and growth strategies.'
+'back-form1':'Back to education','back-form2':'Back to education','back-form3':'Back to education',
+'i2t':'Energy & Resources',"i2d":"Conviction that economic growth is transformed energy — understanding energy sector dynamics means understanding global geopolitics.",
+'i4t':'Technical Progress & Innovation',"i4d":"Active monitoring of future sectors: space, AI & agentic automation, biotech, defence, robotics, new energy production models, quantum computing.",
+'i1t':'Finance & Markets',"i1d":"Strong interest in financial markets, financial instruments and their underlyings. Active monitoring of global economic and financial news.",
+'i3t':'Entrepreneurship',"i3d":"Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate financial analysis and growth strategies.",
+'sport-title':'Sport','sport-desc':'Regular sporting practice — physical fitness, self-improvement and team spirit.',
+'nature-title':'Nature','nature-desc':'Strong attraction to wide open spaces, hiking and the natural environment — relaxation and a keen sense of observation.',
+'jeux-title':'Board Games','jeux-desc':'Board game enthusiast — strategy, thinking, conviviality and creativity around a table.',
+'fantaisie-title':'Fantasy','fantaisie-desc':'Passionate about the fantasy and science-fiction universe — world-building, epic narratives and unbridled imagination.'
 }};
 
-// Bullet point translations for exp pages (innerHTML needed due to <b> tags)
 const BULLETS={
 fr:{
 'cstb-b1':"Collecte et traitement de données issues de bases de données météorologiques et de capteurs du site (tableaux électriques, NEMo, ERS CO2, EMS Door) via <b>InfluxDB<\/b> — plus de 300 000 points de données traités",
@@ -964,18 +1001,18 @@ fr:{
 'cstb-b3':"Calibration rigoureuse des modèles sur les mesures réelles — erreur finale de <b>1% APE<\/b> sur la consommation de gaz du bâtiment A/B",
 'cstb-b4':"Évaluation de stratégies d'amélioration sur l'enveloppe du bâtiment et les systèmes énergétiques — script Python d'automatisation des simulations",
 'cstb-b5':"Développement d'une méthodologie reproductible pour des cas concrets de rénovation",
-'patie-b1':"Réalisation de schémas P&ID sous AutoCAD — apprentissage approfondi du logiciel puis création d'un modèle de référence réutilisable pour tous les projets futurs, avec maîtrise de la symbologie normalisée",
-'patie-b2':"Dimensionnement des tuyauteries et équipements CVC — analyse de CCTP, fiches techniques et abaques pour le calcul des débits et pertes de charge, en collaboration avec le tuteur pour validation",
-'patie-b3':"Plans d'implantation des réseaux et équipements — réalisation de plans de préconception pour définir les cheminements potentiels après visites de site",
-'patie-b4':"Plans d'exécution 3D et familles paramétriques sous Revit MEP — création de plans détaillés servant de référence pour la construction, avec développement de familles d'objets paramétrables (dimensions, raccords, informations techniques)",
-'patie-b5':"Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif pour le bureau d'études, le magasinier et les chargés d'affaires",
-'patie-b6':"Développement d'un planning en VBA et modèles de notes de calcul sous Excel pour réduire le temps d'élaboration des livrables",
-'patie-b7':"Encadrement et formation d'un alternant en fin de stage — transmission des compétences acquises sur AutoCAD, Revit MEP et les process internes",
+"patie-b1":"Réalisation de schémas P&ID sous AutoCAD — apprentissage approfondi du logiciel puis création d'un modèle de référence réutilisable pour tous les projets futurs, avec maîtrise de la symbologie normalisée",
+"patie-b2":"Dimensionnement des tuyauteries et équipements CVC — analyse de CCTP, fiches techniques et abaques pour le calcul des débits et pertes de charge, en collaboration avec le tuteur pour validation",
+"patie-b3":"Plans d'implantation des réseaux et équipements — réalisation de plans de préconception pour définir les cheminements potentiels après visites de site",
+"patie-b4":"Plans d'exécution 3D et familles paramétriques sous Revit MEP — création de plans détaillés servant de référence pour la construction, avec développement de familles d'objets paramétrables (dimensions, raccords, informations techniques)",
+"patie-b5":"Création d'une nomenclature automatisée inter-logiciels (Excel, AutoCAD, Revit) — gain de temps significatif pour le bureau d'études, le magasinier et les chargés d'affaires",
+"patie-b6":"Développement d'un planning en VBA et modèles de notes de calcul sous Excel pour réduire le temps d'élaboration des livrables",
+"patie-b7":"Encadrement et formation d'un alternant en fin de stage — transmission des compétences acquises sur AutoCAD, Revit MEP et les process internes",
 'axid-b1':"Électronique analogique : manipulation de cartes électroniques, oscilloscope, alimentation de laboratoire",
 'axid-b2':"Soudure et découpage de composants électroniques",
 'axid-b3':"Gestion des livraisons de panneaux solaires et suivi des commandes (AXUN)",
 'axid-b4':"Participation à la recherche de clients pour la structure",
-'axid-b5':"Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs"
+"axid-b5":"Découverte de l'environnement bureau d'études : réunions, process internes, relation fournisseurs"
 },
 en:{
 'cstb-b1':"Data collection and processing from meteorological databases and site sensors (electrical panels, NEMo, ERS CO2, EMS Door) via <b>InfluxDB<\/b> — over 300,000 data points processed",
@@ -983,18 +1020,18 @@ en:{
 'cstb-b3':"Rigorous model calibration against real measurements — final error of <b>1% APE<\/b> on gas consumption of building A/B",
 'cstb-b4':"Evaluation of improvement scenarios on building envelope and energy systems — Python script for automated simulations",
 'cstb-b5':"Development of a reproducible methodology for concrete renovation case studies",
-'patie-b1':"P&ID diagrams in AutoCAD — in-depth learning of the software, then creation of a reusable reference template for all future projects, with mastery of standardised symbology",
-'patie-b2':"HVAC piping and equipment sizing — CCTP analysis, technical datasheets and charts for flow rate and pressure drop calculations, validated with supervisor",
-'patie-b3':"Network and equipment layout plans — pre-design plans to define potential routing after site visits",
-'patie-b4':"3D execution plans and parametric families in Revit MEP — detailed plans used as construction reference, with parametric object families (dimensions, fittings, technical data)",
-'patie-b5':"Automated cross-software nomenclature (Excel, AutoCAD, Revit) — significant time savings for the design office, warehouse manager and project managers",
-'patie-b6':"VBA scheduling tool and Excel calculation note templates to reduce deliverable preparation time",
-'patie-b7':"Mentoring and training an apprentice at the end of the internship — transferring skills acquired in AutoCAD, Revit MEP and internal processes",
+"patie-b1":"P&ID diagrams in AutoCAD — in-depth learning of the software, then creation of a reusable reference template for all future projects, with mastery of standardised symbology",
+"patie-b2":"HVAC piping and equipment sizing — CCTP analysis, technical datasheets and charts for flow rate and pressure drop calculations, validated with supervisor",
+"patie-b3":"Network and equipment layout plans — pre-design plans to define potential routing after site visits",
+"patie-b4":"3D execution plans and parametric families in Revit MEP — detailed plans used as construction reference, with parametric object families (dimensions, fittings, technical data)",
+"patie-b5":"Automated cross-software nomenclature (Excel, AutoCAD, Revit) — significant time savings for the design office, warehouse manager and project managers",
+"patie-b6":"VBA scheduling tool and Excel calculation note templates to reduce deliverable preparation time",
+"patie-b7":"Mentoring and training an apprentice at the end of the internship — transferring skills acquired in AutoCAD, Revit MEP and internal processes",
 'axid-b1':"Analogue electronics: handling electronic boards, oscilloscope, laboratory power supply",
 'axid-b2':"Soldering and cutting of electronic components",
 'axid-b3':"Management of solar panel deliveries and order tracking (AXUN)",
 'axid-b4':"Participation in client prospecting for the company",
-'axid-b5':"Discovery of design office environment: meetings, internal processes, supplier relations"
+"axid-b5":"Discovery of design office environment: meetings, internal processes, supplier relations"
 }};
 
 const IDX=[
@@ -1005,10 +1042,11 @@ const IDX=[
 {sec:'experience',fr:'Patie Michel stage bureau étude tuyauterie CVC AutoCAD Revit MEP P&ID hydraulique VBA nomenclature Carros 2023',en:'Patie Michel internship design office piping HVAC AutoCAD Revit MEP P&ID hydraulics VBA nomenclature Carros 2023'},
 {sec:'exp-patie',fr:'Patie Michel P&ID AutoCAD Revit MEP dimensionnement hydraulique VBA nomenclature alternant tutorat',en:'Patie Michel P&ID AutoCAD Revit MEP sizing hydraulics VBA nomenclature trainee tutoring'},
 {sec:'experience',fr:'AXID stage électronique panneaux solaires photovoltaïque Sophia-Antipolis 2021',en:'AXID internship electronics solar panels photovoltaic Sophia-Antipolis 2021'},
-{sec:'interests',fr:'finance marchés futures options CME Group certificat instruments financiers indices analyse technique',en:'finance markets futures options CME Group certificate financial instruments indices technical analysis'},
-{sec:'interests',fr:'énergie ressources géopolitique thermodynamique croissance dette minerais terres rares antimoine cobalt',en:'energy resources geopolitics thermodynamics growth debt minerals rare earths antimony cobalt'},
-{sec:'interests',fr:'progrès technique IA spatial biotechnologies défense robotique fusion quantique Anthropic',en:'technical progress AI space biotech defence robotics fusion quantum Anthropic'},
-{sec:'interests',fr:'entrepreneuriat modèles économiques TAM SAM SOM CAGR EBITDA bilan compte résultat projections',en:'entrepreneurship business models TAM SAM SOM CAGR EBITDA balance sheet income statement projections'},
+{sec:'veille',fr:'finance marchés futures options CME Group certificat instruments financiers indices analyse technique',en:'finance markets futures options CME Group certificate financial instruments indices technical analysis'},
+{sec:'veille',fr:'énergie ressources géopolitique thermodynamique croissance dette minerais terres rares antimoine cobalt',en:'energy resources geopolitics thermodynamics growth debt minerals rare earths antimony cobalt'},
+{sec:'veille',fr:'progrès technique IA spatial biotechnologies défense robotique fusion quantique Anthropic',en:'technical progress AI space biotech defence robotics fusion quantum Anthropic'},
+{sec:'veille',fr:'entrepreneuriat modèles économiques TAM SAM SOM CAGR EBITDA bilan compte résultat projections',en:'entrepreneurship business models TAM SAM SOM CAGR EBITDA balance sheet income statement projections'},
+{sec:'interests',fr:'sport nature randonnée jeux société fantaisie loisirs passions',en:'sport nature hiking board games fantasy hobbies passions'},
 ];
 
 function toggleDetail(id,btn){
@@ -1024,7 +1062,6 @@ function showSec(id,el){
   document.querySelectorAll('nav a, .nav-sub a').forEach(a=>a.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
   if(el) el.classList.add('active');
-  // Si c'est une sous-page expérience, on active aussi le parent
   if(['exp-cstb','exp-patie','exp-axid'].includes(id)){
     document.getElementById('nav-exp').classList.add('active');
   }
@@ -1052,28 +1089,21 @@ function setLang(l){
   document.getElementById('btn-en').style.opacity=l==='en'?'1':'.4';
   document.getElementById('btn-en').style.border=l==='en'?'2px solid var(--accent)':'2px solid transparent';
   const t=T[l];
-  // Text-only elements via id
   Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el&&!el.dataset.bullet)el.textContent=t[id];});
-  // Nav labels
   document.querySelectorAll('nav a[data-'+l+'], .nav-sub a[data-'+l+']').forEach(a=>{
     const span=a.querySelector('span:last-child');
     if(span) span.textContent=a.getAttribute('data-'+l);
   });
   document.getElementById('search').placeholder=l==='fr'?'Rechercher...':'Search...';
-  // data-fr/data-en elements (textContent only, no id)
   document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
     if(!el.id) el.textContent=el.getAttribute('data-'+l);
   });
-  // innerHTML bullets (contain <b> tags)
   const b=BULLETS[l];
   Object.keys(b).forEach(id=>{
     const el=document.getElementById(id);
     if(el){
-      // Save child elements (images, divs) that come after the text
       const kids=[...el.children];
-      // Clear and set new translated text
       el.innerHTML=b[id];
-      // Re-append saved children
       kids.forEach(k=>el.appendChild(k));
     }
   });
@@ -1091,6 +1121,7 @@ document.getElementById('search').addEventListener('input',function(){
     formation:lang==='fr'?'Formation':'Education',
     experience:lang==='fr'?'Expériences':'Experience',
     'exp-cstb':'CSTB','exp-patie':'Patie Michel','exp-axid':'AXID',
+    veille:lang==='fr'?'Veille pro':'Pro Watch',
     interests:lang==='fr'?"Centres d'intérêts":'Interests'
   };
   const seen=new Set();
@@ -1098,8 +1129,7 @@ document.getElementById('search').addEventListener('input',function(){
   document.getElementById('sr-list').innerHTML=uniq.map(h=>{
     const txt=(lang==='en'?h.en:h.fr);
     const hl=txt.replace(new RegExp('('+q+')','gi'),'<span class="hl">$1</span>');
-    const target=['exp-cstb','exp-patie','exp-axid'].includes(h.sec)?h.sec:'exp-cstb';
-    const navId=h.sec==='exp-cstb'?'nav-cstb':h.sec==='exp-patie'?'nav-patie':h.sec==='exp-axid'?'nav-axid':'nav-exp';
+    const navId=h.sec==='exp-cstb'?'nav-cstb':h.sec==='exp-patie'?'nav-patie':h.sec==='exp-axid'?'nav-axid':h.sec==='veille'?'nav-veille':h.sec==='interests'?'nav-interests':'nav-exp';
     return `<div class="sr-item" onclick="showSec('${h.sec}',document.getElementById('${navId}'))"><div class="sr-sec">${secNames[h.sec]||h.sec}</div><div class="sr-text">${hl.substring(0,120)}…</div></div>`;
   }).join('');
 });
