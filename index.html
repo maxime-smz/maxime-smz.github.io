@@ -61,9 +61,12 @@ nav ul li a svg{width:14px;height:14px;flex-shrink:0;}
 #btn-fr.on, #btn-en.on{background:var(--accent3);color:inherit;border:1.5px solid var(--accent);}
 
 /* MAIN */
-.main{margin-left:260px;flex:1;padding:3rem 3.5rem;max-width:calc(100vw - 260px);}
-.section{display:none;}
-.section.active{display:block;}
+.main{margin-left:260px;flex:1;padding:3rem 3.5rem;max-width:calc(100vw - 260px);transition:margin-left .3s,max-width .3s;}
+.section{display:block;}
+.section.sub-section{display:none;position:fixed;top:0;left:260px;right:0;bottom:0;overflow-y:auto;padding:3rem 3.5rem;background:var(--bg);z-index:50;}
+.section.sub-section.active{display:block;animation:panelIn .25s ease;}
+body.sb-collapsed .section.sub-section{left:0;}
+#sec-experience,#sec-formation,#sec-veille,#sec-interests{padding-top:5rem;border-top:1px solid var(--border);}
 .hl{background:var(--hl);border-radius:3px;padding:0 2px;}
 
 /* SEARCH UI */
@@ -316,34 +319,17 @@ img.zoomable:hover{opacity:.85;}
 #data-particles{position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen;opacity:.55;}
 [data-theme="light"] #data-particles{opacity:.4;mix-blend-mode:screen;}
 
-/* ═════════ SLIDE MODE ═════════ */
-.slide-toggle{position:fixed;top:1rem;right:1rem;z-index:150;background:var(--accent3);border:1.5px solid var(--accent);border-radius:10px;padding:.5rem .9rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.05em;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s;box-shadow:0 2px 12px var(--accent4);}
-.slide-toggle:hover{background:var(--accent4);border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px var(--accent4);}
-.slide-toggle svg{width:13px;height:13px;}
-
-body.slide-mode{overflow:hidden;}
-body.slide-mode .sidebar{transform:translateX(-100%);}
-body.slide-mode .hamburger{display:none;}
-body.slide-mode .main{margin-left:0;max-width:100vw;padding:0;}
-body.slide-mode .section{display:none;animation:slideIn .5s ease;}
-body.slide-mode .section.active{display:block;min-height:100vh;padding:4rem 5rem 6rem;overflow-y:auto;max-height:100vh;}
-body.slide-mode .hero{margin:-4rem -5rem 0;}
-body.slide-mode #search-results,body.slide-mode #no-result{display:none;}
-
-@keyframes slideIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-
-.slide-nav{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:200;display:none;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:.5rem 1rem;box-shadow:0 10px 40px rgba(0,0,0,0.2);}
-body.slide-mode .slide-nav{display:flex;}
-.slide-nav button{background:none;border:none;cursor:pointer;color:var(--text2);padding:.3rem .5rem;border-radius:6px;display:flex;align-items:center;gap:.3rem;font-family:'DM Mono',monospace;font-size:.7rem;transition:all .2s;}
-.slide-nav button:hover{color:var(--accent);background:var(--accent3);}
-.slide-nav button svg{width:14px;height:14px;}
-.slide-nav button:disabled{opacity:.3;cursor:not-allowed;}
-.slide-dots{display:flex;gap:.3rem;}
-.slide-dot{width:6px;height:6px;border-radius:50%;background:var(--border2);transition:all .2s;cursor:pointer;border:none;padding:0;}
-.slide-dot.active{background:var(--accent);width:18px;border-radius:3px;}
-.slide-count{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--text3);}
-.slide-exit{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:600;color:var(--text2);margin-left:.5rem;padding:.3rem .7rem;border-radius:6px;border:1px solid var(--border2);background:var(--bg3);transition:all .2s;display:inline-flex;align-items:center;gap:.35rem;}
-.slide-exit:hover{color:var(--accent);border-color:var(--accent);background:var(--accent3);}
+/* ═════════ SIDEBAR COLLAPSER ═════════ */
+.sb-collapser{position:fixed;top:50vh;left:259px;transform:translateY(-50%);z-index:110;background:var(--card);border:1px solid var(--border);border-left:none;border-radius:0 6px 6px 0;padding:.55rem .28rem;cursor:pointer;transition:left .3s ease;color:var(--text3);display:flex;align-items:center;}
+.sb-collapser:hover{color:var(--accent);}
+.sb-collapser svg{width:11px;height:11px;transition:transform .3s;}
+body.sb-collapsed .sb-collapser{left:0;}
+body.sb-collapsed .sb-collapser svg{transform:rotate(180deg);}
+@media(min-width:769px){
+  body.sb-collapsed .sidebar{width:0;padding:0;min-width:0;overflow:hidden;border:none;}
+  body.sb-collapsed .main{margin-left:0;max-width:100vw;}
+}
+@keyframes panelIn{from{opacity:0;transform:translateX(20px);}to{opacity:1;transform:none;}}
 
 /* Mobile adjustments for new sections */
 @media(max-width:768px){
@@ -353,13 +339,12 @@ body.slide-mode .slide-nav{display:flex;}
   .tech-stack{grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:.6rem;}
   .tech-item{padding:.9rem .5rem;}
   .tech-item img{width:32px;height:32px;}
-  body.slide-mode .section.active{padding:2rem 1.2rem 5rem;}
-  body.slide-mode .hero{margin:-2rem -1.2rem 0;}
-  .slide-toggle{top:auto;bottom:1rem;right:1rem;}
 }
 
 /* ── MOBILE RESPONSIVE ── */
 @media(max-width:768px){
+  .sb-collapser{display:none;}
+  .section.sub-section{left:0;}
   .hamburger{display:flex;}
   .sidebar{transform:translateX(-100%);transition:transform .3s cubic-bezier(.4,0,.2,1);}
   .sidebar.open{transform:translateX(0);}
@@ -393,18 +378,9 @@ body.slide-mode .slide-nav{display:flex;}
   <span></span><span></span><span></span>
 </button>
 
-<button class="slide-toggle" id="slide-toggle" onclick="toggleSlideMode()" aria-label="Mode présentation" title="Mode présentation — scroll ↕ ou ↑↓ clavier pour naviguer, Échap pour quitter">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><polyline points="8 20 12 16 16 20"/></svg>
-  <span data-fr="Mode slides" data-en="Slide mode">Mode slides</span>
+<button class="sb-collapser" id="sb-collapser" onclick="toggleSidebar()" aria-label="Réduire la sidebar">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
 </button>
-
-<div class="slide-nav" id="slide-nav">
-  <button id="slide-prev" onclick="slideNav(-1)" aria-label="Section précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
-  <div class="slide-dots" id="slide-dots"></div>
-  <button id="slide-next" onclick="slideNav(1)" aria-label="Section suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-  <span class="slide-count" id="slide-count">1 / 6</span>
-  <span class="slide-exit" onclick="toggleSlideMode()" style="cursor:pointer;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><polyline points="15 18 9 12 15 6"/><line x1="20" y1="12" x2="9" y2="12"/></svg>Quitter</span>
-</div>
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
@@ -620,7 +596,7 @@ body.slide-mode .slide-nav{display:flex;}
   </section>
 
   <!-- PAGE PEIP -->
-  <section class="section" id="sec-form-peip">
+  <section class="section sub-section" id="sec-form-peip">
     <button onclick="return showSec('formation', document.getElementById('nav-form'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-form1">Retour à la formation</span>
@@ -660,7 +636,7 @@ body.slide-mode .slide-nav{display:flex;}
   </section>
 
   <!-- PAGE UDS -->
-  <section class="section" id="sec-form-uds">
+  <section class="section sub-section" id="sec-form-uds">
     <button onclick="return showSec('formation', document.getElementById('nav-form'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-form2">Retour à la formation</span>
@@ -696,7 +672,7 @@ body.slide-mode .slide-nav{display:flex;}
   </section>
 
   <!-- PAGE BAT -->
-  <section class="section" id="sec-form-bat">
+  <section class="section sub-section" id="sec-form-bat">
     <button onclick="return showSec('formation', document.getElementById('nav-form'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-form3">Retour à la formation</span>
@@ -822,7 +798,7 @@ body.slide-mode .slide-nav{display:flex;}
   </section>
 
   <!-- PAGE CSTB -->
-  <section class="section" id="sec-exp-cstb">
+  <section class="section sub-section" id="sec-exp-cstb">
     <button onclick="return showSec('experience', document.getElementById('nav-exp'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-exp">Retour aux expériences</span>
@@ -916,7 +892,7 @@ body.slide-mode .slide-nav{display:flex;}
   </section>
 
   <!-- PAGE PATIE MICHEL -->
-  <section class="section" id="sec-exp-patie">
+  <section class="section sub-section" id="sec-exp-patie">
     <button onclick="return showSec('experience', document.getElementById('nav-exp'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-exp2">Retour aux expériences</span>
@@ -1039,7 +1015,7 @@ body.slide-mode .slide-nav{display:flex;}
   </section>
 
   <!-- PAGE AXID -->
-  <section class="section" id="sec-exp-axid">
+  <section class="section sub-section" id="sec-exp-axid">
     <button onclick="return showSec('experience', document.getElementById('nav-exp'))" style="display:inline-flex;align-items:center;gap:.4rem;margin-bottom:2rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;font-family:'DM Mono',monospace;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="15 18 9 12 15 6"/></svg>
       <span id="back-exp3">Retour aux expériences</span>
@@ -1222,7 +1198,8 @@ fr:{
 'i3t':'Entrepreneuriat',"i3d":"Curiosité forte pour les modèles économiques, la création de valeur et l'esprit entrepreneurial. Passionné par la comptabilité d'entreprise, l'analyse financière et les stratégies de croissance.",
 'sport-title':'Sport','sport-desc':'Pratique régulière de callisthénie ainsi que du football en amateur.',
 'nature-title':'Nature','nature-desc':'Randonnées et oléiculture.',
-'jeux-title':'Jeux de société','jeux-desc':'Amateur de jeux de société stratégique avec des amis.'
+'jeux-title':'Jeux de société','jeux-desc':'Amateur de jeux de société stratégique avec des amis.',
+'nutri-title':'Nutrition','nutri-desc':'Intérêt poussé pour la nutrition appliquée à la performance sportive et à la santé long terme. Je développe en parallèle un projet personnel : un site web de suivi nutritionnel permettant de calculer et suivre les apports en macronutriments et micronutriments, dans un double objectif sport & santé.'
 },
 en:{
 'sb-role':'Building Engineer','nl-menu':'Menu','cl-theme':'Theme','cl-lang':'Language',
@@ -1267,7 +1244,8 @@ en:{
 'i3t':'Entrepreneurship',"i3d":"Strong curiosity for business models, value creation and entrepreneurial thinking. Passionate about corporate accounting, financial analysis and growth strategies.",
 'sport-title':'Sport','sport-desc':'Regular calisthenics practice as well as amateur football.',
 'nature-title':'Nature','nature-desc':'Hiking and olive growing.',
-'jeux-title':'Board Games','jeux-desc':'Enthusiast of strategic board games with friends.'
+'jeux-title':'Board Games','jeux-desc':'Enthusiast of strategic board games with friends.',
+'nutri-title':'Nutrition','nutri-desc':'Strong interest in nutrition applied to sports performance and long-term health. I am developing a personal project alongside: a nutritional tracking web app for calculating and monitoring macro and micronutrient intake, with a dual sport & health objective.'
 }};
 
 function setLang(l){
@@ -1311,29 +1289,31 @@ function toggleDetail(id,btn){
 
 let lang='fr';
 
+const SUB_SECS=['exp-cstb','exp-patie','exp-axid','form-peip','form-uds','form-bat'];
+
 function showSec(id,el){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  const isSub=SUB_SECS.includes(id);
+  document.querySelectorAll('.sub-section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('nav a, .nav-sub a').forEach(a=>{
     a.classList.remove('active');
     a.removeAttribute('aria-current');
   });
-  document.getElementById('sec-'+id).classList.add('active');
-  if(el){
-    el.classList.add('active');
-    el.setAttribute('aria-current','page');
-  }
-  if(['exp-cstb','exp-patie','exp-axid'].includes(id)){
-    document.getElementById('nav-exp').classList.add('active');
-  }
-  if(['form-peip','form-uds','form-bat'].includes(id)){
-    document.getElementById('nav-form').classList.add('active');
+  if(isSub){
+    const sec=document.getElementById('sec-'+id);
+    if(sec){sec.classList.add('active');sec.scrollTop=0;}
+    if(el){el.classList.add('active');el.setAttribute('aria-current','page');}
+    if(['exp-cstb','exp-patie','exp-axid'].includes(id)) document.getElementById('nav-exp').classList.add('active');
+    if(['form-peip','form-uds','form-bat'].includes(id)) document.getElementById('nav-form').classList.add('active');
+    triggerReveal();
+  }else{
+    const sec=document.getElementById('sec-'+id);
+    if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
+    if(el){el.classList.add('active');el.setAttribute('aria-current','page');}
   }
   document.getElementById('search-results').classList.remove('visible');
   document.getElementById('no-result').classList.remove('visible');
   document.getElementById('search').value='';
   if(window.innerWidth<=768) closeSidebar();
-  triggerReveal();
-  window.scrollTo(0,0);
   return false;
 }
 
@@ -1552,71 +1532,27 @@ document.querySelectorAll('.stat-number[data-count]').forEach(el=>counterObserve
 })();
 
 /* ═══════════════════════════════════
-   SLIDE MODE
+   SIDEBAR COLLAPSER
    ═══════════════════════════════════ */
-const SLIDE_ORDER=['home','experience','exp-cstb','exp-patie','formation','interests'];
-let slideIndex=0;
-
-function updateSlideUI(){
-  document.getElementById('slide-count').textContent=(slideIndex+1)+' / '+SLIDE_ORDER.length;
-  document.getElementById('slide-prev').disabled=slideIndex===0;
-  document.getElementById('slide-next').disabled=slideIndex===SLIDE_ORDER.length-1;
-  const dots=document.getElementById('slide-dots');
-  dots.innerHTML=SLIDE_ORDER.map((_,i)=>`<button class="slide-dot ${i===slideIndex?'active':''}" onclick="goToSlide(${i})" aria-label="Slide ${i+1}"></button>`).join('');
+function toggleSidebar(){
+  document.body.classList.toggle('sb-collapsed');
 }
 
-function goToSlide(i){
-  slideIndex=Math.max(0,Math.min(SLIDE_ORDER.length-1,i));
-  const id=SLIDE_ORDER[slideIndex];
-  const navId=id==='home'?null:id==='experience'?'nav-exp':id==='formation'?'nav-form':id==='interests'?'nav-interests':id==='exp-cstb'?'nav-cstb':id==='exp-patie'?'nav-patie':null;
-  showSec(id,navId?document.getElementById(navId):null);
-  updateSlideUI();
-}
-
-function slideNav(delta){ goToSlide(slideIndex+delta); }
-
-function toggleSlideMode(){
-  const on=document.body.classList.toggle('slide-mode');
-  if(on){
-    slideIndex=0;
-    goToSlide(0);
-    document.getElementById('slide-toggle').style.display='none';
-  }else{
-    document.getElementById('slide-toggle').style.display='';
-  }
-}
-
-document.addEventListener('keydown',(e)=>{
-  if(!document.body.classList.contains('slide-mode')) return;
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); slideNav(1); }
-  else if(e.key==='ArrowLeft'||e.key==='ArrowUp') { e.preventDefault(); slideNav(-1); }
-  else if(e.key==='Escape') { toggleSlideMode(); }
-});
-
-let _slideWheelTimer=null;
-document.addEventListener('wheel',(e)=>{
-  if(!document.body.classList.contains('slide-mode')) return;
-  const sec=document.querySelector('.section.active');
-  const atTop=!sec||sec.scrollTop<4;
-  const atBottom=!sec||(sec.scrollHeight-sec.scrollTop-sec.clientHeight<4);
-  if(e.deltaY>0&&atBottom){
-    e.preventDefault();
-    if(!_slideWheelTimer){slideNav(1);_slideWheelTimer=setTimeout(()=>{_slideWheelTimer=null;},900);}
-  }else if(e.deltaY<0&&atTop){
-    e.preventDefault();
-    if(!_slideWheelTimer){slideNav(-1);_slideWheelTimer=setTimeout(()=>{_slideWheelTimer=null;},900);}
-  }
-},{passive:false});
-
-let _touchStartY=0;
-document.addEventListener('touchstart',(e)=>{
-  if(document.body.classList.contains('slide-mode'))_touchStartY=e.touches[0].clientY;
-},{passive:true});
-document.addEventListener('touchend',(e)=>{
-  if(!document.body.classList.contains('slide-mode')) return;
-  const dy=_touchStartY-e.changedTouches[0].clientY;
-  if(Math.abs(dy)>50){slideNav(dy>0?1:-1);}
-},{passive:true});
+/* ═══════════════════════════════════
+   SCROLL → NAV HIGHLIGHT
+   ═══════════════════════════════════ */
+const NAV_MAIN_MAP={'sec-home':null,'sec-experience':'nav-exp','sec-formation':'nav-form','sec-veille':'nav-veille','sec-interests':'nav-interests'};
+const scrollNavObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&!document.querySelector('.sub-section.active')){
+      document.querySelectorAll('nav>ul>li>a').forEach(a=>a.classList.remove('active'));
+      const navId=NAV_MAIN_MAP[e.target.id];
+      if(navId){const el=document.getElementById(navId);if(el)el.classList.add('active');}
+      else if(e.target.id==='sec-home'){const el=document.querySelector('nav a[data-fr="Accueil"]');if(el)el.classList.add('active');}
+    }
+  });
+},{threshold:0.15,rootMargin:'-60px 0px -50% 0px'});
+Object.keys(NAV_MAIN_MAP).forEach(id=>{const el=document.getElementById(id);if(el)scrollNavObserver.observe(el);});
 </script>
 </body>
 </html>
