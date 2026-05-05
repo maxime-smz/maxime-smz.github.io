@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow, noarchive"/>
+<meta name="googlebot" content="noindex, nofollow"/>
 <title>Maxime Samiez — Ingénieur Bâtiment</title>
 <meta name="description" content="Portfolio de Maxime Samiez, Ingénieur Bâtiments Intelligents et Durables — Polytech Nice Sophia / UCA. Simulation énergétique, BIM, Python, gestion de projet. Open to Work — Var (83), Alpes-Maritimes (06)."/>
 <meta property="og:type" content="website"/>
@@ -256,6 +258,106 @@ img.zoomable:hover{opacity:.85;}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:90;backdrop-filter:blur(2px);}
 .sidebar-overlay.open{display:block;}
 
+/* ══════════════════════════════════════
+   HOMEPAGE — STATS BAR / STACK / PROJECTS
+   ══════════════════════════════════════ */
+
+/* Hero CTA buttons */
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.4rem;}
+.btn-primary,.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.3rem;border-radius:10px;font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;text-decoration:none;letter-spacing:.04em;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 20px rgba(0,212,255,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,212,255,0.5);}
+[data-theme="light"] .btn-primary{color:#ffffff;}
+.btn-ghost{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(8px);}
+.btn-ghost:hover{background:rgba(255,255,255,0.2);transform:translateY(-2px);}
+
+/* Home wrapper section padding */
+.home-extras{padding:4rem 3.5rem 2rem;}
+
+/* Stats bandeau */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:2.2rem 2rem;background:linear-gradient(135deg,var(--card),var(--bg3));border:1px solid var(--border);border-radius:16px;position:relative;overflow:hidden;margin-bottom:4rem;}
+.stats-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.6;}
+.stat-item{text-align:center;position:relative;}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:-.75rem;top:20%;bottom:20%;width:1px;background:var(--border2);}
+.stat-number{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--accent);line-height:1;margin-bottom:.4rem;letter-spacing:-.02em;}
+.stat-label{font-size:.72rem;color:var(--text2);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;line-height:1.3;}
+
+/* Home section titles (smaller than full page titles) */
+.home-sec-title{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.4rem,2.5vw,1.9rem);color:var(--text);margin-bottom:.4rem;letter-spacing:-.02em;}
+.home-sec-kicker{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.home-sec-kicker::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent);}
+.home-sec-head{margin-bottom:1.8rem;}
+
+/* Tech stack grid */
+.tech-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.9rem;margin-bottom:4rem;}
+.tech-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem .8rem;text-align:center;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s,box-shadow .25s;position:relative;overflow:hidden;}
+.tech-item::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--accent4),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none;}
+.tech-item:hover{transform:translateY(-4px) scale(1.04);border-color:var(--accent);box-shadow:0 10px 32px rgba(0,0,0,0.12);}
+.tech-item:hover::after{opacity:1;}
+.tech-item img{width:38px;height:38px;object-fit:contain;margin:0 auto .55rem;display:block;position:relative;z-index:1;}
+.tech-item-name{font-family:'DM Mono',monospace;font-size:.76rem;font-weight:600;color:var(--text);position:relative;z-index:1;}
+.tech-item-cat{font-size:.62rem;color:var(--text3);margin-top:.15rem;position:relative;z-index:1;}
+
+/* Featured projects */
+.featured-projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-bottom:4rem;}
+.fp-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .2s;display:flex;flex-direction:column;position:relative;text-decoration:none;color:inherit;}
+.fp-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,0,0,0.15);}
+.fp-img{width:100%;height:180px;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.fp-card:hover .fp-img{transform:scale(1.05);}
+.fp-body{padding:1.3rem 1.4rem;flex:1;display:flex;flex-direction:column;}
+.fp-tag{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent);background:var(--accent3);border:1px solid var(--accent4);padding:.18rem .55rem;border-radius:4px;letter-spacing:.06em;display:inline-block;margin-bottom:.65rem;align-self:flex-start;}
+.fp-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:.4rem;line-height:1.25;}
+.fp-desc{font-size:.82rem;color:var(--text2);font-weight:300;line-height:1.55;margin-bottom:.9rem;flex:1;}
+.fp-arrow{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);font-weight:500;letter-spacing:.04em;}
+.fp-arrow svg{width:14px;height:14px;transition:transform .2s;}
+.fp-card:hover .fp-arrow svg{transform:translateX(4px);}
+
+/* ═════════ ANIMATED DATA PARTICLES CANVAS ═════════ */
+#data-particles{position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen;opacity:.55;}
+[data-theme="light"] #data-particles{opacity:.4;mix-blend-mode:screen;}
+
+/* ═════════ SLIDE MODE ═════════ */
+.slide-toggle{position:fixed;top:1rem;right:1rem;z-index:150;background:var(--accent3);border:1.5px solid var(--accent);border-radius:10px;padding:.5rem .9rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.05em;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s;box-shadow:0 2px 12px var(--accent4);}
+.slide-toggle:hover{background:var(--accent4);border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px var(--accent4);}
+.slide-toggle svg{width:13px;height:13px;}
+
+body.slide-mode{overflow:hidden;}
+body.slide-mode .sidebar{transform:translateX(-100%);}
+body.slide-mode .hamburger{display:none;}
+body.slide-mode .main{margin-left:0;max-width:100vw;padding:0;}
+body.slide-mode .section{display:none;animation:slideIn .5s ease;}
+body.slide-mode .section.active{display:block;min-height:100vh;padding:4rem 5rem 6rem;overflow-y:auto;max-height:100vh;}
+body.slide-mode .hero{margin:-4rem -5rem 0;}
+body.slide-mode #search-results,body.slide-mode #no-result{display:none;}
+
+@keyframes slideIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+
+.slide-nav{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:200;display:none;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:.5rem 1rem;box-shadow:0 10px 40px rgba(0,0,0,0.2);}
+body.slide-mode .slide-nav{display:flex;}
+.slide-nav button{background:none;border:none;cursor:pointer;color:var(--text2);padding:.3rem .5rem;border-radius:6px;display:flex;align-items:center;gap:.3rem;font-family:'DM Mono',monospace;font-size:.7rem;transition:all .2s;}
+.slide-nav button:hover{color:var(--accent);background:var(--accent3);}
+.slide-nav button svg{width:14px;height:14px;}
+.slide-nav button:disabled{opacity:.3;cursor:not-allowed;}
+.slide-dots{display:flex;gap:.3rem;}
+.slide-dot{width:6px;height:6px;border-radius:50%;background:var(--border2);transition:all .2s;cursor:pointer;border:none;padding:0;}
+.slide-dot.active{background:var(--accent);width:18px;border-radius:3px;}
+.slide-count{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--text3);}
+.slide-exit{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:600;color:var(--text2);margin-left:.5rem;padding:.3rem .7rem;border-radius:6px;border:1px solid var(--border2);background:var(--bg3);transition:all .2s;display:inline-flex;align-items:center;gap:.35rem;}
+.slide-exit:hover{color:var(--accent);border-color:var(--accent);background:var(--accent3);}
+
+/* Mobile adjustments for new sections */
+@media(max-width:768px){
+  .home-extras{padding:2.5rem 1.2rem 1rem;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);gap:1.2rem;padding:1.6rem 1.2rem;}
+  .stat-item:nth-child(2)::after{display:none;}
+  .tech-stack{grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:.6rem;}
+  .tech-item{padding:.9rem .5rem;}
+  .tech-item img{width:32px;height:32px;}
+  body.slide-mode .section.active{padding:2rem 1.2rem 5rem;}
+  body.slide-mode .hero{margin:-2rem -1.2rem 0;}
+  .slide-toggle{top:auto;bottom:1rem;right:1rem;}
+}
+
 /* ── MOBILE RESPONSIVE ── */
 @media(max-width:768px){
   .hamburger{display:flex;}
@@ -290,6 +392,19 @@ img.zoomable:hover{opacity:.85;}
 <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="sidebar">
   <span></span><span></span><span></span>
 </button>
+
+<button class="slide-toggle" id="slide-toggle" onclick="toggleSlideMode()" aria-label="Mode présentation" title="Mode présentation — scroll ↕ ou ↑↓ clavier pour naviguer, Échap pour quitter">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><polyline points="8 20 12 16 16 20"/></svg>
+  <span data-fr="Mode slides" data-en="Slide mode">Mode slides</span>
+</button>
+
+<div class="slide-nav" id="slide-nav">
+  <button id="slide-prev" onclick="slideNav(-1)" aria-label="Section précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="slide-dots" id="slide-dots"></div>
+  <button id="slide-next" onclick="slideNav(1)" aria-label="Section suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+  <span class="slide-count" id="slide-count">1 / 6</span>
+  <span class="slide-exit" onclick="toggleSlideMode()" style="cursor:pointer;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><polyline points="15 18 9 12 15 6"/><line x1="20" y1="12" x2="9" y2="12"/></svg>Quitter</span>
+</div>
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
@@ -371,6 +486,85 @@ img.zoomable:hover{opacity:.85;}
         <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
         <p class="hero-desc" id="hero-desc">Diplômé Ingénieur de l'Ecole Polytechnique Universitaire de l'Université Côte d'Azur, spécialité Bâtiments. Passionné par l'analyse de données, la construction, la gestion de projet, l'énergie, les matières premières, l'industrie et la technologie.</p>
         <div class="hero-tags"><span class="htag">Anglais B2</span><span class="htag">Permis B</span></div>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="return showSec('experience', document.getElementById('nav-exp'))" data-fr="Voir les projets →" data-en="View projects →">Voir les projets →</button>
+          <button class="btn-ghost" onclick="return showSec('formation', document.getElementById('nav-form'))" data-fr="Mon parcours" data-en="My journey">Mon parcours</button>
+        </div>
+      </div>
+      <canvas id="data-particles" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="home-extras">
+      <!-- STATS BAR -->
+      <div class="stats-bar reveal" id="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number" data-count="5">0</div>
+          <div class="stat-label" data-fr="Ans · Diplôme Ingénieur" data-en="Years · Engineering degree">Ans · Diplôme Ingénieur</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="3">0</div>
+          <div class="stat-label" data-fr="Stages · 12 mois cumulés" data-en="Internships · 12 months">Stages · 12 mois cumulés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="4">0</div>
+          <div class="stat-label" data-fr="Clients industriels · BET terrain" data-en="Industrial clients · field BET">Clients industriels · BET terrain</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="12" data-suffix="+">0</div>
+          <div class="stat-label" data-fr="Logiciels maîtrisés" data-en="Mastered software">Logiciels maîtrisés</div>
+        </div>
+      </div>
+
+      <!-- TECH STACK -->
+      <div class="home-sec-head reveal">
+        <div class="home-sec-kicker" data-fr="Stack technique" data-en="Tech stack">Stack technique</div>
+        <h2 class="home-sec-title" data-fr="Les outils avec lesquels je travaille" data-en="The tools I work with">Les outils avec lesquels je travaille</h2>
+      </div>
+      <div class="tech-stack reveal">
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy"/><div class="tech-item-name">Python</div><div class="tech-item-cat" data-fr="Data · ML" data-en="Data · ML">Data · ML</div></div>
+        <div class="tech-item"><img src="images/cstb-logo-dimosim.jpg" alt="Dimosim" loading="lazy"/><div class="tech-item-name">Dimosim</div><div class="tech-item-cat" data-fr="Simulation UBEM" data-en="UBEM simulation">Simulation UBEM</div></div>
+        <div class="tech-item"><img src="images/logo-qgis.png" alt="QGIS" loading="lazy"/><div class="tech-item-name">QGIS</div><div class="tech-item-cat" data-fr="SIG · IFC" data-en="GIS · IFC">SIG · IFC</div></div>
+        <div class="tech-item"><img src="images/logo-influxdb.png" alt="InfluxDB" loading="lazy"/><div class="tech-item-name">InfluxDB</div><div class="tech-item-cat" data-fr="Séries temporelles" data-en="Time series">Séries temporelles</div></div>
+        <div class="tech-item"><img src="images/logo-revit.png" alt="Revit" loading="lazy"/><div class="tech-item-name">Revit</div><div class="tech-item-cat">BIM · MEP</div></div>
+        <div class="tech-item"><img src="images/logo-autocad.png" alt="AutoCAD" loading="lazy"/><div class="tech-item-name">AutoCAD</div><div class="tech-item-cat">P&ID · 2D</div></div>
+        <div class="tech-item"><img src="images/logo-excel.png" alt="Excel VBA" loading="lazy"/><div class="tech-item-name">Excel · VBA</div><div class="tech-item-cat" data-fr="Automatisation" data-en="Automation">Automatisation</div></div>
+        <div class="tech-item"><img src="images/logo-robot.png" alt="Robot Structural" loading="lazy"/><div class="tech-item-name">Robot</div><div class="tech-item-cat" data-fr="Calcul structure" data-en="Structural analysis">Calcul structure</div></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy"/><div class="tech-item-name">Git</div><div class="tech-item-cat" data-fr="Versionnement" data-en="Version control">Versionnement</div></div>
+      </div>
+
+      <!-- FEATURED PROJECTS -->
+      <div class="home-sec-head reveal">
+        <div class="home-sec-kicker" data-fr="Projets phares" data-en="Featured projects">Projets phares</div>
+        <h2 class="home-sec-title" data-fr="Ce sur quoi j'ai travaillé" data-en="What I've worked on">Ce sur quoi j'ai travaillé</h2>
+      </div>
+      <div class="featured-projects">
+        <a class="fp-card reveal" onclick="return showSec('exp-cstb', document.getElementById('nav-cstb'))">
+          <img src="images/cstb-campus.jpg" alt="CSTB" class="fp-img" loading="lazy"/>
+          <div class="fp-body">
+            <span class="fp-tag">CSTB · 2025</span>
+            <div class="fp-title" data-fr="Rénovation énergétique par simulation" data-en="Renovation via energy simulation">Rénovation énergétique par simulation</div>
+            <div class="fp-desc" data-fr="Modélisation Dimosim + calibration sur données capteur réelles — erreur finale 1% APE sur la consommation gaz." data-en="Dimosim modelling + calibration on real sensor data — final 1% APE error on gas consumption.">Modélisation Dimosim + calibration sur données capteur réelles — erreur finale 1% APE sur la consommation gaz.</div>
+            <span class="fp-arrow" data-fr="Lire le cas →" data-en="Read case →">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </a>
+        <a class="fp-card reveal" onclick="return showSec('exp-patie', document.getElementById('nav-patie'))">
+          <img src="images/patie-pid.png" alt="Patie Michel" class="fp-img" loading="lazy" style="object-fit:contain;background:#fff;padding:.5rem;"/>
+          <div class="fp-body">
+            <span class="fp-tag">Patie Michel · 2023</span>
+            <div class="fp-title" data-fr="Bureau d'études CVC & tuyauterie" data-en="HVAC & piping design office">Bureau d'études CVC & tuyauterie</div>
+            <div class="fp-desc" data-fr="Schémas P&ID, plans 3D Revit MEP, dimensionnement hydraulique — création de templates réutilisables." data-en="P&ID diagrams, 3D Revit MEP plans, hydraulic sizing — reusable template creation.">Schémas P&ID, plans 3D Revit MEP, dimensionnement hydraulique — création de templates réutilisables.</div>
+            <span class="fp-arrow" data-fr="Lire le cas →" data-en="Read case →">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </a>
+        <a class="fp-card reveal" onclick="return showSec('form-bat', document.getElementById('nav-bat'))">
+          <img src="images/bat-gymnase.png" alt="PFE Gymnase" class="fp-img" loading="lazy" style="object-fit:contain;background:var(--bg3);"/>
+          <div class="fp-body">
+            <span class="fp-tag" data-fr="PFE · 2025" data-en="Final project · 2025">PFE · 2025</span>
+            <div class="fp-title" data-fr="Conception multi-ouvrage" data-en="Multi-building design">Conception multi-ouvrage</div>
+            <div class="fp-desc" data-fr="Gymnase + logements collectifs + labo : conception complète, implantation site, réseaux hydrauliques." data-en="Gymnasium + housing + lab: full design, site layout, hydraulic networks.">Gymnase + logements collectifs + labo : conception complète, implantation site, réseaux hydrauliques.</div>
+            <span class="fp-arrow" data-fr="Lire le cas →" data-en="Read case →">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -563,6 +757,14 @@ img.zoomable:hover{opacity:.85;}
         </div>
       </div>
     </div>
+    <div class="exp-section reveal">
+      <div class="exp-section-title" data-fr="Compétences acquises" data-en="Skills developed">Compétences acquises</div>
+      <div class="skills-visual">
+        <div class="skill-pill"><div class="skill-pill-icon"><img src="images/logo-autocad.png" style="width:28px;height:28px;object-fit:contain;"/></div><div class="skill-pill-name">AutoCAD</div><div class="skill-pill-desc" data-fr="Plans 2D · détails techniques" data-en="2D plans · technical details">Plans 2D · détails techniques</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon"><img src="images/logo-revit.png" style="width:28px;height:28px;object-fit:contain;"/></div><div class="skill-pill-name">Revit</div><div class="skill-pill-desc" data-fr="Maquette BIM · familles · coordination" data-en="BIM model · families · coordination">Maquette BIM · familles · coordination</div></div>
+        <div class="skill-pill"><div class="skill-pill-icon"><img src="images/logo-robot.png" style="width:28px;height:28px;object-fit:contain;"/></div><div class="skill-pill-name">Robot</div><div class="skill-pill-desc" data-fr="Calcul structure · Eurocodes" data-en="Structural analysis · Eurocodes">Calcul structure · Eurocodes</div></div>
+      </div>
+    </div>
   </section>
 
   <!-- EXPÉRIENCES — VUE LISTE -->
@@ -574,7 +776,7 @@ img.zoomable:hover{opacity:.85;}
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-card" style="cursor:pointer;" onclick="return showSec('exp-cstb', document.getElementById('nav-cstb'))">
-          <div class="org-logo-wrap"><img src="images/logo-cstb.png" alt="CSTB" class="org-logo"/></div>
+          <div class="org-logo-wrap"><img src="images/logo-cstb.png" alt="CSTB" class="org-logo org-logo-noinvert"/></div>
           <div class="tl-meta"><span class="tl-date" id="e1date">Mars – Août 2025</span><span class="tl-org" id="e1org">Centre Scientifique et Technique du Bâtiment · Sophia-Antipolis</span></div>
           <div class="tl-title" id="e1t">Stagiaire Ingénieur — Recherche</div>
           <div class="tl-sub" id="e1s">Simulation énergétique · Rénovation · Python</div>
@@ -966,6 +1168,11 @@ img.zoomable:hover{opacity:.85;}
         <div class="int-title" id="jeux-title">Jeux de société</div>
         <div class="int-desc" id="jeux-desc">Amateur de jeux de société stratégique avec des amis.</div>
       </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🥗</span>
+        <div class="int-title" id="nutri-title" data-fr="Nutrition" data-en="Nutrition">Nutrition</div>
+        <div class="int-desc" id="nutri-desc" data-fr="Intérêt poussé pour la nutrition appliquée à la performance sportive et à la santé long terme. Je développe en parallèle un projet personnel : un site web de suivi nutritionnel permettant de calculer et suivre les apports en macronutriments et micronutriments, dans un double objectif sport & santé." data-en="Strong interest in nutrition applied to sports performance and long-term health. I'm developing a personal project alongside: a nutritional tracking web app for calculating and monitoring macro and micronutrient intake, with a dual sport & health objective.">Intérêt poussé pour la nutrition appliquée à la performance sportive et à la santé long terme. Je développe en parallèle un projet personnel : un site web de suivi nutritionnel permettant de calculer et suivre les apports en macronutriments et micronutriments, dans un double objectif sport & santé.</div>
+      </div>
     </div>
   </section>
 </main>
@@ -1244,6 +1451,172 @@ document.getElementById('btn-fr').style.opacity='1';
 document.getElementById('btn-fr').style.border='2px solid var(--accent)';
 document.getElementById('btn-en').style.opacity='.4';
 document.getElementById('btn-en').style.border='2px solid transparent';
+
+/* ═══════════════════════════════════
+   ANIMATED COUNTERS (stats bar)
+   ═══════════════════════════════════ */
+function animateCounter(el){
+  const target=parseInt(el.dataset.count,10);
+  const suffix=el.dataset.suffix||'';
+  const duration=1400;
+  const start=performance.now();
+  function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    const val=Math.floor(eased*target);
+    el.textContent=val+(p===1?suffix:'');
+    if(p<1) requestAnimationFrame(tick);
+    else el.textContent=target+suffix;
+  }
+  requestAnimationFrame(tick);
+}
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting && !e.target.dataset.done){
+      e.target.dataset.done='1';
+      animateCounter(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.stat-number[data-count]').forEach(el=>counterObserver.observe(el));
+
+/* ═══════════════════════════════════
+   DATA PARTICLES CANVAS (hero)
+   ═══════════════════════════════════ */
+(function(){
+  const canvas=document.getElementById('data-particles');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  let w,h,particles=[];
+  const COUNT=55;
+
+  function resize(){
+    const rect=canvas.parentElement.getBoundingClientRect();
+    w=canvas.width=rect.width*devicePixelRatio;
+    h=canvas.height=rect.height*devicePixelRatio;
+    canvas.style.width=rect.width+'px';
+    canvas.style.height=rect.height+'px';
+    ctx.scale(devicePixelRatio,devicePixelRatio);
+  }
+
+  function init(){
+    particles=[];
+    for(let i=0;i<COUNT;i++){
+      particles.push({
+        x:Math.random()*w/devicePixelRatio,
+        y:Math.random()*h/devicePixelRatio,
+        vx:(Math.random()-.5)*.3,
+        vy:(Math.random()-.5)*.3,
+        r:Math.random()*1.8+.8
+      });
+    }
+  }
+
+  function draw(){
+    const W=w/devicePixelRatio, H=h/devicePixelRatio;
+    ctx.clearRect(0,0,W,H);
+
+    // Draw connections first
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const p=particles[i],q=particles[j];
+        const dx=p.x-q.x,dy=p.y-q.y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<130){
+          ctx.strokeStyle=`rgba(0,212,255,${.25*(1-d/130)})`;
+          ctx.lineWidth=.6;
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(q.x,q.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw particles
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+      ctx.fillStyle='rgba(0,212,255,0.6)';
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize(); init(); draw();
+  window.addEventListener('resize',()=>{resize();init();});
+})();
+
+/* ═══════════════════════════════════
+   SLIDE MODE
+   ═══════════════════════════════════ */
+const SLIDE_ORDER=['home','experience','exp-cstb','exp-patie','formation','interests'];
+let slideIndex=0;
+
+function updateSlideUI(){
+  document.getElementById('slide-count').textContent=(slideIndex+1)+' / '+SLIDE_ORDER.length;
+  document.getElementById('slide-prev').disabled=slideIndex===0;
+  document.getElementById('slide-next').disabled=slideIndex===SLIDE_ORDER.length-1;
+  const dots=document.getElementById('slide-dots');
+  dots.innerHTML=SLIDE_ORDER.map((_,i)=>`<button class="slide-dot ${i===slideIndex?'active':''}" onclick="goToSlide(${i})" aria-label="Slide ${i+1}"></button>`).join('');
+}
+
+function goToSlide(i){
+  slideIndex=Math.max(0,Math.min(SLIDE_ORDER.length-1,i));
+  const id=SLIDE_ORDER[slideIndex];
+  const navId=id==='home'?null:id==='experience'?'nav-exp':id==='formation'?'nav-form':id==='interests'?'nav-interests':id==='exp-cstb'?'nav-cstb':id==='exp-patie'?'nav-patie':null;
+  showSec(id,navId?document.getElementById(navId):null);
+  updateSlideUI();
+}
+
+function slideNav(delta){ goToSlide(slideIndex+delta); }
+
+function toggleSlideMode(){
+  const on=document.body.classList.toggle('slide-mode');
+  if(on){
+    slideIndex=0;
+    goToSlide(0);
+    document.getElementById('slide-toggle').style.display='none';
+  }else{
+    document.getElementById('slide-toggle').style.display='';
+  }
+}
+
+document.addEventListener('keydown',(e)=>{
+  if(!document.body.classList.contains('slide-mode')) return;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); slideNav(1); }
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp') { e.preventDefault(); slideNav(-1); }
+  else if(e.key==='Escape') { toggleSlideMode(); }
+});
+
+let _slideWheelTimer=null;
+document.addEventListener('wheel',(e)=>{
+  if(!document.body.classList.contains('slide-mode')) return;
+  const sec=document.querySelector('.section.active');
+  const atTop=!sec||sec.scrollTop<4;
+  const atBottom=!sec||(sec.scrollHeight-sec.scrollTop-sec.clientHeight<4);
+  if(e.deltaY>0&&atBottom){
+    e.preventDefault();
+    if(!_slideWheelTimer){slideNav(1);_slideWheelTimer=setTimeout(()=>{_slideWheelTimer=null;},900);}
+  }else if(e.deltaY<0&&atTop){
+    e.preventDefault();
+    if(!_slideWheelTimer){slideNav(-1);_slideWheelTimer=setTimeout(()=>{_slideWheelTimer=null;},900);}
+  }
+},{passive:false});
+
+let _touchStartY=0;
+document.addEventListener('touchstart',(e)=>{
+  if(document.body.classList.contains('slide-mode'))_touchStartY=e.touches[0].clientY;
+},{passive:true});
+document.addEventListener('touchend',(e)=>{
+  if(!document.body.classList.contains('slide-mode')) return;
+  const dy=_touchStartY-e.changedTouches[0].clientY;
+  if(Math.abs(dy)>50){slideNav(dy>0?1:-1);}
+},{passive:true});
 </script>
 </body>
 </html>
