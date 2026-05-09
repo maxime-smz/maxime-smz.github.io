@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root[data-theme="dark"]{--bg:#080c10;--bg2:#0d1117;--bg3:#131920;--card:#111820;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--text:#e8edf2;--text2:#8a9ab0;--text3:#4a5a6a;--accent:#00d4ff;--accent2:#0099cc;--accent3:rgba(0,212,255,0.08);--accent4:rgba(0,212,255,0.15);--green:#00e5a0;--sidebar:#0a0f14;--sidebar-border:rgba(255,255,255,0.06);--tag-bg:rgba(0,212,255,0.1);--tag-color:#00d4ff;--search-bg:rgba(255,255,255,0.04);--hl:rgba(0,212,255,0.25);}
+:root[data-theme="dark"]{--bg:#080c10;--bg2:#0d1117;--bg3:#131920;--card:#111820;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--text:#e8edf2;--text2:#8a9ab0;--text3:#4a5a6a;--accent:#ff8c1a;--accent2:#cc6a00;--accent3:rgba(255,140,26,0.08);--accent4:rgba(255,140,26,0.15);--green:#00e5a0;--sidebar:#0a0f14;--sidebar-border:rgba(255,255,255,0.06);--tag-bg:rgba(255,140,26,0.1);--tag-color:#ff8c1a;--search-bg:rgba(255,255,255,0.04);--hl:rgba(255,140,26,0.25);}
 :root[data-theme="light"]{--bg:#f0f4f8;--bg2:#ffffff;--bg3:#e8eef4;--card:#ffffff;--border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.12);--text:#0f1923;--text2:#4a5a6a;--text3:#8a9aaa;--accent:#0077aa;--accent2:#005580;--accent3:rgba(0,119,170,0.06);--accent4:rgba(0,119,170,0.12);--green:#007a50;--sidebar:#e4eaf0;--sidebar-border:rgba(0,0,0,0.08);--tag-bg:rgba(0,119,170,0.08);--tag-color:#0077aa;--search-bg:rgba(0,0,0,0.04);--hl:rgba(0,119,170,0.2);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -105,8 +105,9 @@ body.sb-collapsed .section.sub-section{left:0;}
 [data-theme="light"] .hero-bg-light::after{background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.52) 60%, rgba(0,0,0,0.18) 100%);}
 [data-theme="dark"] .hero-bg-dark::after{background:rgba(0,0,0,0.45);}
 .hero-content{position:relative;z-index:1;padding:3rem 3.5rem 4rem;}
-[data-theme="light"] .hero-bg-dark{display:none;}
-[data-theme="dark"] .hero-bg-light{display:none;}
+.hero-bg-light,.hero-bg-dark{transition:opacity .7s ease;}
+[data-theme="light"] .hero-bg-dark{opacity:0;pointer-events:none;}
+[data-theme="dark"] .hero-bg-light{opacity:0;pointer-events:none;}
 
 /* SECTION HEAD */
 .sec-head{margin-bottom:2.8rem;}
@@ -455,8 +456,8 @@ body.sb-collapsed .sb-collapser svg{transform:rotate(180deg);}
   <!-- HOME -->
   <section class="section active" id="sec-home">
     <div class="hero">
-      <div class="hero-bg hero-bg-light"><img src="images/bg-light.jpg" alt="" role="presentation" fetchpriority="high"/></div>
-      <div class="hero-bg hero-bg-dark"><img src="images/bg-dark.jpg" alt="" role="presentation" fetchpriority="high"/></div>
+      <div class="hero-bg hero-bg-light"><img src="images/test-light.jpg" alt="" role="presentation" fetchpriority="high"/></div>
+      <div class="hero-bg hero-bg-dark"><img src="images/test-dark.jpg" alt="" role="presentation" fetchpriority="high"/></div>
       <div class="hero-content">
         <div class="hero-ey" id="ey">Open to Work · Var (83) — Alpes Maritimes (06)</div>
         <h1>Maxime<br/>Samiez<span class="al" id="hero-sub">Ingénieur Bâtiments Intelligents & Durables</span></h1>
@@ -1496,6 +1497,10 @@ document.querySelectorAll('.stat-number[data-count]').forEach(el=>counterObserve
     const W=w/devicePixelRatio, H=h/devicePixelRatio;
     ctx.clearRect(0,0,W,H);
 
+    // Theme-aware color
+    const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+    const pR=isDark?255:0, pG=isDark?140:212, pB=isDark?26:255;
+
     // Draw connections first
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
@@ -1503,7 +1508,7 @@ document.querySelectorAll('.stat-number[data-count]').forEach(el=>counterObserve
         const dx=p.x-q.x,dy=p.y-q.y;
         const d=Math.sqrt(dx*dx+dy*dy);
         if(d<130){
-          ctx.strokeStyle=`rgba(0,212,255,${.25*(1-d/130)})`;
+          ctx.strokeStyle=`rgba(${pR},${pG},${pB},${.25*(1-d/130)})`;
           ctx.lineWidth=.6;
           ctx.beginPath();
           ctx.moveTo(p.x,p.y);
@@ -1518,7 +1523,7 @@ document.querySelectorAll('.stat-number[data-count]').forEach(el=>counterObserve
       p.x+=p.vx; p.y+=p.vy;
       if(p.x<0||p.x>W) p.vx*=-1;
       if(p.y<0||p.y>H) p.vy*=-1;
-      ctx.fillStyle='rgba(0,212,255,0.6)';
+      ctx.fillStyle=`rgba(${pR},${pG},${pB},0.6)`;
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fill();
