@@ -19,13 +19,13 @@
 <meta name="twitter:image" content="https://maximesamiez.github.io/pp-github.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root[data-theme="dark"]{--bg:#080c10;--bg2:#0d1117;--bg3:#131920;--card:#111820;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--text:#e8edf2;--text2:#8a9ab0;--text3:#4a5a6a;--accent:#00d4ff;--accent2:#0099cc;--accent3:rgba(0,212,255,0.08);--accent4:rgba(0,212,255,0.15);--green:#00e5a0;--sidebar:#0a0f14;--sidebar-border:rgba(255,255,255,0.06);--tag-bg:rgba(0,212,255,0.1);--tag-color:#00d4ff;--search-bg:rgba(255,255,255,0.04);--hl:rgba(0,212,255,0.25);}
 :root[data-theme="light"]{--bg:#f0f4f8;--bg2:#ffffff;--bg3:#e8eef4;--card:#ffffff;--border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.12);--text:#0f1923;--text2:#4a5a6a;--text3:#8a9aaa;--accent:#0077aa;--accent2:#005580;--accent3:rgba(0,119,170,0.06);--accent4:rgba(0,119,170,0.12);--green:#007a50;--sidebar:#e4eaf0;--sidebar-border:rgba(0,0,0,0.08);--tag-bg:rgba(0,119,170,0.08);--tag-color:#0077aa;--search-bg:rgba(0,0,0,0.04);--hl:rgba(0,119,170,0.2);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;transition:background .3s,color .3s;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;transition:background .3s,color .3s;}
 
 /* SIDEBAR */
 .sidebar{width:260px;min-height:100vh;background:var(--sidebar);border-right:1px solid var(--sidebar-border);display:flex;flex-direction:column;padding:2rem 1.4rem;position:fixed;top:0;left:0;bottom:0;z-index:100;transition:background .3s;overflow-y:auto;}
@@ -34,7 +34,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);dis
 .sb-role{font-size:.68rem;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.8rem;}
 .search-wrap{position:relative;margin-bottom:1.8rem;}
 .search-wrap svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:13px;height:13px;color:var(--text3);pointer-events:none;}
-#search{width:100%;background:var(--search-bg);border:1px solid var(--border);border-radius:8px;padding:.5rem .7rem .5rem 2.1rem;font-size:.8rem;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+#search{width:100%;background:var(--search-bg);border:1px solid var(--border);border-radius:8px;padding:.5rem .7rem .5rem 2.1rem;font-size:.8rem;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
 #search::placeholder{color:var(--text3);}
 #search:focus{border-color:var(--accent);background:var(--accent3);}
 .nav-label{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.6rem;padding-left:.4rem;}
@@ -93,7 +93,7 @@ body.sb-collapsed .section.sub-section{left:0;}
 .hero-ey{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
 .hero-ey::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
 .hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.2rem,6.5vw,5.5rem);line-height:.95;letter-spacing:-.03em;margin-bottom:1.4rem;color:var(--text);}
-.hero h1 .al{display:block;color:var(--accent);font-weight:400;font-style:italic;font-size:.72em;}
+.hero h1 .al{display:block;color:var(--accent);font-weight:300;font-style:normal;font-size:.68em;letter-spacing:.01em;}
 .hero-desc{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.75;margin-bottom:2.2rem;font-weight:300;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.8rem;}
 .htag{font-family:'DM Mono',monospace;font-size:.7rem;padding:.3rem .8rem;border-radius:100px;background:var(--accent3);color:var(--accent);border:1px solid var(--accent4);letter-spacing:.04em;}
@@ -102,7 +102,7 @@ body.sb-collapsed .section.sub-section{left:0;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .hero-bg::after{content:'';position:absolute;inset:0;}
-[data-theme="light"] .hero-bg-light::after{background:linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.3) 100%);}
+[data-theme="light"] .hero-bg-light::after{background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.52) 60%, rgba(0,0,0,0.18) 100%);}
 [data-theme="dark"] .hero-bg-dark::after{background:rgba(0,0,0,0.45);}
 .hero-content{position:relative;z-index:1;padding:3rem 3.5rem 4rem;}
 [data-theme="light"] .hero-bg-dark{display:none;}
@@ -497,15 +497,16 @@ body.sb-collapsed .sb-collapser svg{transform:rotate(180deg);}
         <h2 class="home-sec-title" data-fr="Les outils avec lesquels je travaille" data-en="The tools I work with">Les outils avec lesquels je travaille</h2>
       </div>
       <div class="tech-stack reveal">
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy"/><div class="tech-item-name">Python</div><div class="tech-item-cat" data-fr="Data · ML" data-en="Data · ML">Data · ML</div></div>
-        <div class="tech-item"><img src="images/cstb-logo-dimosim.jpg" alt="Dimosim" loading="lazy"/><div class="tech-item-name">Dimosim</div><div class="tech-item-cat" data-fr="Simulation UBEM" data-en="UBEM simulation">Simulation UBEM</div></div>
-        <div class="tech-item"><img src="images/logo-qgis.png" alt="QGIS" loading="lazy"/><div class="tech-item-name">QGIS</div><div class="tech-item-cat" data-fr="SIG · IFC" data-en="GIS · IFC">SIG · IFC</div></div>
-        <div class="tech-item"><img src="images/logo-influxdb.png" alt="InfluxDB" loading="lazy"/><div class="tech-item-name">InfluxDB</div><div class="tech-item-cat" data-fr="Séries temporelles" data-en="Time series">Séries temporelles</div></div>
         <div class="tech-item"><img src="images/logo-revit.png" alt="Revit" loading="lazy"/><div class="tech-item-name">Revit</div><div class="tech-item-cat">BIM · MEP</div></div>
         <div class="tech-item"><img src="images/logo-autocad.png" alt="AutoCAD" loading="lazy"/><div class="tech-item-name">AutoCAD</div><div class="tech-item-cat">P&ID · 2D</div></div>
-        <div class="tech-item"><img src="images/logo-excel.png" alt="Excel VBA" loading="lazy"/><div class="tech-item-name">Excel · VBA</div><div class="tech-item-cat" data-fr="Automatisation" data-en="Automation">Automatisation</div></div>
         <div class="tech-item"><img src="images/logo-robot.png" alt="Robot Structural" loading="lazy"/><div class="tech-item-name">Robot</div><div class="tech-item-cat" data-fr="Calcul structure" data-en="Structural analysis">Calcul structure</div></div>
+        <div class="tech-item"><img src="images/logo-excel.png" alt="Excel VBA" loading="lazy"/><div class="tech-item-name">Excel · VBA</div><div class="tech-item-cat" data-fr="Automatisation" data-en="Automation">Automatisation</div></div>
+        <div class="tech-item"><img src="images/logo-qgis.png" alt="QGIS" loading="lazy"/><div class="tech-item-name">QGIS</div><div class="tech-item-cat" data-fr="SIG · IFC" data-en="GIS · IFC">SIG · IFC</div></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy"/><div class="tech-item-name">Python</div><div class="tech-item-cat" data-fr="Data · ML" data-en="Data · ML">Data · ML</div></div>
+        <div class="tech-item"><img src="images/cstb-logo-dimosim.jpg" alt="Dimosim" loading="lazy"/><div class="tech-item-name">Dimosim</div><div class="tech-item-cat" data-fr="Simulation UBEM" data-en="UBEM simulation">Simulation UBEM</div></div>
+        <div class="tech-item"><img src="images/logo-ganttproject.png" alt="GanttProject" loading="lazy"/><div class="tech-item-name">GanttProject</div><div class="tech-item-cat" data-fr="Planning" data-en="Scheduling">Planning</div></div>
         <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy"/><div class="tech-item-name">Git</div><div class="tech-item-cat" data-fr="Versionnement" data-en="Version control">Versionnement</div></div>
+        <div class="tech-item"><img src="images/logo-influxdb.png" alt="InfluxDB" loading="lazy"/><div class="tech-item-name">InfluxDB</div><div class="tech-item-cat" data-fr="Séries temporelles" data-en="Time series">Séries temporelles</div></div>
       </div>
 
       <!-- FEATURED PROJECTS -->
