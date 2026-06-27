@@ -446,10 +446,11 @@ body.sb-collapsed .sb-collapser svg{transform:rotate(180deg);}
   </div>
 
   <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--sidebar-border);display:flex;flex-direction:column;gap:.5rem;">
-  <a href="mailto:maxime.samiez838@gmail.com" style="display:flex;align-items:center;gap:.6rem;font-size:.75rem;color:var(--text2);text-decoration:none;padding:.4rem .7rem;border-radius:8px;transition:background .15s;" onmouseover="this.style.background='var(--accent3)';this.style.color='var(--accent)'" onmouseout="this.style.background='none';this.style.color='var(--text2)'">
+  <button onclick="navigator.clipboard.writeText('maxime.samiez838@gmail.com').then(()=>{const t=this.querySelector('.copy-tip');t.textContent='Copié !';t.style.opacity='1';setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.textContent='Copier',300)},1500)})" style="display:flex;align-items:center;gap:.6rem;font-size:.75rem;color:var(--text2);background:none;border:none;cursor:pointer;padding:.4rem .7rem;border-radius:8px;transition:background .15s;width:100%;text-align:left;" onmouseover="this.style.background='var(--accent3)';this.style.color='var(--accent)'" onmouseout="this.style.background='none';this.style.color='var(--text2)'">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:14px;height:14px;flex-shrink:0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-    maxime.samiez838@gmail.com
-  </a>
+    <span>maxime.samiez838@gmail.com</span>
+    <span class="copy-tip" style="margin-left:auto;font-size:.65rem;opacity:0;transition:opacity .2s;">Copier</span>
+  </button>
   <a href="https://www.linkedin.com/in/maxime-samiez-aa92bb253" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.6rem;font-size:.75rem;color:var(--text2);text-decoration:none;padding:.4rem .7rem;border-radius:8px;transition:background .15s;" onmouseover="this.style.background='var(--accent3)';this.style.color='var(--accent)'" onmouseout="this.style.background='none';this.style.color='var(--text2)'">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:14px;height:14px;flex-shrink:0;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
     LinkedIn
